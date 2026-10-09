@@ -1,6 +1,6 @@
 /* =========================================================================
-   DATABASE LỊCH SỬ (Cấu trúc đề thi HSA/THPT QG 2026)
-   Gồm: Lớp 10, Lớp 11, Lớp 12 & Đề thi thử
+   DATABASE LỊCH SỬ (Cấu trúc đề thi Tốt nghiệp THPT 2026)
+   Dữ liệu được trích xuất chính xác từ SGK 10, 11, 12 & Đề tham khảo 2026
 ========================================================================= */
 
 const appDatabase = {
@@ -10,70 +10,165 @@ const appDatabase = {
     mocktest: {}
 };
 
-// ================= DỮ LIỆU DEMO LỚP 12 - CHỦ ĐỀ 1 =================
+// ================= DỮ LIỆU LỚP 10 =================
+appDatabase.khoi10[1] = {
+    title: "Chủ đề 1: Lịch sử và Sử học",
+    exercises: {
+        mcq: [
+            { type: 'mcq', text: "Lịch sử được hiểu theo hai nghĩa cơ bản nào?", options: ["Lịch sử thế giới và lịch sử dân tộc.", "Hiện thực lịch sử và lịch sử được con người nhận thức.", "Lịch sử tự nhiên và lịch sử xã hội.", "Quá khứ và hiện tại."], answer: 1 },
+            { type: 'mcq', text: "Hiện thực lịch sử là gì?", options: ["Tất cả những gì đã diễn ra trong quá khứ, tồn tại hoàn toàn khách quan.", "Những câu chuyện dân gian được kể lại.", "Những tác phẩm do các nhà sử học biên soạn.", "Những hiểu biết của con người về thế giới."], answer: 0 },
+            { type: 'mcq', text: "Sử học là gì?", options: ["Khoa học nghiên cứu về tương lai của loài người.", "Khoa học nghiên cứu về quá trình tiến hóa của sinh giới.", "Khoa học nghiên cứu về quá khứ của loài người.", "Khoa học dự đoán các hiện tượng tự nhiên."], answer: 2 },
+            { type: 'mcq', text: "Đối tượng nghiên cứu của Sử học là", options: ["quá trình phát triển của tự nhiên.", "toàn bộ quá khứ của loài người.", "những hiện tượng vũ trụ.", "sự phát triển của công nghệ."], answer: 1 },
+            { type: 'mcq', text: "Sử liệu là gì?", options: ["Là những cuốn tiểu thuyết lịch sử.", "Là toàn bộ những hình thức khác nhau của tư liệu lịch sử, chứa đựng thông tin về quá khứ.", "Là những phán đoán của con người về quá khứ.", "Là kết quả trí tưởng tượng của các nhà nghiên cứu."], answer: 1 }
+        ],
+        tf: [
+            { type: 'tf', text: "Đọc đoạn tư liệu: 'Sử để ghi việc, mà việc hay hoặc dở đều dùng làm gương răn cho đời sau' (Đại Việt sử ký toàn thư):", options: [
+                { text: "a) Tư liệu trên nhấn mạnh chức năng dự báo tương lai của Sử học.", answer: false },
+                { text: "b) Tư liệu khẳng định chức năng xã hội của Sử học là rút ra bài học kinh nghiệm cho cuộc sống hiện tại.", answer: true },
+                { text: "c) Sử học chỉ ghi lại những việc tốt đẹp trong quá khứ để làm gương.", answer: false },
+                { text: "d) Việc tìm hiểu quá khứ giúp con người tránh được những sai lầm trong hiện tại và tương lai.", answer: true }
+            ]}
+        ],
+        test: [] 
+    }
+};
+
+// ================= DỮ LIỆU LỚP 11 =================
+appDatabase.khoi11[1] = {
+    title: "Chủ đề 1: Cách mạng tư sản và sự phát triển của CNTB",
+    exercises: {
+        mcq: [
+            { type: 'mcq', text: "Mục tiêu cơ bản của các cuộc cách mạng tư sản là gì?", options: ["Xóa bỏ rào cản kìm hãm sự phát triển của nền kinh tế tư bản chủ nghĩa.", "Xóa bỏ giai cấp tư sản.", "Đưa giai cấp công nhân lên nắm quyền.", "Bảo vệ chế độ phong kiến."], answer: 0 },
+            { type: 'mcq', text: "Cách mạng tư sản bao gồm hai nhiệm vụ cơ bản nào?", options: ["Dân tộc và dân quyền.", "Dân chủ và dân sinh.", "Dân tộc và dân chủ.", "Độc lập và tự do."], answer: 2 },
+            { type: 'mcq', text: "Giai cấp lãnh đạo Cách mạng tư sản Pháp cuối thế kỉ XVIII là", options: ["Giai cấp vô sản.", "Giai cấp tư sản.", "Quý tộc mới.", "Chủ nô."], answer: 1 },
+            { type: 'mcq', text: "Động lực quyết định thắng lợi của các cuộc cách mạng tư sản là", options: ["sự giúp đỡ của nước ngoài.", "lực lượng quân đội đánh thuê.", "giai cấp lãnh đạo và quần chúng nhân dân.", "sự suy yếu của vua chúa phong kiến."], answer: 2 },
+            { type: 'mcq', text: "Tổ chức độc quyền là gì?", options: ["Là sự liên minh giữa công nhân và nông dân.", "Là sự liên minh giữa các nhà tư bản lớn để tập trung sản xuất hoặc tiêu thụ nhằm thu lợi nhuận cao.", "Là tổ chức từ thiện của giai cấp tư sản.", "Là cơ quan quản lý nhà nước về kinh tế."], answer: 1 }
+        ],
+        tf: [
+            { type: 'tf', text: "Về sự phát triển của chủ nghĩa tư bản:", options: [
+                { text: "a) Cuối thế kỉ XIX - đầu thế kỉ XX, chủ nghĩa tư bản chuyển từ giai đoạn tự do cạnh tranh sang giai đoạn độc quyền.", answer: true },
+                { text: "b) Tổ chức độc quyền là kết quả của quá trình phân tán sản xuất và vốn.", answer: false },
+                { text: "c) Các hình thức tiêu biểu của tổ chức độc quyền là các-ten, xanh-đi-ca, tơ-rớt.", answer: true },
+                { text: "d) Chủ nghĩa tư bản hiện đại không còn phải đối mặt với các cuộc khủng hoảng kinh tế, tài chính.", answer: false }
+            ]}
+        ],
+        test: []
+    }
+};
+
+// ================= DỮ LIỆU LỚP 12 =================
 appDatabase.khoi12[1] = {
     title: "Chủ đề 1: Thế giới trong và sau Chiến tranh lạnh",
     exercises: {
         mcq: [
-            // Đại diện cho 50 câu MCQ theo yêu cầu
-            { type: 'mcq', text: "Tổ chức nào được thành lập năm 1945 nhằm mục tiêu duy trì hòa bình và an ninh quốc tế?", options: ["Hội Quốc liên.", "Liên minh châu Âu.", "Liên hợp quốc.", "Khối NATO."], answer: 2 },
-            { type: 'mcq', text: "Hội nghị I-an-ta (2/1945) có sự tham dự của nguyên thủ ba quốc gia nào?", options: ["Anh, Pháp, Mỹ.", "Mỹ, Liên Xô, Trung Quốc.", "Liên Xô, Mỹ, Anh.", "Mỹ, Anh, Pháp."], answer: 2 },
-            { type: 'mcq', text: "Trật tự thế giới hai cực I-an-ta sụp đổ vào thời gian nào?", options: ["1989", "1991", "1975", "1945"], answer: 1 }
-            // (Bạn có thể thêm tiếp 47 câu khác theo định dạng này)
+            { type: 'mcq', text: "Tổ chức Liên hợp quốc chính thức được thành lập vào ngày, tháng, năm nào?", options: ["24 - 10 - 1945.", "01 - 01 - 1942.", "26 - 06 - 1945.", "02 - 09 - 1945."], answer: 0 },
+            { type: 'mcq', text: "Đâu là một trong những nguyên tắc hoạt động cơ bản của Liên hợp quốc?", options: ["Tôn trọng toàn vẹn lãnh thổ và độc lập chính trị quốc gia.", "Can thiệp trực tiếp vào công việc nội bộ của các quốc gia.", "Sử dụng vũ lực để giải quyết tranh chấp.", "Thiết lập một nhà nước toàn cầu thống nhất."], answer: 0 },
+            { type: 'mcq', text: "Hội nghị I-an-ta (tháng 2/1945) được tổ chức tại nước nào?", options: ["Mỹ.", "Anh.", "Liên Xô.", "Pháp."], answer: 2 },
+            { type: 'mcq', text: "Trật tự thế giới hai cực I-an-ta tồn tại trong khoảng thời gian nào?", options: ["1945 - 1975.", "1945 - 1989.", "1945 - 1991.", "1939 - 1945."], answer: 2 },
+            { type: 'mcq', text: "Đâu là một trong những xu thế phát triển chính của thế giới sau Chiến tranh lạnh?", options: ["Lấy quân sự làm trọng tâm.", "Đối thoại, hợp tác trong quan hệ quốc tế.", "Thế giới phân chia thành hai cực đối lập.", "Chạy đua vũ trang trên không gian."], answer: 1 }
         ],
         tf: [
-            // Đại diện cho 50 câu Đúng/Sai theo yêu cầu
             { type: 'tf', text: "Đọc đoạn tư liệu về Liên hợp quốc: 'Theo Hiến chương, Liên hợp quốc được thành lập nhằm bốn mục tiêu: 1. Duy trì hoà bình và an ninh quốc tế;...'", options: [
-                { text: "a) Liên hợp quốc là tổ chức quốc tế lớn nhất thế giới được thành lập ngay sau Chiến tranh thế giới thứ nhất.", answer: false },
+                { text: "a) Liên hợp quốc là tổ chức quốc tế được thành lập ngay sau Chiến tranh thế giới thứ nhất.", answer: false },
                 { text: "b) Mục tiêu cốt lõi và quan trọng nhất của Liên hợp quốc là duy trì hoà bình và an ninh quốc tế.", answer: true },
-                { text: "c) Ngày 24-10-1945, Liên hợp quốc chính thức được thành lập với 51 quốc gia thành viên.", answer: true },
-                { text: "d) Liên hợp quốc có quyền can thiệp vào công việc nội bộ của các quốc gia để bảo vệ quyền con người.", answer: false }
-            ]},
-            { type: 'tf', text: "Về Trật tự thế giới hai cực I-an-ta:", options: [
-                { text: "a) Trật tự hai cực I-an-ta được định hình với sự thiết lập của hai khối quân sự đối đầu là NATO và Vác-sa-va.", answer: true },
-                { text: "b) Nguyên nhân sụp đổ của trật tự này chủ yếu là do sự nổi lên của Trung Quốc và Nhật Bản.", answer: false },
-                { text: "c) Sự sụp đổ của Trật tự hai cực I-an-ta bắt đầu từ sự sụp đổ của chủ nghĩa xã hội ở Đông Âu và Liên Xô.", answer: true },
-                { text: "d) Sau khi Trật tự I-an-ta sụp đổ, thế giới ngay lập tức chuyển sang trật tự đơn cực do Mỹ làm bá chủ.", answer: false }
+                { text: "c) Trong số các mục tiêu, giải quyết vấn đề kinh tế được xem là tiền đề duy nhất cho Liên hợp quốc.", answer: false },
+                { text: "d) Nguyên tắc cơ bản của Liên hợp quốc là bình đẳng về chủ quyền giữa các quốc gia.", answer: true }
             ]}
-            // (Thêm tiếp các câu Đ/S khác tại đây)
         ],
-        test: [] // Sẽ được tự động gộp từ mcq (24 câu) và tf (4 câu) bằng hàm phía dưới.
+        test: []
     }
 };
 
-// ================= DỮ LIỆU DEMO ĐỀ THI THỬ SỐ 1 (Đề tham khảo 2026) =================
+appDatabase.khoi12[2] = {
+    title: "Chủ đề 3: Cuộc chiến tranh GPDT và BV Tổ quốc ở VN (1945-1975)",
+    exercises: {
+        mcq: [
+            { type: 'mcq', text: "Chiến dịch nào đã làm phá sản hoàn toàn chiến lược 'đánh nhanh, thắng nhanh' của thực dân Pháp?", options: ["Chiến dịch Điện Biên Phủ (1954).", "Chiến dịch Biên giới thu - đông (1950).", "Chiến dịch Việt Bắc thu - đông (1947).", "Cuộc chiến đấu ở các đô thị (1946)."], answer: 2 },
+            { type: 'mcq', text: "Chủ tịch Hồ Chí Minh ra Lời kêu gọi toàn quốc kháng chiến vào thời gian nào?", options: ["23 - 9 - 1945.", "19 - 12 - 1946.", "02 - 09 - 1945.", "06 - 03 - 1946."], answer: 1 },
+            { type: 'mcq', text: "Phong trào Đồng khởi (1959-1960) đã làm phá sản chiến lược nào của đế quốc Mỹ?", options: ["Chiến tranh đơn phương.", "Chiến tranh đặc biệt.", "Chiến tranh cục bộ.", "Việt Nam hóa chiến tranh."], answer: 0 },
+            { type: 'mcq', text: "Chiến thắng 'Điện Biên Phủ trên không' (12/1972) đã buộc Mỹ phải:", options: ["Thừa nhận thất bại của Chiến tranh cục bộ.", "Trở lại bàn đàm phán và kí Hiệp định Pa-ri.", "Đầu hàng vô điều kiện.", "Rút toàn bộ cố vấn quân sự ngay lập tức."], answer: 1 }
+        ],
+        tf: [
+            { type: 'tf', text: "Về cuộc Tổng tiến công và nổi dậy Xuân 1975:", options: [
+                { text: "a) Chiến dịch mở màn cho cuộc Tổng tiến công và nổi dậy Xuân 1975 là chiến dịch Tây Nguyên.", answer: true },
+                { text: "b) Thắng lợi của chiến dịch Huế - Đà Nẵng đã buộc chính quyền Sài Gòn phải đầu hàng vô điều kiện.", answer: false },
+                { text: "c) 11 giờ 30 phút ngày 30-4-1975, lá cờ cách mạng tung bay trên nóc Dinh Độc Lập báo hiệu sự toàn thắng.", answer: true },
+                { text: "d) Nguyên nhân khách quan dẫn đến thắng lợi là sự lãnh đạo sáng suốt của Đảng Cộng sản Việt Nam.", answer: false }
+            ]}
+        ],
+        test: []
+    }
+};
+
+// Tự động nạp "Bài kiểm tra" bằng cách trộn MCQ và TF
+[appDatabase.khoi10, appDatabase.khoi11, appDatabase.khoi12].forEach(khoi => {
+    Object.keys(khoi).forEach(topicId => {
+        khoi[topicId].exercises.test = [
+            ...khoi[topicId].exercises.mcq,
+            ...khoi[topicId].exercises.tf
+        ];
+    });
+});
+
+
+// ================= DỮ LIỆU ĐỀ THI THỬ SỐ 1 (BÁM SÁT FORMAT MINH HỌA 2026 BGD) =================
 appDatabase.mocktest[1] = [
     // PHẦN I: Trắc nghiệm (24 câu)
     { type: 'mcq', text: "Thắng lợi của cuộc Tiến công chiến lược năm 1972 của quân và dân Việt Nam có ý nghĩa nào sau đây?", options: ["Buộc Mỹ phải xuống thang chiến tranh, lập tức rút hết quân về nước.", "Kết thúc cuộc cách mạng dân tộc dân chủ nhân dân ở miền Nam Việt Nam.", "Giáng đòn quyết định làm sụp đổ hoàn toàn chính quyền Sài Gòn.", "Buộc Mỹ phải thừa nhận sự thất bại của chiến lược 'Việt Nam hóa chiến tranh'."], answer: 3 },
     { type: 'mcq', text: "Phan Bội Châu có hoạt động đối ngoại nào sau đây vào đầu thế kỉ XX?", options: ["Đàm phán với Pháp để thực hiện cải cách cho Việt Nam.", "Liên hệ với lực lượng Đồng minh chống phát xít.", "Tham dự Đại hội lần thứ XVIII của Đảng Xã hội Pháp.", "Vận động sự ủng hộ của Nhật Bản để giải phóng dân tộc."], answer: 3 },
     { type: 'mcq', text: "Nhận định nào sau đây là đúng về công cuộc Đổi mới ở Việt Nam từ năm 1986 đến nay?", options: ["Diễn ra đồng bộ và sâu rộng nhưng độc lập trên các lĩnh vực kinh tế - xã hội.", "Là sự thay đổi hình thức, bước đi và biện pháp để thực hiện mục tiêu xã hội chủ nghĩa.", "Có sự điều hành trực tiếp của nhà nước vào những quy trình sản xuất của các doanh nghiệp.", "Hạn chế sự phát triển của kinh tế tư nhân để tập trung phát triển kinh tế nhà nước."], answer: 1 },
     { type: 'mcq', text: "Các nước ASEAN đã kí kết văn kiện nào sau đây vào năm 2003?", options: ["Tuyên ngôn Quốc tế Nhân quyền.", "Tuyên bố Ba-li II.", "Hiến chương Liên hợp quốc.", "Hiến chương ASEAN."], answer: 1 },
+    { type: 'mcq', text: "Tổ chức nào sau đây được thành lập để củng cố sức mạnh khối đại đoàn kết toàn dân tộc Việt Nam vào năm 1951?", options: ["Hội Chấn Hoa Hưng Á.", "Việt Nam Quang phục Hội.", "Mặt trận Liên Việt.", "Hội Liên hiệp thuộc địa."], answer: 2 },
+    { type: 'mcq', text: "Liên hợp quốc có hoạt động nào sau đây để bảo đảm quyền con người?", options: ["Xây dựng và kí kết các văn bản, điều ước quốc tế về quyền con người.", "Can thiệp trực tiếp vào các nước nhằm thi hành triệt để quyền con người.", "Thành lập khối phòng thủ chung dựa trên cơ sở đồng thuận.", "Xây dựng thể chế chính trị thống nhất cho các quốc gia."], answer: 0 },
+    { type: 'mcq', text: "So với Hội nghị thành lập Đảng Cộng sản Việt Nam (1930), Hội nghị Ban Chấp hành Trung ương Đảng Cộng sản Đông Dương lần thứ 8 (1941) có điểm mới nào sau đây?", options: ["Góp phần định hướng, thúc đẩy sự phát triển của phong trào giải phóng dân tộc ở Việt Nam.", "Chủ trương giải quyết vấn đề dân tộc cho phù hợp với điều kiện lịch sử cụ thể của Việt Nam.", "Diễn ra trong bối cảnh cách mạng Việt Nam đã có sự lãnh đạo thống nhất của một chính đảng cộng sản.", "Thể hiện vai trò của Nguyễn Ái Quốc trong việc hoạch định đường lối chiến lược cách mạng Việt Nam."], answer: 1 },
     { type: 'mcq', text: "Một trong những xu thế phát triển chính của thế giới sau cuộc Chiến tranh lạnh là", options: ["hạn chế liên kết về kinh tế giữa tất cả các nước.", "đối thoại và hợp tác trong quan hệ quốc tế.", "chấm dứt ngay mọi xung đột giữa các nước.", "đối đầu giữa Liên Xô và Mỹ."], answer: 1 },
+    { type: 'mcq', text: "Thắng lợi của Cách mạng tháng Tám (1945) ở Việt Nam đã", options: ["lật đổ hoàn toàn chế độ thực dân trên thế giới.", "mở ra kỉ nguyên độc lập, tự do của dân tộc.", "dẫn đến sự sụp đổ của hệ thống tư bản chủ nghĩa.", "chấm dứt sự tồn tại của chế độ phong kiến ở châu Á."], answer: 1 },
+    { type: 'mcq', text: "Quốc gia nào sau đây tham gia thành lập Liên bang Cộng hòa xã hội chủ nghĩa Xô viết vào năm 1922?", options: ["Lào.", "Anh.", "Nga.", "Bồ Đào Nha."], answer: 2 },
+    { type: 'mcq', text: "Quốc gia nào sau đây ở châu Mỹ đã dựng tượng Chủ tịch Hồ Chí Minh?", options: ["Xin-ga-po.", "Mê-hi-cô.", "Cam-pu-chia.", "Phi-líp-pin."], answer: 1 },
+    { type: 'mcq', text: "Nhân vật lịch sử nào sau đây đã lãnh đạo quân Tây Sơn giành thắng lợi trong cuộc kháng chiến chống quân Thanh xâm lược vào cuối thế kỉ XVIII?", options: ["Quang Trung.", "Lý Thường Kiệt.", "Trần Quốc Tuấn.", "Lê Hoàn."], answer: 0 },
+    { type: 'mcq', text: "Cuộc khởi nghĩa nào sau đây chống lại ách đô hộ của nhà Đông Hán bùng nổ vào năm 40?", options: ["Khởi nghĩa Lý Bí.", "Khởi nghĩa Hai Bà Trưng.", "Khởi nghĩa Bà Triệu.", "Khởi nghĩa Phùng Hưng."], answer: 1 },
+    { type: 'mcq', text: "Nguyễn Ái Quốc không có hoạt động nào sau đây trong giai đoạn 1920 - 1930?", options: ["Tham gia sáng lập Đảng Cộng sản Pháp.", "Soạn thảo Tuyên ngôn Độc lập của Việt Nam.", "Tham dự Đại hội V của Quốc tế Cộng sản.", "Soạn thảo Chính cương vắn tắt, Sách lược vắn tắt."], answer: 1 },
+    { type: 'mcq', text: "Nguyên thủ của những quốc gia nào sau đây cùng tuyên bố chấm dứt Chiến tranh lạnh vào năm 1989?", options: ["Anh và Hà Lan.", "Ấn Độ và Ai Cập.", "Mý và Liên Xô.", "Pháp và Nhật Bản."], answer: 2 },
+    { type: 'mcq', text: "Cuộc kháng chiến chống Mỹ, cứu nước (1954 - 1975) của nhân dân Việt Nam đã để lại bài học kinh nghiệm nào sau đây cho công cuộc xây dựng và bảo vệ Tổ quốc Việt Nam hiện nay?", options: ["Duy trì, phát triển mối quan hệ liên minh phòng thủ với các nước Đông Dương.", "Kết hợp hài hòa, thường xuyên giữa đấu tranh chính trị với đấu tranh quân sự.", "Phát huy cao độ sức mạnh dân tộc và sức mạnh thời đại trong kỉ nguyên mới.", "Cần thống nhất về tổ chức của các mặt trận nhân dân thế giới ủng hộ Việt Nam."], answer: 2 },
+    { type: 'mcq', text: "Quá trình từ đàm phán đến kí kết Hiệp định Pa-ri (1968 - 1973) đã để lại bài học kinh nghiệm nào sau đây cho hoạt động đối ngoại của Việt Nam hiện nay?", options: ["Thực lực quốc gia là một trong những điều kiện đưa đến thành công của hoạt động đối ngoại.", "Linh hoạt trong hoạt động đối ngoại để giải quyết triệt để lợi ích của các nước.", "Đặt trọng tâm vào việc duy trì, phát triển đồng đều mối quan hệ với các đối tác truyền thống.", "Tranh thủ sự ủng hộ của quốc tế để hoàn thành cuộc cách mạng dân tộc dân chủ nhân dân."], answer: 0 },
+    { type: 'mcq', text: "Quốc gia nào sau đây là thành viên của Cộng đồng ASEAN vào năm 2015?", options: ["Hàn Quốc.", "Thái Lan.", "Cu-ba.", "Ma-rốc."], answer: 1 },
+    { type: 'mcq', text: "Đường lối đổi mới về kinh tế ở Việt Nam từ năm 2006 đến nay có nội dung nào sau đây?", options: ["Kết thúc quá trình xây dựng cơ sở vật chất, kĩ thuật cho chủ nghĩa xã hội.", "Bắt đầu xây dựng và hoàn thiện nhà nước pháp quyền xã hội chủ nghĩa.", "Tiếp tục đẩy mạnh công nghiệp hóa, hiện đại hóa đất nước.", "Bước đầu xây dựng cơ chế quản lí kinh tế tập trung quan liêu, bao cấp."], answer: 2 },
+    { type: 'mcq', text: "Nhận định nào sau đây là đúng về quá trình hội nhập quốc tế của Việt Nam từ năm 2006 đến nay?", options: ["Ngày càng mở rộng quan hệ đối tác chiến lược toàn diện với nhiều nước.", "Thường xuyên nâng tầm hợp tác với hệ thống xã hội chủ nghĩa.", "Đánh dấu sự khởi đầu cho hợp tác đa phương giữa Việt Nam với các nước.", "Là quá trình phá thế bị bao vây và cô lập toàn diện để hội nhập quốc tế."], answer: 0 },
+    { type: 'mcq', text: "Quá trình phát triển của Hiệp hội các quốc gia Đông Nam Á từ năm 1967 đến năm 2015 có đặc điểm nào sau đây?", options: ["Quá trình hình thành, phát triển chịu sự chi phối thường xuyên của cuộc Chiến tranh lạnh.", "Trọng tâm của quá trình hợp tác có sự chuyển dịch từng bước từ nội khối sang ngoại khối.", "Xuất phát từ liên minh quân sự phát triển thành tổ chức liên kết kinh tế, chính trị.", "Có sự phát triển từng bước về cơ cấu tổ chức, phạm vi và mức độ hợp tác."], answer: 3 },
+    { type: 'mcq', text: "Việt Nam đạt được thành tựu nào sau đây trong hội nhập quốc tế vào năm 2007?", options: ["Trở thành thành viên của Tổ chức Thương mại Thế giới (WTO).", "Gia nhập Hiệp hội các quốc gia Đông Nam Á.", "Gia nhập Hội đồng tương trợ kinh tế.", "Tham gia Công ước Luật biển của Liên hợp quốc."], answer: 0 },
+    { type: 'mcq', text: "Một trong những nguyên nhân dẫn đến sự sụp đổ của Trật tự thế giới hai cực I-an-ta là do", options: ["Mỹ không còn là siêu cường kinh tế số một thế giới.", "tác động trực tiếp của cuộc Chiến tranh thế giới thứ nhất.", "sự ra đời của Cộng đồng Chính trị - An ninh ASEAN.", "thắng lợi của phong trào giải phóng dân tộc trên thế giới."], answer: 3 },
+    { type: 'mcq', text: "So với chiến lược “Chiến tranh đặc biệt” (1961 - 1965), chiến lược “Chiến tranh cục bộ” (1965 - 1968) của Mỹ thực hiện ở miền Nam Việt Nam có điểm khác biệt nào sau đây?", options: ["Sử dụng vũ khí, trang bị kĩ thuật và phương tiện chiến tranh của Mỹ.", "Đưa số lượng lớn quân đồng minh của Mỹ vào trực tiếp tham chiến trên chiến trường.", "Tiến hành bằng lực lượng quân đội Sài Gòn dưới sự chỉ huy của hệ thống cố vấn Mỹ.", "Diễn ra trong bối cảnh Mỹ đang chống lại phe xã hội chủ nghĩa."], answer: 1 },
 
     // PHẦN II: Đúng/Sai (4 câu)
-    { type: 'tf', text: "Cho đoạn tư liệu sau: 'Hỡi đồng bào toàn quốc! Chúng ta muốn hòa bình, chúng ta phải nhân nhượng. Nhưng chúng ta càng nhân nhượng, thực dân Pháp càng lấn tới...'", options: [
-        { text: "a) Lời kêu gọi toàn quốc kháng chiến thể hiện sự chủ động của Việt Nam trong việc đàm phán với Pháp.", answer: false },
-        { text: "b) Lời kêu gọi toàn quốc kháng chiến khẳng định Việt Nam tiến hành chiến tranh vệ quốc khi không còn lựa chọn nào khác.", answer: true },
-        { text: "c) Những thông tin của đoạn tư liệu trên thể hiện tinh thần tự lực, tự cường của nhân dân Việt Nam trong cuộc kháng chiến chống thực dân Pháp xâm lược.", answer: true },
-        { text: "d) Ngay khi thực dân Pháp quay trở lại xâm lược Việt Nam, Chủ tịch Hồ Chí Minh đã kịp thời phát động toàn quốc kháng chiến.", answer: false }
+    { type: 'tf', text: "Câu 1. Đọc đoạn tư liệu sau: 'Nhìn lại 40 năm thực hiện công cuộc đổi mới... Kinh tế duy trì tốc độ phát triển tương đối nhanh, trở thành nước đang phát triển, có thu nhập trung bình...'", options: [
+        { text: "a) Nội dung của đoạn tư liệu cho biết những thành tựu trên nhiều lĩnh vực trong công cuộc Đổi mới ở Việt Nam.", answer: true },
+        { text: "b) Từ thực tiễn 40 năm đổi mới đất nước khẳng định nền kinh tế hàng hóa là điểm sáng tạo riêng của Việt Nam.", answer: false },
+        { text: "c) Những thành tựu của công cuộc Đổi mới đã đưa Việt Nam trở thành quốc gia phát triển trên thế giới.", answer: false },
+        { text: "d) Những thành tựu trong công cuộc Đổi mới hiện nay là nguồn lực và động lực cho sự phát triển của Việt Nam.", answer: true }
     ]},
-    { type: 'tf', text: "Cho đoạn tư liệu sau về Chủ nghĩa tư bản: 'Chủ nghĩa tư bản hiện đại đã và đang đối mặt với những vấn đề chính trị - xã hội nan giải. Nền dân chủ tư sản đang bị xói mòn...'", options: [
+    { type: 'tf', text: "Câu 2. Cho đoạn tư liệu: 'Hỡi đồng bào toàn quốc! Chúng ta muốn hòa bình, chúng ta phải nhân nhượng. Nhưng chúng ta càng nhân nhượng, thực dân Pháp càng lấn tới...'", options: [
+        { text: "a) Lời kêu gọi toàn quốc kháng chiến thể hiện sự chủ động của Việt Nam trong việc đàm phán với Pháp.", answer: false },
+        { text: "b) Lời kêu gọi khẳng định Việt Nam tiến hành chiến tranh vệ quốc khi không còn lựa chọn nào khác.", answer: true },
+        { text: "c) Thông tin của đoạn tư liệu thể hiện tinh thần tự lực, tự cường của nhân dân Việt Nam.", answer: true },
+        { text: "d) Ngay khi thực dân Pháp quay trở lại xâm lược VN (1945), Chủ tịch HCM đã kịp thời phát động toàn quốc kháng chiến.", answer: false }
+    ]},
+    { type: 'tf', text: "Câu 3. Tác giả của cuốn sách Chủ nghĩa tư bản lịch sử thăng trầm 120 năm đã viết: '... chủ nghĩa tư bản hiện đại đã và đang đối mặt với những vấn đề chính trị - xã hội nan giải. Nền dân chủ tư sản đang bị xói mòn...'", options: [
         { text: "a) Chủ nghĩa tư bản hiện đại đã giải quyết triệt để được các vấn đề xã hội nan giải để tồn tại và phát triển.", answer: false },
         { text: "b) Những thách thức mà chủ nghĩa tư bản phải đối mặt từ sau năm 1945 đến nay không bắt nguồn từ nền dân chủ tư sản.", answer: false },
         { text: "c) Những thông tin của đoạn tư liệu phản ánh một phần thực trạng của xã hội tư bản hiện đại.", answer: true },
-        { text: "d) Từ những hạn chế của chủ nghĩa tư bản hiện đại cho thấy sự đúng đắn của Đảng Cộng sản Việt Nam trong việc kiên trì mục tiêu độc lập dân tộc và CNXH.", answer: true }
+        { text: "d) Từ những hạn chế của CNTB hiện đại cho thấy sự đúng đắn của Đảng CSVN trong việc kiên trì mục tiêu ĐLDT và CNXH.", answer: true }
+    ]},
+    { type: 'tf', text: "Câu 4. Cho đoạn tư liệu: 'Đại đoàn kết toàn dân tộc là nền tảng hội tụ và phát huy cao nhất sức mạnh của Nhân dân... Kiên trì thực hiện đường lối đại đoàn kết toàn dân tộc trên nền tảng của khối liên minh giữa giai cấp công nhân, giai cấp nông dân và đội ngũ trí thức...'", options: [
+        { text: "a) Đại đoàn kết toàn dân tộc là truyền thống quý báu được khởi nguồn, vận dụng sáng tạo chủ yếu trong thời kì Đổi mới.", answer: false },
+        { text: "b) Sức mạnh của khối đại đoàn kết toàn dân tộc được phát huy cao độ dưới sự lãnh đạo của Đảng Cộng sản Việt Nam.", answer: true },
+        { text: "c) Đường lối đại đoàn kết toàn dân tộc Việt Nam được xây dựng trên nền tảng của khối liên minh công – nông và tư sản dân tộc.", answer: false },
+        { text: "d) Đại hội đại biểu toàn quốc lần thứ XIV (2026) của Đảng CSVN bước đầu xác định đại đoàn kết toàn dân tộc là nguồn sức mạnh cần phát huy.", answer: false }
     ]}
 ];
 
-// Tạo bộ test kết hợp tự động cho Bài Kiểm Tra Đơn Vị của Lớp 12 Bài 1
-appDatabase.khoi12[1].exercises.test = [
-    ...appDatabase.khoi12[1].exercises.mcq,
-    ...appDatabase.khoi12[1].exercises.tf
-];
-
-// Khởi tạo các Đề thi thử (2 đến 10)
+// Khởi tạo các Đề thi thử trống (2 đến 10)
 for (let testId = 2; testId <= 10; testId++) {
-    appDatabase.mocktest[testId] = []; // Mảng rỗng cho giáo viên điền thêm
+    appDatabase.mocktest[testId] = []; 
 }
 
 /* =========================================================================
@@ -82,7 +177,7 @@ for (let testId = 2; testId <= 10; testId++) {
 
 let currentSection = 'khoi12'; 
 let currentTopicId = null;
-let currentExerciseType = null; // 'mcq', 'tf', 'test', hoac mocktest ID
+let currentExerciseType = null; 
 let timerInterval = null;
 let timeLeft = 0;
 let isSubmitted = false;
@@ -123,7 +218,7 @@ function renderSidebar() {
                 <div class="px-4 py-3 font-bold text-gray-700 cursor-pointer flex justify-between items-center hover:bg-blue-50" onclick="toggleSidebarMenu('menu-${currentSection}-${topicId}')">
                     <span>${topic.title}</span> <span class="text-[10px] text-gray-400">▼</span>
                 </div>
-                <div id="menu-${currentSection}-${topicId}" class="flex flex-col bg-white border-t border-gray-100">
+                <div id="menu-${currentSection}-${topicId}" class="flex flex-col bg-white border-t border-gray-100 hidden-element">
                     <button onclick="startTest('${currentSection}', ${topicId}, 'mcq')" class="text-left px-6 py-3 text-sm border-b border-gray-50 hover:bg-blue-50">Luyện Trắc nghiệm (50 câu)</button>
                     <button onclick="startTest('${currentSection}', ${topicId}, 'tf')" class="text-left px-6 py-3 text-sm border-b border-gray-50 hover:bg-blue-50">Luyện Đúng/Sai (50 câu)</button>
                     <button onclick="startTest('${currentSection}', ${topicId}, 'test')" class="text-left px-6 py-3 text-sm border-b border-gray-50 hover:bg-blue-50 font-semibold text-red-600">Bài kiểm tra Đơn vị</button>
@@ -163,7 +258,7 @@ function startTest(section, topicId, exerciseType) {
         resetTimer(45); 
     } else {
         document.getElementById('current-test-title').innerText = `Đề thi thử Lịch Sử HSA/THPT - Đề số ${exerciseType}`;
-        document.getElementById('current-test-subtitle').innerText = "Cấu trúc: Phần I (24 Câu Trắc nghiệm) - Phần II (4 Câu Đúng/Sai)";
+        document.getElementById('current-test-subtitle').innerText = "Cấu trúc 2026: Phần I (24 Câu Trắc nghiệm) - Phần II (4 Câu Đúng/Sai)";
         resetTimer(50); // Lịch sử thi 50 phút
     }
     renderTestContent();
@@ -182,7 +277,7 @@ function renderTestContent() {
     }
 
     if (questions.length === 0) {
-        container.innerHTML = `<div class="bg-gray-50 rounded-xl py-12 text-center border-2 border-dashed border-gray-300"><p class="text-gray-500 font-bold text-lg">Đang cập nhật câu hỏi...</p></div>`;
+        container.innerHTML = `<div class="bg-gray-50 rounded-xl py-12 text-center border-2 border-dashed border-gray-300"><p class="text-gray-500 font-bold text-lg">Đang cập nhật câu hỏi cho phần này...</p></div>`;
         document.getElementById('submit-btn').classList.add('hidden-element'); 
         clearInterval(timerInterval);
         return;
@@ -279,7 +374,7 @@ function submitTest() {
             }
         } 
         else if (type === 'tf') {
-            // Tính điểm Đúng/Sai theo format mới: 4 ý = 1 điểm. Ở đây demo tính 1 ý = 0.25đ
+            // Theo format BGD 2026: 1 ý đúng = 0.1, 2 ý = 0.25, 3 ý = 0.5, 4 ý = 1đ
             maxScore += 1; 
             let correctSubCount = 0;
             
@@ -298,11 +393,10 @@ function submitTest() {
                         tfEl.classList.add('wrong-ans-box');
                     }
                 } else {
-                    tfEl.classList.add('wrong-ans-box'); // Ko chọn xem như sai
+                    tfEl.classList.add('wrong-ans-box'); 
                 }
             });
 
-            // Demo thang điểm: 1 ý đúng = 0.1, 2 ý = 0.25, 3 ý = 0.5, 4 ý = 1đ
             if(correctSubCount === 4) totalScore += 1;
             else if(correctSubCount === 3) totalScore += 0.5;
             else if(correctSubCount === 2) totalScore += 0.25;
@@ -310,7 +404,10 @@ function submitTest() {
         }
     });
 
-    document.getElementById('score-display').innerText = `${totalScore}/${maxScore}`;
+    // Tính điểm trên thang điểm 10 (Format 2026: maxScore = 28 -> quy đổi về 10)
+    let finalScore = (totalScore / maxScore) * 10;
+    
+    document.getElementById('score-display').innerText = `${finalScore.toFixed(1)}/10`;
     document.getElementById('result-screen').classList.remove('hidden-element');
     window.scrollTo({ top: document.getElementById('result-screen').offsetTop - 50, behavior: 'smooth' });
 }
@@ -325,4 +422,4 @@ function startTimer() {
     }, 1000);
 }
 function resetTimer(minutes) { clearInterval(timerInterval); timeLeft = minutes * 60; document.getElementById('timer-display').innerText = `${minutes}:00`; }
-function continueAfterResult() { selectSection('khoi12'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function continueAfterResult() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
