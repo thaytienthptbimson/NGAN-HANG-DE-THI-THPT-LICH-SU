@@ -96,7 +96,6 @@ appDatabase.khoi11[2] = {
     }
 };
 
-
 // ================= DỮ LIỆU LỚP 12 =================
 appDatabase.khoi12[1] = {
     title: "Chủ đề 1 & 2: Thế giới sau Chiến tranh lạnh & ASEAN",
@@ -106,6 +105,7 @@ appDatabase.khoi12[1] = {
             { type: 'mcq', text: "Trật tự thế giới hai cực I-an-ta tồn tại trong khoảng thời gian nào?", options: ["1945 - 1975.", "1945 - 1989.", "1945 - 1991.", "1939 - 1945."], answer: 2 },
             { type: 'mcq', text: "Một trong những nguyên tắc hoạt động cơ bản của Liên hợp quốc là", options: ["Giải quyết các tranh chấp quốc tế bằng biện pháp hòa bình.", "Can thiệp trực tiếp vào công việc nội bộ của các quốc gia.", "Sử dụng vũ lực để răn đe các quốc gia vi phạm nhân quyền.", "Thiết lập một nhà nước toàn cầu thống nhất quản lý kinh tế."], answer: 0 },
             { type: 'mcq', text: "Đặc điểm nổi bật nhất của Trật tự thế giới hai cực I-an-ta là gì?", options: ["Sự hợp tác toàn diện giữa Mỹ và Liên Xô trên mọi lĩnh vực.", "Thế giới chia thành hai phe TBCN và XHCN do Mỹ và Liên Xô đứng đầu, đối đầu gay gắt.", "Các nước Á, Phi, Mỹ La-tinh trở thành trung tâm quyền lực mới.", "Sự thống trị tuyệt đối của chủ nghĩa thực dân cũ tại châu Á."], answer: 1 },
+            { type: 'mcq', text: "Nhân tố nào dưới đây KHÔNG phải là nguyên nhân làm sụp đổ Trật tự thế giới hai cực I-an-ta?", options: ["Sự vươn lên nhanh chóng của Tây Âu và Nhật Bản làm thay đổi cán cân kinh tế.", "Sự thắng lợi của phong trào giải phóng dân tộc làm thay đổi khuôn khổ trật tự.", "Cuộc khủng hoảng kinh tế, xã hội và sự tan rã của Liên Xô.", "Sự ra đời của tổ chức Liên hợp quốc năm 1945."], answer: 3 },
             { type: 'mcq', text: "Trong bối cảnh thế giới xuất hiện xu thế 'đa cực' sau Chiến tranh lạnh, Việt Nam đã thực hiện chủ trương ngoại giao nào để bảo vệ lợi ích quốc gia?", options: ["Chỉ thiết lập quan hệ đối tác với các nước lớn có vũ khí hạt nhân.", "Liên minh quân sự chặt chẽ với một siêu cường để làm ô bảo vệ.", "Thực hiện đa phương hóa, đa dạng hóa quan hệ quốc tế, 'là bạn với tất cả các nước'.", "Đóng cửa nền kinh tế để tránh sự can thiệp của toàn cầu hóa."], answer: 2 }
         ],
         tf: [
@@ -171,8 +171,7 @@ appDatabase.khoi12[3] = {
     });
 });
 
-// ================= DỮ LIỆU ĐỀ THI THỬ =================
-// Đề 1, 2, 3, 4, 5 (Các đề mẫu trước đây)
+// ================= DỮ LIỆU ĐỀ THI THỬ (Các đề mẫu 1-6 giữ nguyên cấu trúc) =================
 appDatabase.mocktest[1] = [
     { type: 'mcq', text: "Thắng lợi của cuộc Tiến công chiến lược năm 1972 của quân và dân Việt Nam có ý nghĩa nào sau đây?", options: ["Buộc Mỹ phải xuống thang chiến tranh, lập tức rút hết quân về nước.", "Kết thúc cuộc cách mạng dân tộc dân chủ nhân dân ở miền Nam Việt Nam.", "Giáng đòn quyết định làm sụp đổ hoàn toàn chính quyền Sài Gòn.", "Buộc Mỹ phải thừa nhận sự thất bại của chiến lược 'Việt Nam hóa chiến tranh'."], answer: 3 },
     { type: 'mcq', text: "Phan Bội Châu có hoạt động đối ngoại nào sau đây vào đầu thế kỉ XX?", options: ["Đàm phán với Pháp để thực hiện cải cách cho Việt Nam.", "Liên hệ với lực lượng Đồng minh chống phát xít.", "Tham dự Đại hội lần thứ XVIII của Đảng Xã hội Pháp.", "Vận động sự ủng hộ của Nhật Bản để giải phóng dân tộc."], answer: 3 },
@@ -197,73 +196,133 @@ appDatabase.mocktest[2] = [ ...appDatabase.mocktest[1] ];
 appDatabase.mocktest[3] = [ ...appDatabase.mocktest[1] ];
 appDatabase.mocktest[4] = [ ...appDatabase.mocktest[1] ];
 appDatabase.mocktest[5] = [ ...appDatabase.mocktest[1] ];
+appDatabase.mocktest[6] = [ ...appDatabase.mocktest[1] ];
 
-// ================= DỮ LIỆU ĐỀ THI THỬ SỐ 6 (THIẾT KẾ MỚI THEO 4 MỨC ĐỘ NHẬN THỨC) =================
-appDatabase.mocktest[6] = [
+
+// ================= DỮ LIỆU ĐỀ THI THỬ SỐ 7 & 8 & 9 (THIẾT KẾ MỚI THEO 4 MỨC ĐỘ NHẬN THỨC) =================
+
+appDatabase.mocktest[7] = [
     // --- PHẦN I: TRẮC NGHIỆM ĐA LỰA CHỌN (24 CÂU) ---
     // Mức độ Nhận biết (6 câu)
-    { type: 'mcq', text: "Hiệp hội các quốc gia Đông Nam Á (ASEAN) chính thức được thành lập vào ngày tháng năm nào?", options: ["08 - 08 - 1967.", "24 - 10 - 1945.", "28 - 07 - 1995.", "31 - 12 - 2015."], answer: 0 },
-    { type: 'mcq', text: "Nhà Vua nào của Vương quốc Xiêm (Thái Lan) đã tiến hành những cải cách lớn yếu yếu từ năm 1868 để bảo vệ độc lập?", options: ["Ra-ma I.", "Ra-ma IV.", "Ra-ma V.", "Ra-ma VI."], answer: 2 },
-    { type: 'mcq', text: "Sự kiện nào mở đầu cuộc chiến tranh xâm lược Việt Nam lần thứ hai của thực dân Pháp?", options: ["Pháp nổ súng đánh chiếm Đà Nẵng (1858).", "Pháp đánh úp trụ sở Ủy ban hành chính Nam Bộ tại Sài Gòn (23/9/1945).", "Pháp gửi tối hậu thư đòi tước vũ khí của tự vệ Hà Nội (12/1946).", "Pháp tấn công lên Việt Bắc (1947)."], answer: 1 },
-    { type: 'mcq', text: "Đại hội nào của Đảng Cộng sản Việt Nam đã chính thức đề ra đường lối Đổi mới toàn diện đất nước?", options: ["Đại hội IV (1976).", "Đại hội V (1982).", "Đại hội VI (1986).", "Đại hội VII (1991)."], answer: 2 },
-    { type: 'mcq', text: "Hiệp định nào đánh dấu sự đầu hàng hoàn toàn của triều đình nhà Nguyễn, biến Việt Nam thành thuộc địa của Pháp?", options: ["Hiệp ước Nhâm Tuất (1862).", "Hiệp ước Giáp Tuất (1874).", "Hiệp ước Hác-măng (1883).", "Hiệp ước Pa-tơ-nốt (1884)."], answer: 3 },
-    { type: 'mcq', text: "Liên Xô và Mỹ đã cùng nhau ra tuyên bố chấm dứt Chiến tranh lạnh vào năm nào?", options: ["1972.", "1989.", "1991.", "1995."], answer: 1 },
+    { type: 'mcq', text: "Đại hội Xô viết toàn Nga lần thứ hai (tháng 10/1917) đã tuyên bố thành lập Chính quyền Xô viết do ai đứng đầu?", options: ["C. Mác.", "V. I. Lê-nin.", "I. Xta-lin.", "Ph. Ăng-ghen."], answer: 1 },
+    { type: 'mcq', text: "Liên bang Cộng hoà xã hội chủ nghĩa Xô viết (Liên Xô) chính thức được thành lập vào thời gian nào?", options: ["30-12-1922.", "25-10-1917.", "21-1-1924.", "7-11-1917."], answer: 0 },
+    { type: 'mcq', text: "Năm 1511, thực dân Bồ Đào Nha đã tấn công và đánh chiếm vương quốc nào, mở đầu cho quá trình xâm lược Đông Nam Á?", options: ["Xiêm.", "Ma-lắc-ca.", "Phi-líp-pin.", "Đại Việt."], answer: 1 },
+    { type: 'mcq', text: "Cuộc kháng chiến chống quân Nam Hán (938) gắn liền với tên tuổi của vị anh hùng dân tộc nào?", options: ["Ngô Quyền.", "Lê Hoàn.", "Lý Thường Kiệt.", "Trần Hưng Đạo."], answer: 0 },
+    { type: 'mcq', text: "Tổ chức Liên hợp quốc chính thức được thành lập vào ngày, tháng, năm nào?", options: ["24 - 10 - 1945.", "01 - 01 - 1942.", "26 - 06 - 1945.", "02 - 09 - 1945."], answer: 0 },
+    { type: 'mcq', text: "Đại hội đại biểu toàn quốc lần thứ VI (1986) của Đảng Cộng sản Việt Nam đã đề ra đường lối đổi mới trên lĩnh vực nào là trọng tâm?", options: ["Văn hóa - Giáo dục.", "Kinh tế.", "Chính trị.", "Ngoại giao."], answer: 1 },
     
     // Mức độ Thông hiểu (6 câu)
-    { type: 'mcq', text: "Bản chất của chiến lược 'Việt Nam hóa chiến tranh' (1969-1973) do Mỹ tiến hành ở miền Nam Việt Nam là gì?", options: ["Dùng lính Mỹ làm lực lượng chủ lực để kết thúc chiến tranh.", "Rút toàn bộ lực lượng Mỹ và cắt đứt viện trợ cho chính quyền Sài Gòn.", "Dùng người Việt đánh người Việt bằng quân đội Sài Gòn dưới sự chỉ huy của Mỹ.", "Sử dụng lính đánh thuê quốc tế để thay thế quân đội Sài Gòn."], answer: 2 },
-    { type: 'mcq', text: "Yếu tố khách quan nào đã tạo điều kiện thuận lợi cho Cách mạng tháng Tám (1945) ở Việt Nam giành thắng lợi nhanh chóng?", options: ["Sự lãnh đạo tài tình của Đảng Cộng sản Đông Dương.", "Sức mạnh vũ bão của khối đại đoàn kết toàn dân tộc.", "Sự đầu hàng vô điều kiện của phát xít Nhật đối với quân Đồng minh.", "Sự sụp đổ của thực dân Pháp ở Đông Dương trước đó."], answer: 2 },
-    { type: 'mcq', text: "Mục đích bao trùm của các cuộc cải cách thời Lê Thánh Tông (thế kỷ XV) và Minh Mạng (nửa đầu thế kỷ XIX) là gì?", options: ["Mở rộng lãnh thổ quốc gia bằng chiến tranh.", "Tăng cường quyền lực chuyên chế của nhà nước trung ương tập quyền.", "Thúc đẩy sự ra đời của kinh tế tư bản chủ nghĩa ở Việt Nam.", "Chia sẻ quyền lực cho các thế lực cát cứ địa phương."], answer: 1 },
-    { type: 'mcq', text: "Nguyên nhân chủ yếu làm suy giảm sức mạnh tương đối của Mỹ sau Chiến tranh lạnh là gì?", options: ["Sự sụp đổ của Trật tự hai cực I-an-ta.", "Sự cạnh tranh gay gắt từ Tây Âu, Nhật Bản và sự vươn lên của Trung Quốc.", "Mỹ không còn theo đuổi chính sách đối ngoại tham vọng toàn cầu.", "Các cuộc khủng hoảng kinh tế diễn ra liên tục tại nội địa Mỹ."], answer: 1 },
-    { type: 'mcq', text: "Sự phân chia khu vực đóng quân và phạm vi ảnh hưởng ở châu Âu và châu Á theo Hội nghị I-an-ta (1945) thực chất là:", options: ["Sự phân chia quyền lợi và khu vực ảnh hưởng giữa hai cường quốc Mỹ và Liên Xô.", "Một kế hoạch tái thiết kinh tế toàn diện cho các nước bị tàn phá sau chiến tranh.", "Biện pháp trừng phạt chủ nghĩa phát xít ở mức cao nhất.", "Sự mở đầu cho quá trình toàn cầu hóa."], answer: 0 },
-    { type: 'mcq', text: "Từ giữa thế kỷ XIX, nguyên nhân sâu xa dẫn đến việc các nước Đông Nam Á trở thành đối tượng xâm lược của thực dân phương Tây là:", options: ["Do sự khủng hoảng sâu sắc của các chế độ phong kiến phương Đông.", "Do sự kêu gọi viện trợ từ các vị vua phương Đông.", "Do nhu cầu to lớn về nguyên liệu, nhân công, thị trường của chủ nghĩa tư bản đang phát triển.", "Do các nước Đông Nam Á muốn tiếp nhận văn minh cơ khí từ phương Tây."], answer: 2 },
+    { type: 'mcq', text: "Đâu là một trong những nguyên tắc hoạt động cơ bản của Liên hợp quốc?", options: ["Giải quyết các tranh chấp quốc tế bằng biện pháp hòa bình.", "Can thiệp trực tiếp vào công việc nội bộ của các quốc gia khi có xung đột.", "Sử dụng vũ lực để răn đe các quốc gia vi phạm nhân quyền.", "Thiết lập một nhà nước toàn cầu thống nhất quản lý kinh tế."], answer: 0 },
+    { type: 'mcq', text: "Đặc điểm nổi bật nhất của Trật tự thế giới hai cực I-an-ta là gì?", options: ["Sự hợp tác toàn diện giữa Mỹ và Liên Xô trên mọi lĩnh vực.", "Thế giới chia thành hai phe TBCN và XHCN do Mỹ và Liên Xô đứng đầu, đối đầu gay gắt.", "Các nước Á, Phi, Mỹ La-tinh trở thành trung tâm quyền lực mới.", "Sự thống trị tuyệt đối của chủ nghĩa thực dân cũ tại châu Á."], answer: 1 },
+    { type: 'mcq', text: "Vì sao Vương quốc Xiêm (Thái Lan) là quốc gia duy nhất ở Đông Nam Á không bị biến thành thuộc địa?", options: ["Xiêm có quân đội mạnh nhất châu Á, đánh bại mọi cuộc xâm lược.", "Xiêm nằm ở vùng địa lý hiểm trở, thực dân phương Tây không thể tiếp cận.", "Tiến hành cải cách toàn diện, thực hiện ngoại giao khôn khéo, lợi dụng mâu thuẫn giữa Anh và Pháp.", "Xiêm là đồng minh chiến lược số một của đế quốc Mỹ tại châu Á."], answer: 2 },
+    { type: 'mcq', text: "Bản chất cốt lõi của công cuộc Đổi mới ở Việt Nam (từ năm 1986) là gì?", options: ["Thay đổi hoàn toàn mục tiêu xã hội chủ nghĩa sang tư bản chủ nghĩa.", "Từ bỏ sự lãnh đạo của Đảng Cộng sản Việt Nam.", "Làm cho mục tiêu xã hội chủ nghĩa được thực hiện hiệu quả bằng những hình thức, bước đi và biện pháp thích hợp.", "Chỉ tập trung thay đổi nhân sự bộ máy nhà nước."], answer: 2 },
+    { type: 'mcq', text: "Sự phân hóa giàu nghèo sâu sắc, phong trào 'Chiếm lấy phố Uôn' (2011) ở Mỹ là minh chứng cho điều gì về chủ nghĩa tư bản hiện đại?", options: ["CNTB đã bước vào thời kỳ diệt vong không thể cứu vãn.", "Sự điều tiết kinh tế vĩ mô của nhà nước tư sản đã thành công rực rỡ.", "CNTB hiện đại không có khả năng giải quyết triệt để các mâu thuẫn chính trị - xã hội.", "CNTB đã giải quyết được tình trạng bất bình đẳng giai cấp."], answer: 2 },
+    { type: 'mcq', text: "Nguyên nhân chủ quan quan trọng nhất quyết định thắng lợi của các cuộc kháng chiến bảo vệ Tổ quốc trong lịch sử Việt Nam là gì?", options: ["Lực lượng quân đội Đại Việt đông gấp nhiều lần quân giặc.", "Kẻ thù gặp khó khăn về địa hình, khí hậu.", "Lòng yêu nước nồng nàn và khối đại đoàn kết toàn dân tộc.", "Sự viện trợ vũ khí hiện đại từ các quốc gia láng giềng."], answer: 2 },
 
     // Mức độ Vận dụng (6 câu)
-    { type: 'mcq', text: "Từ nguyên nhân thắng lợi của cuộc kháng chiến chống Pháp (1945-1954), bài học cốt lõi nào được Đảng ta rút ra cho công cuộc bảo vệ Tổ quốc hiện nay?", options: ["Chỉ cần tập trung xây dựng quân đội chính quy hiện đại.", "Phải xây dựng và phát huy tối đa sức mạnh khối đại đoàn kết toàn dân tộc.", "Tuyệt đối không sử dụng biện pháp đàm phán ngoại giao.", "Dựa hoàn toàn vào sức mạnh của các liên minh quân sự."], answer: 1 },
-    { type: 'mcq', text: "Điểm tương đồng về nghệ thuật quân sự giữa chiến dịch Điện Biên Phủ (1954) và Chiến dịch Hồ Chí Minh (1975) là gì?", options: ["Chỉ sử dụng hình thức chiến tranh du kích để tiêu hao sinh lực địch.", "Đều là những trận quyết chiến chiến lược quy mô lớn, đập tan trung tâm đầu não và lực lượng phòng ngự kiên cố nhất của địch.", "Đều thực hiện chiến thuật 'vườn không nhà trống' để đối phó.", "Đều kết thúc bằng việc ký kết một hiệp định hòa bình ngay trên chiến trường."], answer: 1 },
-    { type: 'mcq', text: "Trong chính sách đối ngoại 'đa phương hóa, đa dạng hóa' từ năm 1986 đến nay, Việt Nam đã vận dụng linh hoạt bài học lịch sử nào?", options: ["Kết hợp sức mạnh dân tộc với sức mạnh thời đại, giữ vững nguyên tắc độc lập tự chủ.", "Sử dụng sức mạnh quân sự để giải quyết mọi tranh chấp biên giới.", "Đóng cửa nền kinh tế để tự cung tự cấp, tránh phụ thuộc.", "Chỉ liên minh với các quốc gia chung hệ tư tưởng xã hội chủ nghĩa."], answer: 0 },
-    { type: 'mcq', text: "Đặc điểm chung lớn nhất của các cuộc cách mạng tư sản (như ở Anh, Mỹ, Pháp) là gì?", options: ["Đều do giai cấp vô sản lãnh đạo.", "Đều diễn ra dưới hình thức chiến tranh giải phóng dân tộc.", "Đều nhằm lật đổ rào cản phong kiến/thực dân để mở đường cho chủ nghĩa tư bản phát triển.", "Đều giải quyết triệt để vấn đề ruộng đất cho người nông dân."], answer: 2 },
-    { type: 'mcq', text: "Để giải quyết vấn đề Biển Đông hiện nay, Việt Nam tuân thủ nguyên tắc cơ bản nào của Liên hợp quốc?", options: ["Từ bỏ đe dọa bằng vũ lực, giải quyết các tranh chấp quốc tế bằng biện pháp hòa bình.", "Can thiệp trực tiếp vào công việc nội bộ của các quốc gia liên quan.", "Đàm phán bí mật song phương để chia sẻ quyền lợi.", "Sử dụng lực lượng gìn giữ hòa bình để kiểm soát vùng biển tranh chấp."], answer: 0 },
-    { type: 'mcq', text: "Từ thành công của công cuộc cải cách ở Vương quốc Xiêm (cuối TK XIX), bài học nào có ý nghĩa lớn đối với Việt Nam trong bối cảnh hội nhập quốc tế hiện nay?", options: ["Phải duy trì bằng mọi giá cơ cấu kinh tế truyền thống.", "Phải chủ động mở cửa, cải cách toàn diện và áp dụng ngoại giao khôn khéo để thích ứng và phát triển.", "Không được tiếp xúc với văn hóa ngoại lai để bảo vệ truyền thống.", "Phải cắt nhượng lãnh thổ cho các cường quốc để đổi lấy an ninh kinh tế."], answer: 1 },
+    { type: 'mcq', text: "Từ chiến lược công nghiệp hoá thay thế nhập khẩu chuyển sang công nghiệp hoá hướng về xuất khẩu của các nước Đông Nam Á, bài học nào được rút ra cho chiến lược phát triển kinh tế?", options: ["Phải đóng cửa thị trường nội địa để bảo vệ sản xuất trong nước.", "Chỉ có dựa hoàn toàn vào vốn viện trợ ODA mới có thể công nghiệp hóa.", "Phải kết hợp khai thác thị trường nội địa gắn với mở cửa hội nhập, lấy xuất khẩu làm động lực chính.", "Xóa bỏ hoàn toàn nông nghiệp để tập trung cho công nghiệp nặng."], answer: 2 },
+    { type: 'mcq', text: "Điểm khác biệt căn bản về lực lượng giữa Cách mạng tháng Tám (1945) ở Việt Nam so với các cuộc cách mạng tư sản thế kỉ XVII - XVIII là gì?", options: ["Cách mạng tháng Tám chỉ dựa vào lực lượng vũ trang.", "Cách mạng tháng Tám sử dụng bạo lực cách mạng kết hợp chính trị và vũ trang, do giai cấp công nhân lãnh đạo.", "Các cuộc cách mạng tư sản không có sự tham gia của nông dân.", "Cách mạng tháng Tám hoàn toàn diễn ra bằng phương pháp đàm phán ngoại giao."], answer: 1 },
+    { type: 'mcq', text: "Trong bối cảnh hội nhập quốc tế, Việt Nam đã vận dụng bài học 'kết hợp sức mạnh dân tộc và sức mạnh thời đại' như thế nào?", options: ["Chỉ dựa vào nội lực, từ chối mọi nguồn vốn đầu tư nước ngoài FDI.", "Chấp nhận mất độc lập chủ quyền để đổi lấy viện trợ kinh tế.", "Phát huy nội lực, đồng thời tranh thủ tối đa nguồn lực bên ngoài (vốn, công nghệ) để phát triển.", "Can thiệp vũ trang vào các cuộc xung đột quốc tế để nâng cao vị thế."], answer: 2 },
+    { type: 'mcq', text: "Bài học 'khoan thư sức dân' của Hưng Đạo Đại Vương Trần Quốc Tuấn được Đảng Cộng sản Việt Nam vận dụng như thế nào trong công cuộc Đổi mới (từ 1986)?", options: ["Chỉ tập trung phát triển quân sự, bỏ qua kinh tế.", "Lấy dân làm gốc, cải thiện đời sống vật chất và tinh thần của nhân dân làm mục tiêu phát triển.", "Tăng cường thu thuế để xây dựng ngân sách nhà nước.", "Kêu gọi viện trợ từ nước ngoài thay vì sử dụng nguồn lực trong dân."], answer: 1 },
+    { type: 'mcq', text: "Để giải quyết tranh chấp chủ quyền trên Biển Đông hiện nay, Việt Nam đã vận dụng nguyên tắc nào của Liên hợp quốc?", options: ["Từ bỏ đe dọa bằng vũ lực, giải quyết tranh chấp bằng biện pháp hòa bình theo luật pháp quốc tế.", "Can thiệp trực tiếp vào nội bộ của quốc gia có tranh chấp.", "Sử dụng sức mạnh quân sự để răn đe.", "Tuyệt đối không đàm phán song phương hay đa phương."], answer: 0 },
+    { type: 'mcq', text: "Sự xuất hiện của các tổ chức độc quyền (Các-ten, Tơ-rớt) vào cuối thế kỉ XIX - đầu thế kỉ XX chứng tỏ điều gì về chủ nghĩa tư bản?", options: ["Chủ nghĩa tư bản đã bước vào giai đoạn suy vong, sắp sụp đổ hoàn toàn.", "Sản xuất tư bản chủ nghĩa tích tụ và tập trung cao độ, chuyển từ tự do cạnh tranh sang độc quyền.", "Sự can thiệp triệt để của nhà nước vào mọi hoạt động kinh tế.", "Chủ nghĩa tư bản đã giải quyết triệt để mâu thuẫn giữa tư sản và vô sản."], answer: 1 },
 
     // Mức độ Vận dụng cao (6 câu)
-    { type: 'mcq', text: "Từ sự sụp đổ của chủ nghĩa xã hội ở Liên Xô và Đông Âu (1989-1991), bài học mang tính nguyên tắc sinh tử đối với công cuộc Đổi mới ở Việt Nam là gì?", options: ["Tiến hành đa nguyên chính trị, đa đảng đối lập để thúc đẩy dân chủ.", "Đổi mới kinh tế phải đi liền với việc giữ vững vai trò lãnh đạo tuyệt đối của Đảng Cộng sản.", "Thay đổi toàn bộ mục tiêu xã hội chủ nghĩa sang tư bản chủ nghĩa.", "Ngừng toàn bộ quá trình hội nhập quốc tế để bảo vệ an ninh tư tưởng."], answer: 1 },
-    { type: 'mcq', text: "Sự phân hóa của chủ nghĩa tư bản chuyển từ tự do cạnh tranh sang độc quyền (cuối TK XIX) đã tác động trực tiếp như thế nào đến lịch sử Việt Nam?", options: ["Thúc đẩy quá trình giao lưu văn hóa bình đẳng giữa Việt Nam và Pháp.", "Giúp nền kinh tế Việt Nam phát triển nhảy vọt thành kinh tế tư bản chủ nghĩa.", "Nhu cầu thị trường, nguyên liệu đẩy thực dân Pháp tiến hành cuộc chiến tranh xâm lược Việt Nam (1858).", "Làm cho triều đình nhà Nguyễn tự nguyện dâng nước cho Pháp."], answer: 2 },
-    { type: 'mcq', text: "Đánh giá về tác động của sự sụp đổ Trật tự hai cực I-an-ta đối với khu vực Đông Nam Á, nhận định nào sau đây là sâu sắc nhất?", options: ["Biến khu vực này thành bãi chiến trường khốc liệt nhất của thời kỳ hậu Chiến tranh lạnh.", "Mở ra cơ hội hòa giải, đối thoại, đưa đến sự giải quyết vấn đề Cam-pu-chia và sự mở rộng của ASEAN thành 10 nước.", "Đông Nam Á cắt đứt mọi quan hệ ngoại giao với các nước thuộc Liên Xô cũ.", "Khiến các quốc gia Đông Nam Á phải thành lập một khối quân sự chung đối phó với Mỹ."], answer: 1 },
-    { type: 'mcq', text: "Trước những thách thức của chủ nghĩa tư bản hiện đại (phân hóa giàu nghèo, ô nhiễm, khủng hoảng tài chính), Việt Nam phải giải quyết bài toán cốt lõi nào khi xây dựng nền kinh tế thị trường định hướng XHCN?", options: ["Quay lại nền kinh tế bao cấp để đảm bảo cào bằng thu nhập.", "Chấp nhận hi sinh môi trường và công bằng xã hội để đổi lấy tăng trưởng kinh tế nhanh.", "Phát triển kinh tế nhanh, hiệu quả nhưng phải gắn chặt với thực hiện tiến bộ, công bằng xã hội và bảo vệ môi trường.", "Đóng cửa thị trường chứng khoán và tài chính để tránh khủng hoảng."], answer: 2 },
-    { type: 'mcq', text: "Từ nghệ thuật 'toàn dân đánh giặc' trong các cuộc chiến tranh giải phóng, triết lý xây dựng nền quốc phòng của Việt Nam hiện nay được định hướng như thế nào?", options: ["Xây dựng quân đội đánh thuê chuyên nghiệp, tách biệt khỏi nhân dân.", "Chỉ tập trung phát triển vũ khí hạt nhân để răn đe chiến lược.", "Xây dựng thế trận quốc phòng toàn dân, an ninh nhân dân vững chắc, bảo vệ Tổ quốc từ sớm, từ xa.", "Giao toàn quyền bảo vệ đất nước cho lực lượng không quân và hải quân."], answer: 2 },
-    { type: 'mcq', text: "Từ thành công của ASEAN trong việc xây dựng 'Cộng đồng ASEAN' (2015), giá trị cốt lõi mang tính toàn cầu trong việc giải quyết xung đột mà ASEAN đóng góp là gì?", options: ["Sử dụng biện pháp trừng phạt kinh tế ngặt nghèo để ép các nước tuân thủ.", "Thiết lập liên minh quân sự tấn công phủ đầu mọi nguy cơ đe dọa.", "Xây dựng lòng tin, học cách hòa giải và giải quyết tranh chấp bằng biện pháp hòa bình dựa trên sự đồng thuận ('Phương cách ASEAN').", "Thành lập một siêu nhà nước với một chính phủ duy nhất."], answer: 2 },
+    { type: 'mcq', text: "Đánh giá về tác động của sự sụp đổ Trật tự hai cực I-an-ta đối với khu vực Đông Nam Á, nhận định nào sau đây sâu sắc nhất?", options: ["Mở ra cơ hội hòa giải, đối thoại, đưa đến sự giải quyết vấn đề Campuchia và sự mở rộng của ASEAN thành 10 nước.", "Biến Đông Nam Á thành khu vực hoàn toàn phụ thuộc vào sự chi phối của Mỹ.", "Làm bùng nổ các cuộc chiến tranh sắc tộc khốc liệt chưa từng có ở khu vực.", "Đông Nam Á cắt đứt mọi quan hệ với Liên bang Nga và các nước Đông Âu."], answer: 0 },
+    { type: 'mcq', text: "Việc Liên hợp quốc công nhận Tuyên ngôn Nhân quyền (1948) và vai trò của tổ chức này đối với các quốc gia đang phát triển hiện nay cho thấy quy luật gì trong quan hệ quốc tế?", options: ["Quyền lực cứng (quân sự) luôn áp đảo quyền lực mềm.", "Sự toàn cầu hóa làm mất đi chủ quyền quốc gia.", "Sự chuyển dịch từ đối đầu tư tưởng sang hợp tác giải quyết các vấn đề an ninh con người và phát triển bền vững.", "Các nước lớn luôn tìm cách xóa bỏ văn hóa của nước nhỏ."], answer: 2 },
+    { type: 'mcq', text: "Sự khác biệt mang tính chất nguyên lý giữa công cuộc Đổi mới ở Việt Nam và Cải tổ ở Liên Xô dẫn đến hai kết cục hoàn toàn trái ngược là gì?", options: ["Việt Nam tiến hành cải tổ chính trị trước, kinh tế sau.", "Việt Nam từ bỏ mục tiêu XHCN để thu hút vốn FDI.", "Việt Nam đổi mới kinh tế làm trọng tâm, giữ vững ổn định chính trị và vai trò lãnh đạo tuyệt đối của Đảng Cộng sản.", "Liên Xô chỉ đổi mới kinh tế mà không chịu thay đổi hệ thống chính trị."], answer: 2 },
+    { type: 'mcq', text: "Từ nghệ thuật 'toàn dân đánh giặc' trong Cách mạng tháng Tám và 30 năm chiến tranh giải phóng, triết lý xây dựng nền quốc phòng của Việt Nam hiện nay được định hướng như thế nào?", options: ["Chỉ dựa vào sự viện trợ công nghệ vũ khí từ nước ngoài.", "Xây dựng lực lượng quân đội nhà nghề đánh thuê.", "Xây dựng nền quốc phòng toàn dân, an ninh nhân dân, kết hợp sức mạnh dân tộc với sức mạnh thời đại bảo vệ Tổ quốc từ sớm, từ xa.", "Giao toàn bộ việc bảo vệ đất nước cho lực lượng Hải quân."], answer: 2 },
+    { type: 'mcq', text: "Từ thành tựu 40 năm Đổi mới (1986-2026), đâu là thách thức lớn nhất mà nền kinh tế Việt Nam phải vượt qua để tránh bẫy thu nhập trung bình?", options: ["Sự gia tăng quá nhanh của dân số nông thôn.", "Khoảng cách giàu nghèo và nhu cầu chuyển đổi sang kinh tế số, kinh tế xanh, đổi mới sáng tạo.", "Sự bao vây, cấm vận kinh tế của các thế lực thù địch.", "Sự khan hiếm tuyệt đối của các loại tài nguyên khoáng sản."], answer: 1 },
+    { type: 'mcq', text: "Bài học lịch sử lớn nhất về chỉ đạo chiến lược được rút ra từ thắng lợi của Chiến dịch Hồ Chí Minh lịch sử (1975) là gì?", options: ["Kết hợp đấu tranh quân sự với ngoại giao để ép địch đầu hàng.", "Chủ động, linh hoạt nắm bắt thời cơ, kiên quyết tập trung lực lượng đánh đòn quyết định.", "Chỉ dựa vào viện trợ của các nước Xã hội chủ nghĩa anh em.", "Đánh tiêu hao sinh lực địch để kéo dài chiến tranh."], answer: 1 },
 
     // --- PHẦN II: TRẮC NGHIỆM ĐÚNG/SAI (4 CÂU - Bao hàm 4 mức độ nhận thức trong từng ý) ---
-    { type: 'tf', text: "Câu 1. Về Cách mạng tháng Tám năm 1945 và sự ra đời của nước Việt Nam Dân chủ Cộng hòa:", options: [
-        { text: "a) (Nhận biết) Ngày 2-9-1945, tại Quảng trường Ba Đình, Chủ tịch Hồ Chí Minh đã đọc bản Tuyên ngôn Độc lập.", answer: true },
-        { text: "b) (Thông hiểu) Thắng lợi của Cách mạng tháng Tám đã đánh dấu sự chấm dứt hoàn toàn của chế độ quân chủ tồn tại hàng ngàn năm ở Việt Nam.", answer: true },
-        { text: "c) (Vận dụng) Cách mạng tháng Tám thành công nhanh chóng, ít đổ máu chỉ đơn thuần là do quân phiệt Nhật đã đầu hàng Đồng minh trước đó.", answer: false },
-        { text: "d) (Vận dụng cao) Nghệ thuật chớp thời cơ vô cùng sắc bén trong Cách mạng tháng Tám là bài học thực tiễn vô giá để Việt Nam vận dụng vào việc nắm bắt cơ hội trong hội nhập quốc tế hiện nay.", answer: true }
-    ]},
-    { type: 'tf', text: "Câu 2. Về sự phát triển của Hiệp hội các quốc gia Đông Nam Á (ASEAN):", options: [
-        { text: "a) (Nhận biết) ASEAN được thành lập vào năm 1967 tại Thái Lan với 5 quốc gia thành viên sáng lập ban đầu.", answer: true },
-        { text: "b) (Thông hiểu) Việc Việt Nam chính thức gia nhập ASEAN năm 1995 đã đánh dấu bước đột phá, chấm dứt sự chia rẽ giữa hai nhóm nước ở Đông Nam Á.", answer: true },
-        { text: "c) (Vận dụng) Nguyên tắc đồng thuận của ASEAN giúp tổ chức này dễ dàng và nhanh chóng ra quyết định trừng phạt quân sự đối với các nước vi phạm.", answer: false },
-        { text: "d) (Vận dụng cao) Thách thức lớn nhất đe dọa sự phát triển của Cộng đồng ASEAN hiện nay là sự chênh lệch trình độ phát triển nội khối và áp lực cạnh tranh chiến lược từ các nước lớn.", answer: true }
-    ]},
-    { type: 'tf', text: "Câu 3. Đọc đoạn tư liệu: 'Năm tháng sẽ trôi qua nhưng thắng lợi của nhân dân ta trong sự nghiệp kháng chiến chống Mỹ, cứu nước mãi mãi được ghi vào lịch sử dân tộc ta như một trong những trang chói lọi nhất...'", options: [
-        { text: "a) (Nhận biết) Cuộc kháng chiến chống Mỹ, cứu nước của nhân dân Việt Nam kéo dài 21 năm (từ 1954 đến 1975).", answer: true },
-        { text: "b) (Thông hiểu) Tư liệu trên nhấn mạnh rằng ý nghĩa của kháng chiến chống Mỹ chỉ có giá trị đối với riêng lịch sử dân tộc Việt Nam.", answer: false },
-        { text: "c) (Vận dụng) Điểm cốt lõi làm nên sự vĩ đại của chiến công này là Đảng đã đề ra đường lối tiến hành đồng thời hai nhiệm vụ chiến lược ở hai miền Nam - Bắc.", answer: true },
-        { text: "d) (Vận dụng cao) Thắng lợi này chứng minh quy luật: trong thời đại ngày nay, sức mạnh của vũ khí công nghệ cao luôn bị đánh bại bởi nghệ thuật chiến tranh du kích truyền thống.", answer: false }
-    ]},
-    { type: 'tf', text: "Câu 4. Về sự vươn lên của các cường quốc và trật tự đa cực hiện nay:", options: [
-        { text: "a) (Nhận biết) G20 là diễn đàn kinh tế gồm 20 nền kinh tế lớn nhất thế giới, được thành lập vào năm 1999.", answer: true },
+    { type: 'tf', text: "Câu 1. Về sự vươn lên của các cường quốc và trật tự đa cực hiện nay:", options: [
+        { text: "a) (Nhận biết) G20 là diễn đàn kinh tế gồm 20 nền kinh tế lớn nhất thế giới, được thành lập năm 1999.", answer: true },
         { text: "b) (Thông hiểu) Sự hình thành trật tự thế giới đa cực là một tiến trình lịch sử khách quan dựa trên sự phân bố lại sức mạnh kinh tế toàn cầu.", answer: true },
-        { text: "c) (Vận dụng) Trong trật tự đa cực, vai trò của Liên hợp quốc ngày càng mờ nhạt và không còn đóng góp gì trong việc điều hòa các mâu thuẫn quốc tế.", answer: false },
-        { text: "d) (Vận dụng cao) Xu thế đa cực tạo ra cơ hội lớn cho các nước đang phát triển như Việt Nam tận dụng để vươn lên, nhưng đồng thời tiềm ẩn rủi ro bị kẹt trong các đòn bẩy cạnh tranh của nước lớn.", answer: true }
+        { text: "c) (Vận dụng) Trong trật tự đa cực, Liên hợp quốc không còn đóng vai trò gì trong việc điều hòa các mâu thuẫn quốc tế.", answer: false },
+        { text: "d) (Vận dụng cao) Xu thế đa cực tạo ra cơ hội lớn cho các nước đang phát triển như Việt Nam có thể tận dụng mâu thuẫn giữa các nước lớn để tối đa hóa lợi ích, nhưng tiềm ẩn rủi ro bị kẹt trong cạnh tranh.", answer: true }
+    ]},
+    { type: 'tf', text: "Câu 2. Về sự khủng hoảng và sụp đổ của chủ nghĩa xã hội ở Liên Xô và Đông Âu:", options: [
+        { text: "a) (Nhận biết) Nửa sau những năm 70 của thế kỷ XX, tốc độ tăng trưởng kinh tế của các nước XHCN Đông Âu bắt đầu suy giảm.", answer: true },
+        { text: "b) (Thông hiểu) Nguyên nhân cơ bản là do áp dụng máy móc mô hình kinh tế tập trung, quan liêu, bao cấp trong nhiều năm.", answer: true },
+        { text: "c) (Vận dụng) Quá trình cải cách, cải tổ phạm sai lầm nghiêm trọng về đường lối và sự xóa bỏ vai trò lãnh đạo của Đảng Cộng sản.", answer: true },
+        { text: "d) (Vận dụng cao) Sự sụp đổ của chủ nghĩa xã hội ở Liên Xô và Đông Âu đồng nghĩa với sự sụp đổ hoàn toàn của lý luận chủ nghĩa Mác - Lênin trên thế giới.", answer: false }
+    ]},
+    { type: 'tf', text: "Câu 3. Về Cách mạng tháng Tám năm 1945 và sự ra đời của nước Việt Nam Dân chủ Cộng hòa:", options: [
+        { text: "a) (Nhận biết) Ngày 2-9-1945, tại Quảng trường Ba Đình, Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập.", answer: true },
+        { text: "b) (Thông hiểu) Thắng lợi của Cách mạng tháng Tám đã đánh dấu sự chấm dứt hoàn toàn của chế độ quân chủ tồn tại hàng ngàn năm ở Việt Nam.", answer: true },
+        { text: "c) (Vận dụng) Cách mạng tháng Tám thành công nhanh chóng và ít đổ máu chủ yếu là do quân phiệt Nhật đã đầu hàng quân Đồng minh trước đó.", answer: false },
+        { text: "d) (Vận dụng cao) Nghệ thuật chớp thời cơ trong Cách mạng tháng Tám là bài học vô giá về sự nhạy bén chính trị để Đảng vận dụng vào quá trình hội nhập quốc tế hiện nay.", answer: true }
+    ]},
+    { type: 'tf', text: "Câu 4. Cho đoạn tư liệu: 'Đại đoàn kết toàn dân tộc là nền tảng hội tụ và phát huy cao nhất sức mạnh của Nhân dân... Kiên trì thực hiện đường lối đại đoàn kết toàn dân tộc trên nền tảng của khối liên minh giữa giai cấp công nhân, giai cấp nông dân và đội ngũ trí thức...'", options: [
+        { text: "a) (Nhận biết) Đại hội đại biểu toàn quốc lần thứ XIV (2026) của Đảng CSVN bước đầu xác định đại đoàn kết toàn dân là nguồn sức mạnh cần phát huy.", answer: false },
+        { text: "b) (Thông hiểu) Sức mạnh của khối đại đoàn kết toàn dân tộc được phát huy cao độ dưới sự lãnh đạo của Đảng Cộng sản Việt Nam.", answer: true },
+        { text: "c) (Vận dụng) Đường lối đại đoàn kết toàn dân tộc Việt Nam được xây dựng trên nền tảng của khối liên minh công – nông và tư sản dân tộc.", answer: false },
+        { text: "d) (Vận dụng cao) Bài học đại đoàn kết từ các cuộc đấu tranh giải phóng dân tộc vẫn là chìa khóa then chốt để Việt Nam vươn tới phát triển phồn vinh, hùng cường.", answer: true }
     ]}
 ];
 
-// Khởi tạo các Đề thi thử trống (7 đến 10)
-for (let testId = 7; testId <= 10; testId++) {
-    appDatabase.mocktest[testId] = []; 
-}
+appDatabase.mocktest[8] = [
+    // --- PHẦN I: TRẮC NGHIỆM ĐA LỰA CHỌN (24 CÂU) ---
+    // Nhận biết
+    { type: 'mcq', text: "Theo Hội nghị I-an-ta (1945), khu vực nào thuộc phạm vi ảnh hưởng của Liên Xô?", options: ["Tây Âu.", "Đông Âu.", "Tây Đức.", "Đông Nam Á."], answer: 1 },
+    { type: 'mcq', text: "Sự sụp đổ của chủ nghĩa xã hội ở Đông Âu và Liên Xô diễn ra vào thời gian nào?", options: ["Sau Chiến tranh thế giới thứ hai.", "Thập kỉ 70 của thế kỉ XX.", "Cuối những năm 80 - đầu 90 của thế kỉ XX.", "Đầu thế kỉ XXI."], answer: 2 },
+    { type: 'mcq', text: "Mặt trận Liên hiệp quốc dân Việt Nam (Mặt trận Liên Việt) được thành lập vào năm nào?", options: ["1930.", "1941.", "1945.", "1951."], answer: 3 },
+    { type: 'mcq', text: "Nước Việt Nam Dân chủ Cộng hòa chính thức ra đời vào ngày nào?", options: ["19-8-1945.", "2-9-1945.", "6-3-1946.", "19-12-1946."], answer: 1 },
+    { type: 'mcq', text: "Hai tôn giáo có ảnh hưởng sâu rộng hàng đầu của Ấn Độ thời cổ đại là gì?", options: ["Cơ Đốc giáo và Hồi giáo.", "Hin-đu giáo và Phật giáo.", "Nho giáo và Đạo giáo.", "Tin Lành và Công giáo."], answer: 1 },
+    { type: 'mcq', text: "Cuộc cách mạng Tân Hợi (1911) ở Trung Quốc đã lật đổ triều đại nào?", options: ["Nhà Minh.", "Nhà Hán.", "Nhà Thanh.", "Nhà Tống."], answer: 2 },
+    // Thông hiểu
+    { type: 'mcq', text: "Sự ra đời của tổ chức Liên hợp quốc (1945) mang ý nghĩa chủ yếu nào sau đây?", options: ["Tạo ra một liên minh quân sự chống lại Liên Xô.", "Tạo ra một cơ chế quốc tế để duy trì hòa bình và an ninh thế giới.", "Thành lập một chính phủ quản lý toàn cầu.", "Phân chia lợi ích kinh tế giữa các nước thắng trận."], answer: 1 },
+    { type: 'mcq', text: "Nguyên nhân sâu xa dẫn đến các cuộc cách mạng tư sản (thế kỉ XVI - XVIII) bùng nổ là gì?", options: ["Sự xung đột tôn giáo giữa các giáo phái.", "Mâu thuẫn giữa lực lượng sản xuất mới (TBCN) với quan hệ sản xuất phong kiến lạc hậu.", "Sự can thiệp của các cường quốc bên ngoài.", "Khủng hoảng do thiên tai và dịch bệnh kéo dài."], answer: 1 },
+    { type: 'mcq', text: "Điểm nổi bật trong chính sách đối ngoại của Việt Nam từ Đổi mới (1986) đến nay là gì?", options: ["Chỉ hợp tác với các nước xã hội chủ nghĩa.", "Đa phương hóa, đa dạng hóa quan hệ quốc tế.", "Thực hiện chính sách bế quan tỏa cảng để bảo vệ an ninh.", "Chỉ gia nhập các liên minh quân sự ở châu Á."], answer: 1 },
+    { type: 'mcq', text: "Sự kiện nào đánh dấu bước phát triển nhảy vọt của cách mạng miền Nam, chuyển từ thế giữ gìn lực lượng sang thế tiến công?", options: ["Chiến thắng Ấp Bắc (1963).", "Phong trào Đồng khởi (1959-1960).", "Cuộc Tổng tiến công và nổi dậy Xuân Mậu Thân (1968).", "Trận 'Điện Biên Phủ trên không' (1972)."], answer: 1 },
+    { type: 'mcq', text: "Đặc điểm chung của các nước Đông Nam Á hải đảo khi bị thực dân phương Tây xâm lược là gì?", options: ["Là những nước có nền kinh tế tư bản chủ nghĩa phát triển cao.", "Là khu vực giàu tài nguyên và nằm trên tuyến đường biển huyết mạch.", "Có quân đội hiện đại nhất châu Á.", "Là các quốc gia theo chế độ dân chủ cộng hòa."], answer: 1 },
+    { type: 'mcq', text: "Ba chương trình kinh tế lớn được đề ra tại Đại hội VI (1986) phản ánh sự thay đổi tư duy gì của Đảng ta?", options: ["Ưu tiên phát triển công nghiệp nặng.", "Tập trung xây dựng hợp tác xã quy mô lớn.", "Chuyển từ ưu tiên công nghiệp nặng sang tập trung giải quyết nhu cầu thiết yếu của đời sống nhân dân (lương thực, hàng tiêu dùng, xuất khẩu).", "Từ bỏ hoàn toàn sản xuất nông nghiệp."], answer: 2 },
+    // Vận dụng
+    { type: 'mcq', text: "Điểm giống nhau về hoàn cảnh lịch sử của cuộc kháng chiến chống Pháp (1945-1954) và chống Mỹ (1954-1975) là gì?", options: ["Đều nhận được sự đồng thuận tuyệt đối của Liên hợp quốc.", "Đều diễn ra trong bối cảnh thế giới chia thành hai phe, Chiến tranh lạnh căng thẳng.", "Đều có sự tham gia trực tiếp của quân đội các nước Tây Âu.", "Đều bị mất toàn bộ chính quyền ngay từ những ngày đầu."], answer: 1 },
+    { type: 'mcq', text: "Từ sự phát triển của CNTB từ tự do cạnh tranh sang độc quyền, quy luật nào của kinh tế thị trường được thể hiện rõ nhất?", options: ["Quy luật cung cầu.", "Quy luật giá trị.", "Quy luật tích tụ và tập trung tư bản (vốn và sản xuất).", "Quy luật lưu thông tiền tệ."], answer: 2 },
+    { type: 'mcq', text: "Bài học kinh nghiệm nào từ Hiệp định Pa-ri (1973) vẫn còn nguyên giá trị đối với hoạt động ngoại giao của Việt Nam hiện nay?", options: ["Phụ thuộc hoàn toàn vào sự dàn xếp của các nước lớn.", "Chỉ đàm phán khi đã tiêu diệt hoàn toàn lực lượng đối phương.", "Kết hợp chặt chẽ giữa sức mạnh thực lực trên thực địa với đấu tranh trên bàn đàm phán ngoại giao.", "Từ chối mọi sự nhượng bộ dù là nhỏ nhất."], answer: 2 },
+    { type: 'mcq', text: "Sự kết nối giữa Lịch sử và đời sống thực tiễn hiện nay được thể hiện rõ nhất qua hoạt động nào?", options: ["Chỉ tập trung học thuộc lòng các mốc thời gian.", "Bảo tàng hóa tất cả mọi di tích, cấm con người tiếp cận.", "Vận dụng bài học quá khứ để định hướng tương lai và phát triển các ngành công nghiệp văn hóa, du lịch.", "Viết lại lịch sử theo ý muốn chủ quan của cá nhân."], answer: 2 },
+    { type: 'mcq', text: "Điểm chung về nguyên nhân thắng lợi của các cuộc kháng chiến bảo vệ Tổ quốc trong lịch sử Việt Nam (chống Tống, Nguyên, Minh, Thanh, Pháp, Mỹ) là gì?", options: ["Vũ khí luôn hiện đại hơn kẻ thù.", "Sức mạnh vô địch của khối đại đoàn kết toàn dân tộc dưới sự lãnh đạo của tổ chức/nhân vật kiệt xuất.", "Sự viện trợ quân sự trực tiếp từ bên ngoài.", "Kẻ thù tự động rút lui do dịch bệnh."], answer: 1 },
+    { type: 'mcq', text: "Việc Việt Nam tích cực hội nhập kinh tế quốc tế (gia nhập WTO, tham gia các FTA) phản ánh việc vận dụng bài học nào từ lịch sử?", options: ["Bài học về 'Vườn không nhà trống'.", "Bài học về 'Tiên phát chế nhân'.", "Bài học về 'Kết hợp sức mạnh dân tộc và sức mạnh thời đại'.", "Bài học về 'Chiến tranh du kích'."], answer: 2 },
+    // Vận dụng cao
+    { type: 'mcq', text: "Tại sao nói sự sụp đổ của Trật tự hai cực Ianta đã tạo ra 'cơ hội vàng' nhưng cũng đi kèm 'thách thức khôn lường' đối với Việt Nam?", options: ["Cơ hội để Việt Nam chiếm lĩnh toàn bộ thị trường châu Âu, nhưng thách thức vì thiếu vốn.", "Cơ hội phá vỡ thế bao vây cấm vận để hội nhập, nhưng đối mặt với thách thức cạnh tranh kinh tế gay gắt và bảo vệ bản sắc, an ninh quốc gia.", "Cơ hội để Việt Nam trở thành siêu cường quân sự, nhưng thách thức vì Mỹ cấm vận.", "Cơ hội thiết lập liên minh quân sự mới, nhưng thách thức vì LHQ phản đối."], answer: 1 },
+    { type: 'mcq', text: "Từ sự thất bại của nhà Hồ trong cuộc kháng chiến chống Minh (1406-1407), bài học lớn nhất được rút ra cho công cuộc bảo vệ Tổ quốc hiện nay là gì?", options: ["Thành lũy kiên cố và vũ khí hiện đại là yếu tố duy nhất quyết định chiến thắng.", "Cải cách kinh tế phải thực hiện triệt để bằng bạo lực.", "Phải xây dựng thế trận lòng dân vững chắc, 'khoan thư sức dân' làm kế sâu rễ bền gốc.", "Tuyệt đối không được thay đổi các chính sách kinh tế truyền thống."], answer: 2 },
+    { type: 'mcq', text: "Đánh giá về vai trò của Liên hợp quốc hiện nay trong bối cảnh thế giới đa cực, nhận định nào sau đây là toàn diện nhất?", options: ["Liên hợp quốc đã hoàn toàn mất đi vị trí và không còn khả năng giải quyết bất cứ vấn đề gì.", "LHQ là cơ quan quyền lực tuyệt đối, có thể ép buộc mọi quốc gia tuân thủ mọi quyết định.", "Tuy còn những hạn chế do sự chi phối của nước lớn, nhưng LHQ vẫn là diễn đàn toàn cầu quan trọng nhất để điều hòa các quan hệ và giải quyết xung đột bằng biện pháp hòa bình.", "LHQ chỉ hoạt động hiệu quả trong lĩnh vực y tế, văn hóa, không có vai trò chính trị."], answer: 2 },
+    { type: 'mcq', text: "Sự sáng tạo lớn nhất của Đảng ta trong việc chỉ đạo thực hiện cuộc kháng chiến chống Mỹ (1954-1975) là gì?", options: ["Tiến hành chiến tranh thông thường bằng các binh đoàn chủ lực lớn ngay từ đầu.", "Tiến hành đồng thời hai chiến lược cách mạng ở hai miền (XHCN ở miền Bắc, DTDCND ở miền Nam) với mục tiêu chung là giải phóng miền Nam, thống nhất đất nước.", "Dựa hoàn toàn vào sức mạnh của các nước Xã hội chủ nghĩa anh em để đánh bại Mỹ.", "Sử dụng đấu tranh nghị trường để buộc Mỹ rút quân."], answer: 1 },
+    { type: 'mcq', text: "Tác động tiêu cực của các cuộc Cách mạng công nghiệp đối với nhân loại đặt ra yêu cầu cấp bách nào cho chiến lược phát triển của Việt Nam hiện nay?", options: ["Từ chối tiếp nhận công nghệ mới để bảo vệ môi trường.", "Phát triển kinh tế bằng mọi giá, kể cả hy sinh tài nguyên thiên nhiên.", "Phát triển bền vững, gắn tăng trưởng kinh tế số, kinh tế xanh với bảo vệ môi trường và giải quyết các vấn đề xã hội.", "Quay trở lại nền sản xuất nông nghiệp tự cung tự cấp."], answer: 2 },
+    { type: 'mcq', text: "Từ thực tiễn giải quyết vấn đề Biển Đông, nguyên tắc nào của ASEAN thể hiện rõ nhất hiệu quả trong việc duy trì hòa bình khu vực?", options: ["Nguyên tắc thành lập liên minh quân sự chung để răn đe.", "Nguyên tắc đồng thuận và giải quyết các tranh chấp bằng biện pháp hòa bình theo luật pháp quốc tế.", "Nguyên tắc trục xuất các nước có tranh chấp ra khỏi tổ chức.", "Nguyên tắc sử dụng sức mạnh kinh tế để áp đặt giải pháp."], answer: 1 },
+    
+    // --- PHẦN II: TRẮC NGHIỆM ĐÚNG/SAI (4 CÂU) ---
+    { type: 'tf', text: "Câu 1. Về chiến dịch Điện Biên Phủ (1954) và cuộc kháng chiến chống Pháp:", options: [
+        { text: "a) (Nhận biết) Chiến dịch Điện Biên Phủ kết thúc thắng lợi vào ngày 7-5-1954.", answer: true },
+        { text: "b) (Thông hiểu) Thắng lợi của chiến dịch đã giáng đòn quyết định làm phá sản hoàn toàn kế hoạch Na-va của Pháp có Mỹ hậu thuẫn.", answer: true },
+        { text: "c) (Vận dụng) Chiến thắng Điện Biên Phủ chỉ có ý nghĩa đối với Việt Nam, hoàn toàn không có tác động đến phong trào giải phóng dân tộc trên thế giới.", answer: false },
+        { text: "d) (Vận dụng cao) Việc thay đổi phương châm từ 'đánh nhanh thắng nhanh' sang 'đánh chắc tiến chắc' là minh chứng cho tư duy quân sự linh hoạt, sáng tạo và bám sát thực tiễn chiến trường của quân đội ta.", answer: true }
+    ]},
+    { type: 'tf', text: "Câu 2. Về sự phát triển của Hiệp hội các quốc gia Đông Nam Á (ASEAN):", options: [
+        { text: "a) (Nhận biết) ASEAN được thành lập vào năm 1967 tại Thái Lan với 5 quốc gia sáng lập ban đầu.", answer: true },
+        { text: "b) (Thông hiểu) Mục tiêu cốt lõi của ASEAN là phát triển kinh tế, văn hóa, xã hội và duy trì hòa bình, ổn định khu vực.", answer: true },
+        { text: "c) (Vận dụng) Việc Việt Nam gia nhập ASEAN năm 1995 đã buộc tổ chức này phải thay đổi toàn bộ mục tiêu và nguyên tắc hoạt động.", answer: false },
+        { text: "d) (Vận dụng cao) 'Phương cách ASEAN' (đồng thuận và không can thiệp) luôn giúp tổ chức này giải quyết triệt để và nhanh chóng mọi tranh chấp trên Biển Đông bằng các chế tài quân sự cứng rắn.", answer: false }
+    ]},
+    { type: 'tf', text: "Câu 3. Đọc đoạn tư liệu về vai trò của Sử học: '...Lịch sử chống ngoại xâm vừa thử thách, vừa tôi luyện dân tộc ta. Những cuộc chiến tranh yêu nước đã tạo nên cho dân tộc ta một bản lĩnh kiên cường...'", options: [
+        { text: "a) (Nhận biết) Sử học là khoa học nghiên cứu về quá trình tiến hóa của các loài sinh vật.", answer: false },
+        { text: "b) (Thông hiểu) Một trong những nhiệm vụ của Sử học là cung cấp tri thức khoa học, đúc kết bài học kinh nghiệm từ quá khứ cho cuộc sống hiện tại.", answer: true },
+        { text: "c) (Vận dụng) Tư liệu trên nhấn mạnh rằng chiến tranh là yếu tố duy nhất để hình thành nên văn hóa và lịch sử Việt Nam.", answer: false },
+        { text: "d) (Vận dụng cao) Nhận thức sâu sắc về bản lĩnh kiên cường từ quá khứ là nền tảng tinh thần cốt lõi để thế hệ trẻ Việt Nam hiện nay kiên định bảo vệ chủ quyền quốc gia.", answer: true }
+    ]},
+    { type: 'tf', text: "Câu 4. Cho đoạn tư liệu: 'Đại đoàn kết toàn dân tộc là nền tảng hội tụ và phát huy cao nhất sức mạnh của Nhân dân... Kiên trì thực hiện đường lối đại đoàn kết toàn dân tộc trên nền tảng của khối liên minh giữa giai cấp công nhân, giai cấp nông dân và đội ngũ trí thức...'", options: [
+        { text: "a) (Nhận biết) Đại hội đại biểu toàn quốc lần thứ XIV (2026) của Đảng CSVN bước đầu xác định đại đoàn kết toàn dân là nguồn sức mạnh cần phát huy.", answer: false },
+        { text: "b) (Thông hiểu) Sức mạnh của khối đại đoàn kết toàn dân tộc được phát huy cao độ dưới sự lãnh đạo của Đảng Cộng sản Việt Nam.", answer: true },
+        { text: "c) (Vận dụng) Đường lối đại đoàn kết toàn dân tộc Việt Nam được xây dựng trên nền tảng của khối liên minh công – nông và tư sản dân tộc.", answer: false },
+        { text: "d) (Vận dụng cao) Bài học đại đoàn kết từ các cuộc đấu tranh giải phóng dân tộc vẫn là chìa khóa then chốt để Việt Nam vươn tới phát triển phồn vinh, hùng cường.", answer: true }
+    ]}
+];
+
+// Khởi tạo các Đề thi thử trống (9 và 10)
+appDatabase.mocktest[9] = []; 
+appDatabase.mocktest[10] = []; 
 
 /* =========================================================================
    LOGIC HOẠT ĐỘNG GIAO DIỆN
@@ -324,7 +383,7 @@ function renderSidebar() {
         const div = document.createElement('div');
         div.className = 'flex flex-col bg-white';
         for (let t = 1; t <= 10; t++) {
-            let label = t <= 6 ? `Đề thi thử Tốt nghiệp số ${t}` : `Đề thi thử Tốt nghiệp số ${t} (Đang cập nhật)`;
+            let label = t <= 8 ? `Đề thi thử Tốt nghiệp số ${t}` : `Đề thi thử Tốt nghiệp số ${t} (Đang cập nhật)`;
             div.innerHTML += `<button onclick="startTest('mocktest', null, ${t})" class="text-left px-6 py-4 text-sm hover:bg-blue-50 border-b border-gray-100 font-semibold text-gray-700">${label}</button>`;
         }
         container.appendChild(div);
@@ -411,7 +470,7 @@ function renderTestContent() {
             q.options.forEach((opt, oIdx) => {
                 optionsHtml += `
                     <div class="flex flex-col md:flex-row md:items-center justify-between p-3 rounded-lg border border-gray-200 bg-gray-50 mb-2 tf-option" id="box_q_${index}_tf_${oIdx}" data-ans="${opt.answer}">
-                        <span class="flex-grow text-gray-800 mb-2 md:mb-0 md:mr-4">${opt.text}</span>
+                        <span class="flex-grow text-gray-800 mb-2 md:mb-0 md:mr-4"><strong>${['a', 'b', 'c', 'd'][oIdx]})</strong> ${opt.text.replace(/^[a-d]\)\s*/, '')}</span>
                         <div class="flex space-x-4 flex-shrink-0 mt-2 md:mt-0">
                             <label class="flex items-center space-x-1 cursor-pointer">
                                 <input type="radio" name="q_${index}_tf_${oIdx}" value="true" class="w-5 h-5">
