@@ -1,5 +1,5 @@
 /* =========================================================================
-   DỮ LIỆU LỊCH SỬ KHỐI 10 - CHUẨN CẤU TRÚC GỐC (10 BÀI x 20 CÂU)
+   DỮ LIỆU LỊCH SỬ KHỐI 10 - TOÀN BỘ 10 BÀI
    Bản quyền thuộc về số ĐT: 0943.930.787
 ========================================================================= */
 
@@ -374,7 +374,7 @@ const dataKhoi10 = {
                 ]},
                 { type: 'tf', text: "Về hội họa, điêu khắc và kiến trúc thời Phục hưng:[cite: 43, 44]", options: [
                     { text: "a) Nghệ thuật Phục hưng đạt đỉnh cao vào thế kỉ XV - XVI với sự đóng góp của các danh họa I-ta-li-a.", answer: true },
-                    { text: "b) Bức 'Trường học A-ten' là kiệt tác của danh họa Mi-ken-lăng-giơ.", answer: false }, // Của Raphael
+                    { text: "b) Bức 'Trường học A-ten' là kiệt tác của danh họa Mi-ken-lăng-giơ.", answer: false },
                     { text: "c) Phong cách kiến trúc Phục hưng chú trọng yếu tố hình học, tính đối xứng và tỉ lệ.", answer: true },
                     { text: "d) Vương cung Thánh đường Thánh Phê-rô là một công trình kiến trúc tiêu biểu thời kì này.", answer: true }
                 ]},
@@ -435,7 +435,7 @@ const dataKhoi10 = {
                 ]},
                 { type: 'tf', text: "Về sự ra đời của ô tô và máy bay:[cite: 50]", options: [
                     { text: "a) Động cơ đốt trong ra đời tạo tiền đề cho sự phát triển của ô tô và máy bay.", answer: true },
-                    { text: "b) Chiếc xe hơi đầu tiên trên thực tế do Hen-ri Pho tạo ra.", answer: false }, // Karl Benz tạo ra đầu tiên
+                    { text: "b) Chiếc xe hơi đầu tiên trên thực tế do Hen-ri Pho tạo ra.", answer: false },
                     { text: "c) Công ty Pho Mô-tô đã áp dụng dây chuyền lắp ráp hàng loạt để sản xuất xe hơi.", answer: true },
                     { text: "d) Anh em nhà Rai đã thử nghiệm thành công máy bay chạy bằng động cơ xăng.", answer: true }
                 ]},
@@ -543,23 +543,4 @@ const dataKhoi10 = {
                     { text: "d) Lạm dụng công nghệ trong học tập có thể làm giảm khả năng tư duy độc lập.", answer: true }
                 ]},
                 { type: 'tf', text: "Về rô-bốt và tự động hóa:[cite: 45, 54]", options: [
-                    { text: "a) Rô-bốt Xô-phi-a là một đại diện tiêu biểu của việc tích hợp AI vào hình dáng con người.", answer: true },
-                    { text: "b) Tự động hóa hoàn toàn làm mất đi sự sáng tạo của con người trong thiết kế.", answer: false },
-                    { text: "c) Các cánh tay rô-bốt trong dây chuyền ô tô giúp nâng cao độ chính xác và chất lượng sản phẩm.", answer: true },
-                    { text: "d) Công nghệ chế tạo người máy bắt nguồn từ những thành tựu của CMCN lần thứ ba.", answer: true }
-                ]},
-                { type: 'tf', text: "Đánh giá chung về các cuộc CMCN thời hiện đại:[cite: 53, 56, 57]", options: [
-                    { text: "a) Đưa nhân loại bước vào kỉ nguyên văn minh thông tin (văn minh trí tuệ).", answer: true },
-                    { text: "b) Nhịp độ đổi mới công nghệ diễn ra với tốc độ cấp số nhân, nhanh chưa từng có.", answer: true },
-                    { text: "c) Các thành tựu công nghệ chỉ mang lại tác động tiêu cực, phá hủy xã hội loài người.", answer: false },
-                    { text: "d) Đòi hỏi con người phải liên tục học tập, rèn luyện tư duy phản biện để thích ứng.", answer: true }
-                ]}
-            ]
-        }
-    },
-    8: {
-        title: "Bài 8: Hành trình phát triển và thành tựu của văn minh Đông Nam Á thời cổ - trung đại",
-        exercises: {
-            mcq: [
-                { type: 'mcq', text: "Đông Nam Á được mệnh danh là 'ngã tư đường' vì vị trí địa lý kết nối hai đại dương nào?[cite: 60]", options: ["Đại Tây Dương và Thái Bình Dương.", "Ấn Độ Dương và Thái Bình Dương.", "Bắc Băng Dương và Ấn Độ Dương.", "Đại Tây Dương và Ấn Độ Dương."], answer: 1 },
-                { type: 'mcq', text: "Thời kì
+                    { text: "a) Rô-bốt Xô-phi-a là
