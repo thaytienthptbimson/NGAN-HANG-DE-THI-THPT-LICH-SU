@@ -4,125 +4,83 @@
 ========================================================================= */
 
 const dataKhoi12 = {
-    "bai1": {
+   "bai1": {
         title: "Bài 1: Liên hợp quốc",
         exercises: {
             mcq: [
-                { type: 'mcq', text: "Tổ chức Liên hợp quốc chính thức được thành lập vào thời gian nào?", options: ["24 - 10 - 1945.", "01 - 01 - 1942.", "26 - 06 - 1945.", "02 - 09 - 1945."], answer: 0 },
-                { type: 'mcq', text: "Một trong những nguyên tắc hoạt động cơ bản của Liên hợp quốc là", options: ["Giải quyết các tranh chấp quốc tế bằng biện pháp hòa bình.", "Can thiệp trực tiếp vào công việc nội bộ của các quốc gia.", "Sử dụng vũ lực để răn đe các quốc gia vi phạm nhân quyền.", "Thiết lập một nhà nước toàn cầu thống nhất quản lý kinh tế."], answer: 0 }
+                { type: 'mcq', text: "Bản Tuyên bố Liên hợp quốc được đại diện 26 nước kí kết vào thời gian nào?", options: ["1 - 1 - 1942.", "28 - 11 - 1943.", "25 - 4 - 1945.", "24 - 10 - 1945."], answer: 0 },
+                { type: 'mcq', text: "Hội nghị nào của ba nước Liên Xô, Mỹ, Anh đã khẳng định quyết tâm thành lập Liên hợp quốc?", options: ["Hội nghị I-an-ta.", "Hội nghị Tê-hê-ran.", "Hội nghị Xan Phran-xi-xcô.", "Hội nghị Pốt-xđam."], answer: 1 },
+                { type: 'mcq', text: "Tại Hội nghị I-an-ta (tháng 2/1945), ba nước Liên Xô, Mỹ, Anh đã ra quyết định gì về Liên hợp quốc?", options: ["Thông qua Tuyên ngôn Nhân quyền.", "Kí kết bản Tuyên bố Liên hợp quốc.", "Quyết định việc thành lập Liên hợp quốc.", "Chính thức tuyên bố Liên hợp quốc đi vào hoạt động."], answer: 2 },
+                { type: 'mcq', text: "Bản Hiến chương Liên hợp quốc được thông qua tại hội nghị nào?", options: ["Hội nghị Tê-hê-ran.", "Hội nghị I-an-ta.", "Hội nghị Xan Phran-xi-xcô.", "Hội nghị Giơ-ne-vơ."], answer: 2 },
+                { type: 'mcq', text: "Tổ chức Liên hợp quốc chính thức được thành lập vào ngày tháng năm nào?", options: ["24 - 10 - 1945.", "25 - 4 - 1945.", "26 - 6 - 1945.", "01 - 01 - 1942."], answer: 0 },
+                { type: 'mcq', text: "Khi chính thức được thành lập vào năm 1945, Liên hợp quốc có bao nhiêu quốc gia thành viên?", options: ["26 nước.", "50 nước.", "51 nước.", "193 nước."], answer: 2 },
+                { type: 'mcq', text: "Ngày Liên hợp quốc hằng năm được Đại hội đồng quyết định là ngày nào?", options: ["1 - 1.", "25 - 4.", "26 - 6.", "24 - 10."], answer: 3 },
+                { type: 'mcq', text: "Trụ sở chính của tổ chức Liên hợp quốc hiện nay được đặt tại đâu?", options: ["Oa-sinh-tơn (Mỹ).", "Niu Oóc (Mỹ).", "Xan Phran-xi-xcô (Mỹ).", "Luân Đôn (Anh)."], answer: 1 },
+                { type: 'mcq', text: "Trong số các mục tiêu của Liên hợp quốc, mục tiêu nào được chú trọng và là cơ sở để thực hiện các mục tiêu khác?", options: ["Thúc đẩy quan hệ hữu nghị giữa các dân tộc.", "Thúc đẩy hợp tác quốc tế giải quyết các vấn đề kinh tế.", "Duy trì hoà bình và an ninh quốc tế.", "Đảm bảo quyền con người và quyền tự do cơ bản."], answer: 2 },
+                { type: 'mcq', text: "Đâu là một trong những nguyên tắc hoạt động cơ bản của Liên hợp quốc?", options: ["Tôn trọng toàn vẹn lãnh thổ và độc lập chính trị quốc gia.", "Can thiệp vào công việc nội bộ của các nước để bảo vệ nhân quyền.", "Sử dụng vũ lực để giải quyết các mâu thuẫn quốc tế.", "Bình đẳng về kinh tế và quân sự giữa các quốc gia."], answer: 0 },
+                { type: 'mcq', text: "Từ khi thành lập đến nay, Liên hợp quốc đóng vai trò quan trọng nhất trong lĩnh vực nào?", options: ["Thúc đẩy thương mại tự do toàn cầu.", "Ngăn ngừa không để xảy ra một cuộc chiến tranh thế giới mới.", "Thiết lập các liên minh quân sự khu vực.", "Xóa bỏ hoàn toàn khoảng cách giàu nghèo trên thế giới."], answer: 1 },
+                { type: 'mcq', text: "Hiệp ước cấm phổ biến vũ khí hạt nhân được Liên hợp quốc xây dựng vào năm nào?", options: ["1945.", "1968.", "1993.", "2017."], answer: 1 },
+                { type: 'mcq', text: "Số lượng thành viên của Liên hợp quốc hiện nay là bao nhiêu nước?", options: ["51 nước.", "150 nước.", "193 nước.", "200 nước."], answer: 2 },
+                { type: 'mcq', text: "Tổ chức kinh tế, thương mại lớn nhất trực thuộc Liên hợp quốc là gì?", options: ["Quỹ Tiền tệ Quốc tế (IMF).", "Tổ chức Thương mại Thế giới (WTO).", "Hội nghị Liên hợp quốc về Thương mại và Phát triển (UNCTAD).", "Tổ chức Giáo dục, Văn hóa, Khoa học (UNESCO)."], answer: 2 },
+                { type: 'mcq', text: "Năm 2015, Liên hợp quốc đã thông qua Chương trình nghị sự 2030 vì sự phát triển bền vững với bao nhiêu mục tiêu?", options: ["10 mục tiêu.", "15 mục tiêu.", "17 mục tiêu.", "20 mục tiêu."], answer: 2 },
+                { type: 'mcq', text: "Tuyên ngôn Nhân quyền, đưa ra những quyền và tự do cơ bản của con người, được Đại hội đồng Liên hợp quốc thông qua vào năm nào?", options: ["1945.", "1948.", "1968.", "2015."], answer: 1 },
+                { type: 'mcq', text: "Tổ chức nào của Liên hợp quốc đóng vai trò quan trọng trong việc bảo tồn di sản văn hóa của nhân loại?", options: ["UNICEF.", "UNCTAD.", "UNESCO.", "WHO."], answer: 2 },
+                { type: 'mcq', text: "Quỹ Giáo dục không thể chờ đợi (Education Cannot Wait) của LHQ trong năm 2021 đã hỗ trợ bao nhiêu trẻ em ở các khu vực chiến sự và khó khăn tiếp cận với giáo dục?", options: ["Khoảng 100 triệu trẻ em.", "Khoảng 150 triệu trẻ em.", "Khoảng 200 triệu trẻ em.", "Khoảng 222 triệu trẻ em."], answer: 3 },
+                { type: 'mcq', text: "Việt Nam có đóng góp trực tiếp nào dưới đây vào lực lượng của Liên hợp quốc nhằm duy trì hòa bình, an ninh quốc tế?", options: ["Cung cấp vũ khí cho các nước đang phát triển.", "Tham gia Lực lượng gìn giữ hoà bình tại Nam Xu-dăng.", "Tài trợ toàn bộ kinh phí cho các tổ chức chuyên môn.", "Soạn thảo Công ước cấm vũ khí hóa học."], answer: 1 },
+                { type: 'mcq', text: "Ý tưởng về một tổ chức quốc tế thực sự có vai trò trong việc duy trì hòa bình thế giới càng trở nên rõ nét trong bối cảnh nào?", options: ["Chiến tranh thế giới thứ hai đang diễn ra khốc liệt.", "Chiến tranh lạnh vừa mới kết thúc.", "Chiến tranh thế giới thứ nhất bùng nổ.", "Sau khi trật tự I-an-ta hoàn toàn sụp đổ."], answer: 0 }
             ],
             tf: [
                 { 
                     type: 'tf', 
-                    text: "Đọc đoạn tư liệu về Liên hợp quốc: 'Theo Hiến chương, Liên hợp quốc được thành lập nhằm bốn mục tiêu: 1. Duy trì hoà bình và an ninh quốc tế;...'", 
+                    text: "Đọc đoạn thông tin sau về bối cảnh thành lập Liên hợp quốc: 'Vào giai đoạn cuối của Chiến tranh thế giới thứ hai, tình hình thế giới có những chuyển biến quan trọng... Khi Chiến tranh thế giới thứ hai đang diễn ra, các nước Đồng minh chống phát xít đã mong muốn thiết lập một tổ chức quốc tế để bảo vệ hoà bình, an ninh thế giới thay thế cho Hội Quốc liên.'", 
                     options: [
-                        { text: "a) (Nhận biết) Liên hợp quốc là tổ chức quốc tế được thành lập ngay sau Chiến tranh thế giới thứ nhất (1918).", answer: false }, 
-                        { text: "b) (Thông hiểu) Mục tiêu cốt lõi và quan trọng nhất của Liên hợp quốc là duy trì hoà bình và an ninh quốc tế.", answer: true }, 
-                        { text: "c) (Vận dụng) Để đảm bảo mục tiêu, Liên hợp quốc có quyền can thiệp vào công việc nội bộ của các quốc gia có chiến tranh.", answer: false }, 
-                        { text: "d) (Vận dụng cao) Việc duy trì hòa bình của LHQ đã tạo khuôn khổ pháp lý quốc tế quan trọng giúp Việt Nam giải quyết các tranh chấp chủ quyền bằng biện pháp hòa bình.", answer: true } 
+                        { text: "a) Tổ chức Liên hợp quốc được thành lập nhằm thay thế cho Hội Quốc liên vốn đã không đủ sức mạnh bảo vệ hòa bình thế giới trước đó.", answer: true }, 
+                        { text: "b) Hội nghị Xan Phran-xi-xcô (Mỹ) vào tháng 2/1945 đã ra quyết định chính thức về việc thành lập Liên hợp quốc.", answer: false }, 
+                        { text: "c) Tổ chức Liên hợp quốc chính thức được thành lập vào ngày 24-10-1945 với sự tham gia của 50 quốc gia thành viên ban đầu.", answer: false }, 
+                        { text: "d) Sự ra đời của Liên hợp quốc phản ánh khát vọng hòa bình và sự hợp tác của các quốc gia sau những thảm họa của Chiến tranh thế giới thứ hai.", answer: true } 
                     ]
-                }
-            ]
-        }
-    },
-    "bai2": {
-        title: "Bài 2: Trật tự thế giới trong Chiến tranh lạnh",
-        exercises: {
-            mcq: [
-                { type: 'mcq', text: "Trật tự thế giới hai cực I-an-ta tồn tại trong khoảng thời gian nào?", options: ["1945 - 1975.", "1945 - 1989.", "1945 - 1991.", "1939 - 1945."], answer: 2 },
-                { type: 'mcq', text: "Đặc điểm nổi bật nhất của Trật tự thế giới hai cực I-an-ta là gì?", options: ["Sự hợp tác toàn diện giữa Mỹ và Liên Xô trên mọi lĩnh vực.", "Thế giới chia thành hai phe TBCN và XHCN do Mỹ và Liên Xô đứng đầu, đối đầu gay gắt.", "Các nước Á, Phi, Mỹ La-tinh trở thành trung tâm quyền lực mới.", "Sự thống trị tuyệt đối của chủ nghĩa thực dân cũ tại châu Á."], answer: 1 },
-                { type: 'mcq', text: "Nhân tố nào dưới đây KHÔNG phải là nguyên nhân làm sụp đổ Trật tự thế giới hai cực I-an-ta?", options: ["Sự vươn lên nhanh chóng của Tây Âu và Nhật Bản làm thay đổi cán cân kinh tế.", "Sự thắng lợi của phong trào giải phóng dân tộc làm thay đổi khuôn khổ trật tự.", "Cuộc khủng hoảng kinh tế, xã hội và sự tan rã của Liên Xô.", "Sự ra đời của tổ chức Liên hợp quốc năm 1945."], answer: 3 }
-            ],
-            tf: []
-        }
-    },
-    "bai3": {
-        title: "Bài 3: Trật tự thế giới sau Chiến tranh lạnh",
-        exercises: {
-            mcq: [
-                { type: 'mcq', text: "Trong bối cảnh thế giới xuất hiện xu thế 'đa cực' sau Chiến tranh lạnh, Việt Nam đã thực hiện chủ trương ngoại giao nào để bảo vệ lợi ích quốc gia?", options: ["Chỉ thiết lập quan hệ đối tác với các nước lớn có vũ khí hạt nhân.", "Liên minh quân sự chặt chẽ với một siêu cường để làm ô bảo vệ.", "Thực hiện đa phương hóa, đa dạng hóa quan hệ quốc tế, 'là bạn với tất cả các nước'.", "Đóng cửa nền kinh tế để tránh sự can thiệp của toàn cầu hóa."], answer: 2 }
-            ],
-            tf: []
-        }
-    },
-    "bai6": {
-        title: "Bài 6: Cách mạng tháng Tám năm 1945",
-        exercises: {
-            mcq: [
-                { type: 'mcq', text: "Sự kiện nào đánh dấu chế độ phong kiến Việt Nam hoàn toàn sụp đổ?", options: ["Hà Nội giành chính quyền (19/8/1945).", "Vua Bảo Đại tuyên bố thoái vị (30/8/1945).", "Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập (2/9/1945).", "Sài Gòn giành chính quyền (25/8/1945)."], answer: 1 }
-            ],
-            tf: []
-        }
-    },
-    "bai7": {
-        title: "Bài 7: Cuộc kháng chiến chống thực dân Pháp (1945-1954)",
-        exercises: {
-            mcq: [
-                { type: 'mcq', text: "Chiến dịch nào đã làm phá sản hoàn toàn kế hoạch Na-va của thực dân Pháp?", options: ["Chiến dịch Điện Biên Phủ (1954).", "Chiến dịch Biên giới thu - đông (1950).", "Chiến dịch Việt Bắc thu - đông (1947).", "Cuộc chiến đấu ở các đô thị (1946)."], answer: 0 }
-            ],
-            tf: []
-        }
-    },
-    "bai8": {
-        title: "Bài 8: Cuộc kháng chiến chống Mỹ, cứu nước (1954 - 1975)",
-        exercises: {
-            mcq: [
-                { type: 'mcq', text: "Điểm khác biệt căn bản của chiến lược 'Chiến tranh cục bộ' (1965-1968) so với 'Chiến tranh đặc biệt' (1961-1965) của Mỹ là gì?", options: ["Sử dụng viện trợ kinh tế và cố vấn quân sự Mỹ.", "Đưa số lượng lớn quân viễn chinh Mỹ và đồng minh trực tiếp tham chiến.", "Dồn dân lập 'ấp chiến lược' trên quy mô toàn miền Nam.", "Chỉ sử dụng không quân bắn phá miền Bắc."], answer: 1 },
-                { type: 'mcq', text: "Thắng lợi của cuộc Tổng tiến công và nổi dậy Xuân Mậu Thân (1968) đã buộc Mỹ phải có hành động gì?", options: ["Tuyên bố rút toàn bộ quân đội về nước ngay lập tức.", "Kí kết Hiệp định Giơ-ne-vơ chia cắt Việt Nam.", "Thừa nhận thất bại của 'Chiến tranh cục bộ' và ngồi vào bàn đàm phán Pa-ri.", "Thừa nhận thất bại của 'Việt Nam hóa chiến tranh'."], answer: 2 },
-                { type: 'mcq', text: "Bài học lịch sử lớn nhất về chỉ đạo chiến lược được rút ra từ thắng lợi của Chiến dịch Hồ Chí Minh lịch sử (1975) là gì?", options: ["Kết hợp đấu tranh quân sự với ngoại giao để ép địch đầu hàng.", "Chủ động, linh hoạt nắm bắt thời cơ, kiên quyết tập trung lực lượng đánh đòn quyết định.", "Chỉ dựa vào viện trợ của các nước Xã hội chủ nghĩa anh em.", "Đánh tiêu hao sinh lực địch để kéo dài chiến tranh."], answer: 1 }
-            ],
-            tf: [
+                },
                 { 
                     type: 'tf', 
-                    text: "Về cuộc kháng chiến chống Mỹ, cứu nước (1954 - 1975):", 
+                    text: "Về các mục tiêu hoạt động của tổ chức Liên hợp quốc:", 
                     options: [
-                        { text: "a) (Nhận biết) Cuộc kháng chiến chống Mỹ cứu nước của nhân dân Việt Nam kéo dài 21 năm.", answer: true },
-                        { text: "b) (Thông hiểu) Điểm cốt lõi làm nên sự vĩ đại của chiến công này là đường lối tiến hành đồng thời hai nhiệm vụ chiến lược ở hai miền Nam - Bắc.", answer: true },
-                        { text: "c) (Vận dụng) Chiến thắng 'Điện Biên Phủ trên không' cuối năm 1972 đã buộc Mỹ phải ký Hiệp định Pa-ri, rút quân về nước.", answer: true },
-                        { text: "d) (Vận dụng cao) Thắng lợi này chứng minh quy luật: sức mạnh của vũ khí công nghệ cao luôn bị đánh bại bởi nghệ thuật chiến tranh du kích truyền thống.", answer: false }
+                        { text: "a) Liên hợp quốc được thành lập nhằm thiết lập một chính phủ toàn cầu thống nhất, xóa bỏ biên giới các quốc gia.", answer: false }, 
+                        { text: "b) Mục tiêu quan trọng nhất và là cơ sở để thực hiện các mục tiêu khác của Liên hợp quốc là duy trì hoà bình và an ninh quốc tế.", answer: true }, 
+                        { text: "c) Thúc đẩy hợp tác quốc tế để giải quyết các vấn đề kinh tế, xã hội, văn hóa, nhân đạo là một trong bốn mục tiêu cơ bản.", answer: true }, 
+                        { text: "d) Liên hợp quốc không có trách nhiệm trong việc đảm bảo quyền con người và quyền tự do cơ bản cho mọi người.", answer: false } 
                     ]
-                }
-            ]
-        }
-    },
-    "bai10": {
-        title: "Bài 10: Khái quát về công cuộc Đổi mới từ năm 1986 đến nay",
-        exercises: {
-            mcq: [
-                { type: 'mcq', text: "Đại hội đại biểu toàn quốc lần thứ VI (1986) của Đảng Cộng sản Việt Nam đã đề ra đường lối đổi mới trên lĩnh vực nào là trọng tâm?", options: ["Văn hóa - Giáo dục.", "Kinh tế.", "Chính trị.", "Ngoại giao."], answer: 1 },
-                { type: 'mcq', text: "Bản chất của công cuộc Đổi mới ở Việt Nam (từ năm 1986) là gì?", options: ["Thay đổi hoàn toàn mục tiêu của chủ nghĩa xã hội.", "Chuyển sang nền kinh tế tư bản chủ nghĩa hoàn toàn.", "Làm cho mục tiêu xã hội chủ nghĩa được thực hiện hiệu quả bằng biện pháp, bước đi thích hợp.", "Xóa bỏ vai trò lãnh đạo của Đảng Cộng sản Việt Nam."], answer: 2 }
-            ],
-            tf: []
-        }
-    },
-    "bai11": {
-        title: "Bài 11: Thành tựu cơ bản và bài học của công cuộc Đổi mới ở Việt Nam từ năm 1986 đến nay",
-        exercises: {
-            mcq: [
-                { type: 'mcq', text: "Trong bối cảnh hội nhập quốc tế, Việt Nam đã vận dụng bài học 'kết hợp sức mạnh dân tộc và sức mạnh thời đại' như thế nào?", options: ["Chỉ dựa vào nội lực, từ chối mọi nguồn vốn đầu tư nước ngoài FDI.", "Chấp nhận mất độc lập chủ quyền để đổi lấy viện trợ kinh tế.", "Phát huy nội lực, đồng thời tranh thủ tối đa nguồn lực bên ngoài (vốn, công nghệ) để phát triển.", "Can thiệp vũ trang vào các cuộc xung đột quốc tế để nâng cao vị thế."], answer: 2 },
-                { type: 'mcq', text: "Từ thành tựu 40 năm Đổi mới (1986-2026), đâu là thách thức lớn nhất mà nền kinh tế Việt Nam phải vượt qua để tiếp tục hội nhập sâu rộng?", options: ["Sự gia tăng quá nhanh của dân số nông thôn.", "Nhu cầu chuyển đổi sang kinh tế số, kinh tế xanh và nâng cao chất lượng nguồn nhân lực.", "Sự bao vây, cấm vận kinh tế của các thế lực thù địch.", "Sự khan hiếm tuyệt đối của các loại tài nguyên khoáng sản."], answer: 1 }
-            ],
-            tf: [
+                },
                 { 
                     type: 'tf', 
-                    text: "Về quá trình Đổi mới và hội nhập quốc tế của Việt Nam:", 
+                    text: "Về các nguyên tắc hoạt động của tổ chức Liên hợp quốc:", 
                     options: [
-                        { text: "a) (Nhận biết) Năm 1986, Đại hội VI xác định nền kinh tế Việt Nam vận hành theo cơ chế thị trường định hướng XHCN.", answer: true },
-                        { text: "b) (Thông hiểu) Phương châm ngoại giao 'Việt Nam muốn là bạn với tất cả các nước' đã giúp phá vỡ thế bao vây cấm vận trong thập niên 90.", answer: true },
-                        { text: "c) (Vận dụng) Đổi mới là quá trình phủ định hoàn toàn những thành tựu xây dựng kinh tế trước năm 1986.", answer: false },
-                        { text: "d) (Vận dụng cao) Sự thành công của công cuộc Đổi mới chứng tỏ việc kiên định nền tảng chủ nghĩa Mác-Lênin, tư tưởng Hồ Chí Minh là điều kiện tiên quyết.", answer: true }
+                        { text: "a) Các quốc gia thành viên của Liên hợp quốc đều bình đẳng về chủ quyền quốc gia, bất kể lớn nhỏ.", answer: true }, 
+                        { text: "b) Để thực hiện sứ mệnh duy trì hòa bình, Liên hợp quốc có quyền can thiệp vào công việc nội bộ của các nước nếu xảy ra mâu thuẫn.", answer: false }, 
+                        { text: "c) Mọi quốc gia thành viên đều phải cam kết từ bỏ đe dọa bằng vũ lực hoặc sử dụng vũ lực trong quan hệ quốc tế.", answer: true }, 
+                        { text: "d) Nguyên tắc giải quyết các tranh chấp quốc tế bằng biện pháp hoà bình là cơ sở pháp lý quan trọng để giải quyết các mâu thuẫn toàn cầu.", answer: true } 
+                    ]
+                },
+                { 
+                    type: 'tf', 
+                    text: "Về vai trò của Liên hợp quốc trong việc duy trì hòa bình và an ninh quốc tế:", 
+                    options: [
+                        { text: "a) Từ khi thành lập (1945) đến nay, Liên hợp quốc đã góp phần ngăn ngừa không để xảy ra một cuộc chiến tranh thế giới mới.", answer: true }, 
+                        { text: "b) Liên hợp quốc đã chấm dứt hoàn toàn tất cả các cuộc xung đột vũ trang cục bộ trên toàn thế giới.", answer: false }, 
+                        { text: "c) Hiệp ước của Liên hợp quốc cấm vũ khí hạt nhân (2017) tạo khuôn khổ ngăn chặn, tiến tới xóa bỏ hoàn toàn loại vũ khí này.", answer: true }, 
+                        { text: "d) Việc thúc đẩy quá trình giành độc lập dân tộc của các nước thuộc địa đã góp phần làm gia tăng số lượng thành viên của Liên hợp quốc.", answer: true } 
+                    ]
+                },
+                { 
+                    type: 'tf', 
+                    text: "Về vai trò của Liên hợp quốc trong các lĩnh vực kinh tế, văn hóa và xã hội:", 
+                    options: [
+                        { text: "a) Hội nghị Liên hợp quốc về Thương mại và Phát triển (UNCTAD) là tổ chức lớn nhất trực thuộc Liên hợp quốc chuyên trách về y tế.", answer: false }, 
+                        { text: "b) Năm 2015, Liên hợp quốc đã thông qua Chương trình nghị sự 2030 vì sự phát triển bền vững với 17 mục tiêu toàn cầu.", answer: true }, 
+                        { text: "c) Năm 1948, Đại hội đồng Liên hợp quốc đã thông qua Tuyên ngôn Nhân quyền nhằm đảm bảo các quyền cơ bản của con người.", answer: true }, 
+                        { text: "d) Tổ chức UNESCO của Liên hợp quốc có vai trò quan trọng trong việc bảo tồn các di sản văn hóa của nhân loại.", answer: true } 
                     ]
                 }
             ]
-        }
-    },
-    "bai15": {
-        title: "Bài 15: Khái quát cuộc đời và sự nghiệp của Hồ Chí Minh",
-        exercises: {
-            mcq: [
-                { type: 'mcq', text: "Nguyễn Ái Quốc đã đọc bản Sơ thảo lần thứ nhất những luận cương về vấn đề dân tộc và vấn đề thuộc địa của V.I. Lê-nin vào năm nào?", options: ["1911", "1919", "1920", "1930"], answer: 2 }
-            ],
-            tf: []
         }
     }
 };
