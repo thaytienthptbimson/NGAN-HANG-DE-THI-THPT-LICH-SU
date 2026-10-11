@@ -127,16 +127,105 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm0-2a6 6 0 100-12 6 6 0 000 12zm0-9a1 1 0 011 1v3.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L9 11.586V8a1 1 0 011-1z" clip-rule="evenodd" />
                 </svg>
-                Bản quyền thuộc về thầy Phạm Tiến - GV Tiếng Anh Trường THPT Bỉm Sơn
+                Bản quyền thuộc về số ĐT: 0943.930.787
             </p>
         </div>
     </footer>
 
-    <!-- Dữ liệu câu hỏi: phải nạp TRƯỚC app.js -->
+    <!-- Dữ liệu câu hỏi và JS -->
     <script src="data_khoi10.js"></script>
     <script src="data_khoi11.js"></script>
     <script src="data_khoi12.js"></script>
     <script src="data_mocktest.js"></script>
     <script src="app.js"></script>
+
+    <!-- ========================================== -->
+    <!-- GIAO DIỆN KHÓA ỨNG DỤNG -->
+    <!-- ========================================== -->
+    <div id="app-lock-screen" class="hidden-element fixed inset-0 z-50 bg-gray-900 bg-opacity-[0.95] flex flex-col items-center justify-center backdrop-blur-md">
+        <div class="bg-white p-8 rounded-2xl shadow-2xl max-w-md w-full mx-4 text-center transform transition-all">
+            <div class="bg-blue-50 p-4 rounded-full inline-block mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+            </div>
+            <h2 class="text-2xl font-black text-gray-800 mb-2">Ứng dụng đã bị khóa</h2>
+            <p class="text-gray-600 mb-6 font-medium">Bạn đã hoàn thành bài thi trải nghiệm. Vui lòng nhập mật khẩu để tiếp tục sử dụng hệ thống.</p>
+            
+            <input type="password" id="unlock-password" placeholder="Nhập mật khẩu..." class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:ring-0 focus:border-blue-500 mb-2 outline-none transition-all text-center text-lg tracking-widest font-bold text-gray-700">
+            
+            <p id="unlock-error" class="text-red-500 text-sm mb-4 font-medium hidden-element">Mật khẩu không chính xác!</p>
+            
+            <button onclick="unlockApp()" class="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2">
+                <span>Mở khóa hệ thống</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Mật khẩu truy cập
+        const APP_PASSWORD = "tienhuong28011981";
+        
+        const lockScreen = document.getElementById('app-lock-screen');
+        const passInput = document.getElementById('unlock-password');
+        const errorMsg = document.getElementById('unlock-error');
+
+        // Hàm kiểm tra trạng thái khóa của ứng dụng
+        function checkAppLockState() {
+            const isUnlocked = localStorage.getItem('isAppUnlocked');
+            const testsCompleted = parseInt(localStorage.getItem('testsCompletedCount') || '0');
+            
+            // Nếu chưa mở khóa và đã làm từ 1 bài trở lên thì hiện màn hình khóa
+            if (!isUnlocked && testsCompleted >= 1) {
+                lockScreen.classList.remove('hidden-element');
+            }
+        }
+
+        // Bắt sự kiện khi người dùng nhấn "Trở về Danh mục" sau khi xem điểm
+        window.addEventListener('load', function() {
+            if (typeof window.continueAfterResult === 'function') {
+                const originalContinue = window.continueAfterResult;
+                window.continueAfterResult = function() {
+                    // Tăng số lần đã làm bài
+                    let count = parseInt(localStorage.getItem('testsCompletedCount') || '0');
+                    localStorage.setItem('testsCompletedCount', count + 1);
+                    
+                    // Chạy hàm gốc để ẩn màn hình kết quả, hiện lại danh mục
+                    originalContinue();
+                    
+                    // Kiểm tra xem có cần khóa không
+                    checkAppLockState();
+                };
+            }
+            
+            // Kiểm tra ngay khi tải trang 
+            checkAppLockState();
+        });
+
+        // Hàm xử lý khi bấm nút "Mở khóa"
+        window.unlockApp = function() {
+            if (passInput.value === APP_PASSWORD) {
+                // Lưu trạng thái đã mở khóa vào trình duyệt
+                localStorage.setItem('isAppUnlocked', 'true');
+                lockScreen.classList.add('hidden-element');
+                errorMsg.classList.add('hidden-element');
+            } else {
+                errorMsg.classList.remove('hidden-element');
+                passInput.value = '';
+                passInput.focus();
+            }
+        }
+
+        // Hỗ trợ nhấn phím Enter để mở khóa
+        passInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                unlockApp();
+            }
+        });
+    </script>
+    <!-- ========================================== -->
 </body>
 </html>
