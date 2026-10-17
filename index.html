@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ÔN THI TỐT NGHIỆP THPT MÔN LỊCH SỬ 2026</title>
+    <title>ÔN THI TỐT NGHIỆP THPT MÔN LỊCH SỬ 2026 - PRO EDITION</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f4f7f9; }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: #f1f5f9; }
         .hidden-element { display: none !important; }
         .question-box { transition: all 0.2s ease-in-out; }
-        .question-box:hover { box-shadow: 0 6px 16px rgba(59, 130, 246, 0.08); border-color: #bfdbfe; transform: translateY(-1px); }
+        .question-box:hover { box-shadow: 0 8px 20px rgba(37, 99, 235, 0.08); border-color: #93c5fd; transform: translateY(-1px); }
         .option-label { cursor: pointer; transition: all 0.2s; }
         .option-label:hover { background-color: #eff6ff; border-color: #93c5fd; }
         .option-label input:checked + span { color: #1e40af; font-weight: 600; }
@@ -18,214 +21,2509 @@
         .correct-ans-text { color: #166534 !important; font-weight: bold !important; }
         .wrong-ans-box { background: #fee2e2 !important; border-color: #ef4444 !important; }
         .wrong-ans-text { color: #991b1b !important; }
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #93c5fd; border-radius: 10px; }
-        .glass-header { background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 50%, #1e3a8a 100%); box-shadow: 0 2px 10px rgba(0,0,0,0.15); }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+        .glass-header { background: linear-gradient(90deg, #0f172a 0%, #1e3a8a 45%, #1d4ed8 100%); box-shadow: 0 4px 20px rgba(15, 23, 42, 0.2); }
+        .a4-preview-sheet {
+            font-family: 'Times New Roman', Times, serif;
+            background: #ffffff;
+            color: #000000;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+            border: 1px solid #cbd5e1;
+            margin: 0 auto;
+            transition: all 0.2s ease;
+        }
+        .a4-preview-sheet.two-cols-preview .exam-body-content {
+            column-count: 2;
+            column-gap: 18px;
+            column-rule: 1px solid #cbd5e1;
+        }
+        @keyframes pulseSubtle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        .animate-pulse-subtle { animation: pulseSubtle 2.5s infinite ease-in-out; }
+        @media print {
+            body * { visibility: hidden; }
+            #print-mount-area, #print-mount-area * { visibility: visible; }
+            #print-mount-area { position: absolute; left: 0; top: 0; width: 100%; background: white; }
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col text-gray-800">
+<body class="min-h-screen flex flex-col text-gray-800 selection:bg-blue-600 selection:text-white">
     <!-- Header -->
-    <header class="glass-header text-white sticky top-0 z-40 h-[64px] flex items-center">
-        <div class="max-w-[1500px] w-full mx-auto px-4 flex justify-between items-center">
-            <div class="flex space-x-2">
-                <button onclick="selectSection('khoi10')" id="tab-khoi10" class="px-5 py-2 bg-white/20 hover:bg-white/90 hover:text-blue-800 font-semibold rounded-md text-sm transition-colors">LỚP 10</button>
-                <button onclick="selectSection('khoi11')" id="tab-khoi11" class="px-5 py-2 bg-white/20 hover:bg-white/90 hover:text-blue-800 font-semibold rounded-md text-sm transition-colors">LỚP 11</button>
-                <button onclick="selectSection('khoi12')" id="tab-khoi12" class="px-5 py-2 bg-gray-50 text-blue-800 font-bold rounded-md shadow-sm text-sm transition-colors">LỚP 12</button>
-                <button onclick="selectSection('mocktest')" id="tab-mocktest" class="px-5 py-2 bg-white/20 hover:bg-white/90 hover:text-blue-800 font-semibold rounded-md text-sm transition-colors">ĐỀ THI THỬ</button>
+    <header class="glass-header text-white sticky top-0 z-40 min-h-[68px] flex items-center py-2">
+        <div class="max-w-[1560px] w-full mx-auto px-3 md:px-5 flex flex-wrap justify-between items-center gap-2">
+            <!-- Navigation Tabs -->
+            <div class="flex items-center flex-wrap gap-1.5 sm:gap-2">
+                <button onclick="selectSection('khoi10')" id="tab-khoi10" class="px-3.5 sm:px-4 py-2 bg-white/15 hover:bg-white hover:text-blue-900 font-semibold rounded-lg text-xs sm:text-sm transition-all">LỚP 10</button>
+                <button onclick="selectSection('khoi11')" id="tab-khoi11" class="px-3.5 sm:px-4 py-2 bg-white/15 hover:bg-white hover:text-blue-900 font-semibold rounded-lg text-xs sm:text-sm transition-all">LỚP 11</button>
+                <button onclick="selectSection('khoi12')" id="tab-khoi12" class="px-3.5 sm:px-4 py-2 bg-white text-blue-900 font-bold rounded-lg shadow-sm text-xs sm:text-sm transition-all">LỚP 12</button>
+                <button onclick="selectSection('mocktest')" id="tab-mocktest" class="px-3.5 sm:px-4 py-2 bg-white/15 hover:bg-white hover:text-blue-900 font-semibold rounded-lg text-xs sm:text-sm transition-all">ĐỀ THI THỬ</button>
             </div>
-            <h1 class="text-lg font-bold uppercase tracking-wider hidden md:block truncate px-4 drop-shadow-md">HỆ THỐNG CÂU HỎI VÀ NGÂN HÀNG ĐỀ THI TN MÔN LỊCH SỬ - THEO MẪU 2026</h1>
-            <div class="text-lg font-black bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-lg border border-white/30 shadow-inner flex-shrink-0 flex items-center gap-2" id="timer-display">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
-                </svg>
-                <span id="timer-text">50:00</span>
+
+            <!-- System Title -->
+            <h1 class="text-sm xl:text-base font-extrabold uppercase tracking-wider hidden xl:block truncate px-2 drop-shadow">
+                HỆ THỐNG CÂU HỎI &amp; NGÂN HÀNG ĐỀ THI TN MÔN LỊCH SỬ - MẪU 2026
+            </h1>
+
+            <!-- Right Actions: Export Word, License Status, Timer -->
+            <div class="flex items-center gap-2 sm:gap-2.5 ml-auto sm:ml-0">
+                <!-- Smart DOC/DOCX Export Button -->
+                <button onclick="openExportModal()" id="header-export-btn" class="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 border border-emerald-300/40">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <span>XUẤT DOC/DOCX</span>
+                </button>
+
+                <!-- License / Trial Status Badge -->
+                <button onclick="openLicenseModal()" id="license-badge-btn" class="bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-300/40 px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 backdrop-blur-sm" title="Xem trạng thái bản quyền & kích hoạt 365 ngày">
+                    <span id="license-badge-icon" class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                    <span id="license-badge-text">Dùng thử: 10 ngày</span>
+                </button>
+
+                <!-- Timer Display -->
+                <div class="text-sm sm:text-base font-black bg-white/15 backdrop-blur-md px-3 sm:px-4 py-1.5 rounded-lg border border-white/25 shadow-inner flex-shrink-0 flex items-center gap-1.5" id="timer-display">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-blue-200" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                    </svg>
+                    <span id="timer-text">50:00</span>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- Main Content Layout -->
-    <div class="max-w-[1500px] mx-auto w-full flex-grow flex flex-col lg:flex-row p-4 gap-6 items-start mt-4 mb-8">
-        <!-- Sidebar -->
-        <aside class="w-full lg:w-[320px] flex-shrink-0 bg-white rounded-2xl shadow-sm border border-gray-200 lg:sticky lg:top-[85px] z-20 overflow-hidden">
-            <div class="bg-blue-50/80 p-4 border-b border-gray-200 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-                </svg>
-                <h2 class="text-base font-bold text-blue-900 uppercase tracking-wide" id="sidebar-title">Danh mục</h2>
+    <div class="max-w-[1560px] mx-auto w-full flex-grow flex flex-col lg:flex-row p-3 sm:p-5 gap-5 items-start mt-2 mb-6">
+        <!-- Left Sidebar: Categories & Search -->
+        <aside class="w-full lg:w-[330px] flex-shrink-0 bg-white rounded-2xl shadow-sm border border-slate-200/90 lg:sticky lg:top-[82px] z-20 overflow-hidden flex flex-col">
+            <div class="bg-gradient-to-r from-blue-50 to-indigo-50/70 p-3.5 border-b border-slate-200 flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                    <div class="bg-blue-600 text-white p-1.5 rounded-lg shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                        </svg>
+                    </div>
+                    <h2 class="text-sm font-extrabold text-blue-950 uppercase tracking-wide" id="sidebar-title">Danh mục</h2>
+                </div>
+                <span id="sidebar-count-badge" class="text-xs font-bold bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded-full">Sẵn sàng</span>
             </div>
-            <div id="sidebar-container" class="max-h-[30vh] lg:max-h-[calc(100vh-200px)] overflow-y-auto custom-scrollbar bg-gray-50/30 p-2"></div>
+
+            <!-- Quick Filter Input -->
+            <div class="p-2.5 border-b border-slate-100 bg-slate-50/60">
+                <div class="relative">
+                    <input type="text" id="sidebar-search-input" oninput="filterSidebarItems()" placeholder="Tìm nhanh chuyên đề, bài học, đề thi..." class="w-full pl-8 pr-7 py-2 text-xs sm:text-sm bg-white border border-slate-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-400 absolute left-2.5 top-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    <button onclick="clearSidebarSearch()" id="sidebar-search-clear" class="hidden-element absolute right-2 top-2 text-slate-400 hover:text-slate-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Category List Container -->
+            <div id="sidebar-container" class="max-h-[32vh] lg:max-h-[calc(100vh-250px)] overflow-y-auto custom-scrollbar bg-slate-50/30 p-2 space-y-1"></div>
         </aside>
 
         <!-- Main Workspace -->
-        <main class="w-full flex-grow min-w-0 bg-white rounded-2xl shadow-sm border border-gray-200 p-5 md:p-8 relative">
+        <main class="w-full flex-grow min-w-0 bg-white rounded-2xl shadow-sm border border-slate-200/90 p-4 sm:p-7 relative">
             <!-- Welcome Screen -->
-            <div id="welcome-screen" class="text-center py-20 flex flex-col items-center justify-center h-full">
-                <div class="bg-blue-50 p-6 rounded-full mb-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
+            <div id="welcome-screen" class="text-center py-12 sm:py-16 flex flex-col items-center justify-center h-full">
+                <div class="relative mb-6">
+                    <div class="bg-gradient-to-tr from-blue-600 to-indigo-500 p-5 rounded-3xl shadow-lg shadow-blue-500/20 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
                 </div>
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Hệ thống Luyện thi Tốt nghiệp THPT môn Lịch Sử</h2>
-                <p class="text-gray-600 font-medium text-base mb-4 max-w-lg">Phần mềm cung cấp 2 dạng bài tập bám sát cấu trúc đề thi mới nhất: Trắc nghiệm khách quan & Trắc nghiệm Đúng/Sai.</p>
-                <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium border border-blue-100">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
-                    </svg>
-                    Vui lòng chọn khối lớp hoặc đề thi thử ở menu bên trái để bắt đầu.
+                <span class="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-50 text-blue-700 border border-blue-200 mb-3">
+                    Chương trình GDPT Mới — Định dạng Đề thi 2026
+                </span>
+                <h2 class="text-2xl md:text-3xl font-black text-slate-800 mb-3">
+                    Hệ thống Luyện thi Tốt nghiệp THPT môn Lịch Sử
+                </h2>
+                <p class="text-slate-600 font-medium text-sm sm:text-base mb-8 max-w-2xl leading-relaxed">
+                    Cung cấp ngân hàng câu hỏi theo từng bài học Lớp 10, 11, 12 và bộ Đề thi thử chuẩn cấu trúc 2026 (Phần I: Trắc nghiệm 4 lựa chọn &amp; Phần II: Trắc nghiệm Đúng/Sai) kèm công cụ <strong>Xuất file Word (.DOC / .DOCX) siêu tiết kiệm giấy</strong>.
+                </p>
+
+                <!-- Quick Feature Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl w-full mb-8 text-left">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-blue-300 transition-all">
+                        <div class="w-9 h-9 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold mb-2.5">1</div>
+                        <h3 class="font-bold text-slate-800 text-sm mb-1">Chuẩn Cấu Trúc Thi 2026</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Kết hợp 24 câu trắc nghiệm nhiều lựa chọn (Phần I) và 4 câu đọc hiểu tư liệu Đúng/Sai (Phần II) chấm điểm theo thang quy đổi chuẩn Bộ GD&amp;ĐT.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-200/80 hover:border-emerald-400 transition-all cursor-pointer" onclick="openExportModal()">
+                        <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold mb-2.5">2</div>
+                        <h3 class="font-bold text-emerald-950 text-sm mb-1">Xuất DOC/DOCX Siêu Tiết Kiệm Giấy</h3>
+                        <p class="text-xs text-emerald-800/90 leading-relaxed">Tự động dàn 4 đáp án/dòng hoặc 2 đáp án/dòng, tùy chọn chia 2 cột A4, thu gọn lề &amp; bảng đáp án giúp giảm tới 55% lượng giấy in.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80 hover:border-amber-400 transition-all cursor-pointer" onclick="openLicenseModal()">
+                        <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold mb-2.5">3</div>
+                        <h3 class="font-bold text-amber-950 text-sm mb-1">Dùng Thử 10 Ngày &amp; VIP 365 Ngày</h3>
+                        <p class="text-xs text-amber-900/80 leading-relaxed">Trải nghiệm đầy đủ tính năng trong 10 ngày kể từ khi kích hoạt. Mở khóa bản quyền 365 ngày nhanh chóng bằng mật khẩu cấp phép.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-3">
+                    <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-800 px-4 py-2.5 rounded-xl text-sm font-semibold border border-blue-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
+                        </svg>
+                        Chọn chuyên đề hoặc đề thi ở danh mục bên trái để bắt đầu làm bài
+                    </div>
+                    <button onclick="openExportModal()" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow-md hover:shadow-lg transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        Mở Trình Xuất Đề Word (.DOC / .DOCX)
+                    </button>
                 </div>
             </div>
 
             <!-- Test Screen -->
             <div id="test-screen" class="hidden-element">
-                <div class="border-b border-gray-200 pb-4 mb-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-2">
+                <!-- Test Header & Smart Toolbar -->
+                <div class="border-b border-slate-200 pb-4 mb-5 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-3">
                     <div>
-                        <h2 class="text-2xl md:text-3xl font-bold text-blue-900" id="current-test-title">Đề thi</h2>
-                        <p class="text-sm text-indigo-600 mt-1 font-semibold flex items-center gap-1">
+                        <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-blue-950" id="current-test-title">Đề thi</h2>
+                        <p class="text-xs sm:text-sm text-indigo-600 mt-1 font-semibold flex items-center gap-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             <span id="current-test-subtitle">Định dạng mới 2026</span>
                         </p>
                     </div>
+
+                    <!-- Convenient In-Test Toolbar -->
+                    <div class="flex flex-wrap items-center gap-2 w-full lg:w-auto justify-start lg:justify-end">
+                        <!-- Font size adjuster -->
+                        <div class="inline-flex items-center bg-slate-100 rounded-xl p-1 border border-slate-200" title="Chỉnh cỡ chữ hiển thị">
+                            <button onclick="adjustQuestionFontSize(-1)" class="px-2.5 py-1 text-xs font-bold text-slate-700 hover:bg-white rounded-lg transition-all">A-</button>
+                            <button onclick="adjustQuestionFontSize(0)" class="px-2.5 py-1 text-xs font-bold text-slate-700 hover:bg-white rounded-lg transition-all">A</button>
+                            <button onclick="adjustQuestionFontSize(1)" class="px-2.5 py-1 text-xs font-bold text-slate-700 hover:bg-white rounded-lg transition-all">A+</button>
+                        </div>
+
+                        <!-- Toggle Question Map -->
+                        <button onclick="toggleQuestionPalette()" id="toggle-palette-btn" class="px-3 py-2 bg-blue-50 hover:bg-blue-100 text-blue-800 font-bold rounded-xl text-xs sm:text-sm border border-blue-200 transition-all flex items-center gap-1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                            </svg>
+                            <span>Bảng câu hỏi (<span id="answered-counter">0/0</span>)</span>
+                        </button>
+
+                        <!-- Export Current Test to DOC/DOCX -->
+                        <button onclick="openExportModal()" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs sm:text-sm shadow-sm hover:shadow transition-all flex items-center gap-1.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            <span>Xuất DOC/DOCX Đề Này</span>
+                        </button>
+                    </div>
                 </div>
-                <div id="questions-container" class="space-y-8"></div>
-                <div class="mt-10 pt-8 border-t border-gray-200 flex justify-center">
-                    <button onclick="submitTest()" id="submit-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-12 text-lg rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center gap-2">
+
+                <!-- Collapsible Smart Question Navigator & Progress Bar -->
+                <div id="question-palette-panel" class="mb-6 bg-slate-50 border border-slate-200 rounded-2xl p-3.5 transition-all">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                        <div class="flex items-center gap-2 text-xs font-bold text-slate-700">
+                            <span>Tiến độ hoàn thành:</span>
+                            <span id="progress-percent-badge" class="bg-blue-600 text-white px-2 py-0.5 rounded-full">0%</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-xs text-slate-500">
+                            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-blue-600 inline-block"></span> Đã chọn</span>
+                            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-white border border-slate-300 inline-block"></span> Chưa làm</span>
+                        </div>
+                    </div>
+                    <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden mb-3">
+                        <div id="test-progress-bar" class="h-full bg-gradient-to-r from-blue-600 to-indigo-600 transition-all duration-300" style="width: 0%"></div>
+                    </div>
+                    <div id="question-palette-grid" class="flex flex-wrap gap-1.5 max-h-28 overflow-y-auto custom-scrollbar"></div>
+                </div>
+
+                <!-- Questions Container (Populated by app.js or built-in engine) -->
+                <div id="questions-container" class="space-y-6"></div>
+
+                <!-- Submit Action Bar -->
+                <div class="mt-10 pt-6 border-t border-slate-200 flex flex-wrap justify-center items-center gap-4">
+                    <button onclick="submitTest()" id="submit-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-10 sm:px-12 text-base sm:text-lg rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
-                        NỘP BÀI & XEM ĐIỂM
+                        NỘP BÀI &amp; XEM ĐIỂM
+                    </button>
+                    <button onclick="openExportModal()" class="bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold py-3.5 px-6 text-sm sm:text-base rounded-xl transition-all flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        Tải Đề &amp; Đáp Án (.DOC / .DOCX)
                     </button>
                 </div>
             </div>
 
             <!-- Result Screen -->
-            <div id="result-screen" class="hidden-element text-center py-10">
-                <div class="inline-block bg-green-100 p-4 rounded-full mb-4">
+            <div id="result-screen" class="hidden-element text-center py-8 border-t border-slate-100 mt-6">
+                <div class="inline-block bg-green-100 p-4 rounded-full mb-3">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-black text-green-600 mb-2">Hoàn thành bài thi!</h2>
-                <div class="bg-gradient-to-b from-blue-50 to-white border border-blue-100 rounded-3xl p-8 max-w-2xl mx-auto my-8 shadow-lg">
-                    <p class="text-gray-600 text-lg font-medium mb-2">Điểm số của bạn</p>
-                    <div class="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-4 drop-shadow-sm" id="score-display">0/10</div>
+                <h2 class="text-2xl md:text-4xl font-black text-green-600 mb-2">Hoàn thành bài thi!</h2>
+                <div class="bg-gradient-to-b from-blue-50 to-white border border-blue-100 rounded-3xl p-6 sm:p-8 max-w-2xl mx-auto my-6 shadow-lg">
+                    <p class="text-gray-600 text-base sm:text-lg font-medium mb-2">Điểm số của bạn</p>
+                    <div class="text-6xl sm:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-4 drop-shadow-sm" id="score-display">0/10</div>
                     <p id="score-detail" class="text-gray-700 font-semibold mb-4"></p>
-                    <p class="text-gray-500 mb-2 font-medium bg-white/60 inline-block px-4 py-2 rounded-lg">Lướt lên trên để xem chi tiết đáp án (màu xanh là đúng, đỏ là sai).</p>
+                    <p class="text-gray-500 text-sm mb-2 font-medium bg-white/80 inline-block px-4 py-2 rounded-lg border border-slate-200/60">
+                        Lướt lên trên để xem chi tiết đáp án (màu xanh là đúng, màu đỏ là sai) hoặc xuất đề kèm đáp án ra file Word.
+                    </p>
                 </div>
-                <button onclick="continueAfterResult()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 text-lg rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
-                    Trở về Danh mục
-                </button>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button onclick="continueAfterResult()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 text-base sm:text-lg rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                        Trở về Danh mục
+                    </button>
+                    <button onclick="openExportModal('teacher')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 text-base sm:text-lg rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        Xuất Đề + Đáp Án (.DOC / .DOCX)
+                    </button>
+                </div>
             </div>
         </main>
     </div>
 
     <!-- Footer Copyright -->
-    <footer class="mt-auto bg-white border-t border-gray-200 py-5">
-        <div class="max-w-[1500px] mx-auto px-4 text-center">
-            <p class="text-sm md:text-base font-semibold text-gray-700 flex items-center justify-center gap-2">
+    <footer class="mt-auto bg-white border-t border-slate-200 py-4">
+        <div class="max-w-[1560px] mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-center">
+            <p class="text-sm font-semibold text-slate-700 flex items-center justify-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm0-2a6 6 0 100-12 6 6 0 000 12zm0-9a1 1 0 011 1v3.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L9 11.586V8a1 1 0 011-1z" clip-rule="evenodd" />
                 </svg>
                 Bản quyền thuộc về số ĐT: 0943.930.787
             </p>
+            <div class="text-xs text-slate-500 flex items-center gap-3">
+                <span id="footer-license-info">Chế độ dùng thử 10 ngày • Kích hoạt VIP 365 ngày</span>
+                <button onclick="openLicenseModal()" class="text-blue-600 hover:underline font-semibold">Quản lý bản quyền</button>
+            </div>
         </div>
     </footer>
 
-    <!-- Dữ liệu câu hỏi và JS -->
-    <script src="data_khoi10.js"></script>
-    <script src="data_khoi11.js"></script>
-    <script src="data_khoi12.js"></script>
-    <script src="data_mocktest.js"></script>
-    <script src="app.js"></script>
+    <!-- =================================================================== -->
+    <!-- MODAL 1: TRUNG TÂM XUẤT FILE DOC / DOCX SIÊU TIẾT KIỆM GIẤY         -->
+    <!-- =================================================================== -->
+    <div id="export-doc-modal" class="hidden-element fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-[1440px] w-full max-h-[95vh] flex flex-col overflow-hidden">
+            <!-- Modal Header -->
+            <div class="bg-gradient-to-r from-slate-900 via-blue-950 to-emerald-950 text-white px-5 py-4 flex items-center justify-between gap-4 flex-shrink-0">
+                <div class="flex items-center gap-3">
+                    <div class="bg-emerald-500/20 border border-emerald-400/40 p-2.5 rounded-xl text-emerald-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-base sm:text-lg font-black tracking-wide uppercase flex items-center gap-2">
+                            Trung Tâm Xuất Đề Thi Word (.DOC / .DOCX) Thông Minh
+                            <span class="bg-emerald-500 text-slate-950 text-[11px] font-extrabold px-2 py-0.5 rounded-full">SIÊU TIẾT KIỆM GIẤY</span>
+                        </h3>
+                        <p class="text-xs text-slate-300">Tự động tối ưu lề trang, dàn cột đáp án A/B/C/D thông minh, đóng khung chuẩn Bộ GD&amp;ĐT 2026</p>
+                    </div>
+                </div>
+                <button onclick="closeExportModal()" class="text-slate-300 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-xl transition-all" title="Đóng cửa sổ">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
 
-    <!-- ========================================== -->
-    <!-- GIAO DIỆN KHÓA ỨNG DỤNG -->
-    <!-- ========================================== -->
-    <div id="app-lock-screen" class="hidden-element fixed inset-0 z-50 bg-gray-900 bg-opacity-[0.95] flex flex-col items-center justify-center backdrop-blur-md">
-        <div class="bg-white p-8 rounded-2xl shadow-2xl max-w-md w-full mx-4 text-center transform transition-all">
-            <div class="bg-blue-50 p-4 rounded-full inline-block mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <!-- Modal Body: 2 Columns (Left Settings, Right Live A4 Preview) -->
+            <div class="flex-grow overflow-y-auto lg:overflow-hidden flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-slate-200">
+                <!-- Left Column: Smart Controls -->
+                <div class="w-full lg:w-[460px] xl:w-[500px] flex-shrink-0 p-4 sm:p-5 overflow-y-auto custom-scrollbar space-y-4 bg-slate-50/70">
+                    <!-- 1. Chọn nguồn đề xuất -->
+                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="flex items-center justify-between mb-2">
+                            <label class="text-xs font-extrabold uppercase tracking-wider text-blue-900 flex items-center gap-1.5">
+                                <span class="w-5 h-5 rounded-md bg-blue-100 text-blue-700 inline-flex items-center justify-center">1</span>
+                                Nguồn câu hỏi &amp; Trộn mã đề
+                            </label>
+                            <button onclick="shuffleExportQuestions()" class="text-xs font-bold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-2.5 py-1 rounded-lg border border-indigo-200 transition-all flex items-center gap-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                </svg>
+                                Đảo câu &amp; Đổi mã đề
+                            </button>
+                        </div>
+                        <select id="export-source-select" onchange="handleExportSourceChange()" class="w-full text-xs sm:text-sm font-semibold bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-slate-800 focus:outline-none focus:border-blue-500">
+                            <option value="current">Đề thi / Chuyên đề đang mở trên màn hình</option>
+                        </select>
+                    </div>
+
+                    <!-- 2. Chế độ Tiết kiệm giấy (3 Presets) -->
+                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
+                        <label class="text-xs font-extrabold uppercase tracking-wider text-emerald-900 flex items-center gap-1.5 mb-2.5">
+                            <span class="w-5 h-5 rounded-md bg-emerald-100 text-emerald-700 inline-flex items-center justify-center">2</span>
+                            Chế độ Trình bày &amp; Tiết kiệm giấy
+                        </label>
+                        <div class="grid grid-cols-3 gap-2 mb-3">
+                            <button type="button" onclick="applyPaperPreset('eco')" id="preset-btn-eco" class="p-2.5 rounded-xl border-2 border-emerald-600 bg-emerald-50/80 text-left transition-all">
+                                <div class="text-xs font-black text-emerald-900 flex items-center justify-between">
+                                    <span>Siêu Tiết Kiệm</span>
+                                    <span class="bg-emerald-600 text-white text-[10px] px-1.5 py-0.2 rounded">-55% giấy</span>
+                                </div>
+                                <p class="text-[11px] text-emerald-700 mt-1 leading-tight">Lề 1.2cm, chữ 10.5pt, thu gọn tiêu đề &amp; đáp án</p>
+                            </button>
+                            <button type="button" onclick="applyPaperPreset('standard')" id="preset-btn-standard" class="p-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-left transition-all">
+                                <div class="text-xs font-bold text-slate-800">Chuẩn Bộ GD</div>
+                                <p class="text-[11px] text-slate-500 mt-1 leading-tight">Lề 1.5cm, chữ 11.5pt, chuẩn mẫu thi TN 2026</p>
+                            </button>
+                            <button type="button" onclick="applyPaperPreset('comfortable')" id="preset-btn-comfortable" class="p-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-left transition-all">
+                                <div class="text-xs font-bold text-slate-800">Đề Cương Ôn</div>
+                                <p class="text-[11px] text-slate-500 mt-1 leading-tight">Chữ 12pt, giãn dòng thoáng dễ ghi chú</p>
+                            </button>
+                        </div>
+
+                        <!-- Fine-grained layout controls -->
+                        <div class="grid grid-cols-2 gap-2.5 text-xs">
+                            <div>
+                                <label class="block font-semibold text-slate-600 mb-1">Cỡ chữ &amp; Giãn dòng:</label>
+                                <select id="export-font-size" onchange="refreshExportPreview()" class="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white font-medium">
+                                    <option value="10">10pt (Siêu gọn - Giãn 1.0)</option>
+                                    <option value="10.5" selected>10.5pt (Tiết kiệm tối ưu - 1.05)</option>
+                                    <option value="11">11pt (Gọn đẹp - Giãn 1.08)</option>
+                                    <option value="11.5">11.5pt (Chuẩn đề thi - 1.12)</option>
+                                    <option value="12">12pt (Truyền thống - 1.18)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-slate-600 mb-1">Lề trang giấy A4:</label>
+                                <select id="export-margin" onchange="refreshExportPreview()" class="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white font-medium">
+                                    <option value="narrow" selected>Lề hẹp tiết kiệm (1.2 cm)</option>
+                                    <option value="normal">Lề chuẩn đề thi (1.5 cm)</option>
+                                    <option value="wide">Lề đóng gáy (Trái 2.2cm)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-slate-600 mb-1">Xếp đáp án A, B, C, D:</label>
+                                <select id="export-option-layout" onchange="refreshExportPreview()" class="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white font-medium">
+                                    <option value="smart" selected>Tự động thông minh (4 / 2 / 1 cột)</option>
+                                    <option value="inline">Gộp nối tiếp siêu gọn trên 1 đoạn</option>
+                                    <option value="two">Luôn chia 2 cột (A-B / C-D)</option>
+                                    <option value="one">Luôn 1 cột dọc truyền thống</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-semibold text-slate-600 mb-1">Trình bày câu Đúng/Sai:</label>
+                                <select id="export-tf-layout" onchange="refreshExportPreview()" class="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 bg-white font-medium">
+                                    <option value="compact" selected>Dòng thu gọn kèm [Đ / S] (Tiết kiệm)</option>
+                                    <option value="table">Bảng kẻ ô Đúng | Sai chuyên nghiệp</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Extra Paper-Saving Checkboxes -->
+                        <div class="mt-3 pt-2.5 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                            <label class="flex items-center gap-2 cursor-pointer font-medium text-slate-700">
+                                <input type="checkbox" id="export-two-columns" onchange="refreshExportPreview()" class="rounded text-emerald-600 focus:ring-emerald-500">
+                                <span>Chia 2 cột trang A4 (-30% giấy)</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer font-medium text-slate-700">
+                                <input type="checkbox" id="export-compact-header" checked onchange="refreshExportPreview()" class="rounded text-emerald-600 focus:ring-emerald-500">
+                                <span>Tiêu đề &amp; Họ tên gọn trên 1 khung</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 3. Tùy chỉnh Thông tin Tiêu đề Đề thi -->
+                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm space-y-2.5">
+                        <label class="text-xs font-extrabold uppercase tracking-wider text-blue-900 flex items-center gap-1.5">
+                            <span class="w-5 h-5 rounded-md bg-blue-100 text-blue-700 inline-flex items-center justify-center">3</span>
+                            Thông tin Tiêu đề &amp; Mã đề
+                        </label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                            <div>
+                                <label class="block text-slate-500 font-medium mb-0.5">Đơn vị / Trường:</label>
+                                <input type="text" id="export-school-name" oninput="refreshExportPreview()" value="SỞ GD&amp;ĐT - TRƯỜNG THPT" class="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 font-semibold text-slate-800">
+                            </div>
+                            <div>
+                                <label class="block text-slate-500 font-medium mb-0.5">Kỳ thi / Tiêu đề chính:</label>
+                                <input type="text" id="export-exam-name" oninput="refreshExportPreview()" value="ĐỀ ÔN THI TỐT NGHIỆP THPT 2026" class="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 font-semibold text-slate-800">
+                            </div>
+                            <div>
+                                <label class="block text-slate-500 font-medium mb-0.5">Môn &amp; Thời gian:</label>
+                                <input type="text" id="export-subject-time" oninput="refreshExportPreview()" value="Môn: LỊCH SỬ — Thời gian: 50 phút" class="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 font-semibold text-slate-800">
+                            </div>
+                            <div>
+                                <label class="block text-slate-500 font-medium mb-0.5">Mã đề thi:</label>
+                                <input type="text" id="export-exam-code" oninput="refreshExportPreview()" value="301" class="w-full border border-slate-300 rounded-lg px-2.5 py-1.5 font-bold text-blue-800">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Chế độ Đáp án & Phiếu trả lời -->
+                    <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm space-y-2">
+                        <label class="text-xs font-extrabold uppercase tracking-wider text-blue-900 flex items-center gap-1.5">
+                            <span class="w-5 h-5 rounded-md bg-blue-100 text-blue-700 inline-flex items-center justify-center">4</span>
+                            Chế độ Đáp án &amp; Phiếu làm bài
+                        </label>
+                        <select id="export-answer-mode" onchange="refreshExportPreview()" class="w-full text-xs sm:text-sm border border-slate-300 rounded-lg px-3 py-2 font-semibold text-slate-800 bg-white">
+                            <option value="end_key" selected>Đề thi + Bảng đáp án siêu gọn ở cuối đề (Khuyên dùng)</option>
+                            <option value="exam_only">Chỉ xuất Đề thi (Dành phát cho học sinh)</option>
+                            <option value="teacher_inline">Bản Giáo viên (Tô đậm &amp; gạch chân đáp án đúng + Bảng đáp án)</option>
+                        </select>
+                        <label class="flex items-center gap-2 cursor-pointer text-xs font-medium text-slate-700 pt-1">
+                            <input type="checkbox" id="export-answer-sheet-box" onchange="refreshExportPreview()" class="rounded text-blue-600 focus:ring-blue-500">
+                            <span>Kèm khung Phiếu điền đáp án nhanh của học sinh ở cuối đề</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Right Column: Live A4 Preview & Paper-Saving Analytics -->
+                <div class="flex-grow flex flex-col bg-slate-200/80 min-w-0 overflow-hidden">
+                    <!-- Analytics Bar -->
+                    <div class="bg-white border-b border-slate-200 px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="font-bold text-slate-700 flex items-center gap-1">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                Xem trước bản in A4:
+                            </span>
+                            <span id="export-stat-questions" class="bg-blue-50 text-blue-800 font-bold px-2.5 py-0.5 rounded-md border border-blue-200">0 câu hỏi</span>
+                            <span id="export-stat-pages" class="bg-emerald-50 text-emerald-800 font-bold px-2.5 py-0.5 rounded-md border border-emerald-200">~2 trang A4</span>
+                            <span id="export-stat-saved" class="bg-amber-50 text-amber-800 font-bold px-2.5 py-0.5 rounded-md border border-amber-200">Tiết kiệm ~52% giấy</span>
+                        </div>
+                        <div class="text-slate-500 font-medium hidden sm:block">Phông chuẩn: Times New Roman</div>
+                    </div>
+
+                    <!-- Scrollable Preview Container -->
+                    <div class="flex-grow p-3 sm:p-6 overflow-y-auto custom-scrollbar">
+                        <div id="export-live-preview" class="a4-preview-sheet max-w-[794px] w-full p-5 sm:p-8 rounded-sm"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer: Export Action Buttons -->
+            <div class="bg-white border-t border-slate-200 px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3 flex-shrink-0">
+                <div class="text-xs text-slate-500 font-medium">
+                    Mẹo: File <strong>.DOCX</strong> tương thích Word 2007–2026; File <strong>.DOC</strong> giữ nguyên 100% khung viền &amp; chia cột trên mọi bản Word.
+                </div>
+                <div class="flex flex-wrap items-center gap-2.5 ml-auto">
+                    <button onclick="copyFormattedExamToClipboard()" class="px-3.5 py-2.5 rounded-xl border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold text-xs sm:text-sm transition-all flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                        </svg>
+                        <span>Copy Dán Vào Word</span>
+                    </button>
+                    <button onclick="printCurrentExamPreview()" class="px-3.5 py-2.5 rounded-xl border border-blue-300 bg-blue-50 hover:bg-blue-100 text-blue-800 font-bold text-xs sm:text-sm transition-all flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                        </svg>
+                        <span>In Ngay / Lưu PDF</span>
+                    </button>
+                    <button onclick="downloadWordFile('doc')" class="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        <span>Tải File .DOC (Chuẩn Khung)</span>
+                    </button>
+                    <button onclick="downloadWordFile('docx')" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-extrabold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span>Tải File .DOCX (Word Mới)</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- MODAL 2: QUẢN LÝ BẢN QUYỀN & KÍCH HOẠT DÙNG THỬ 10 NGÀY / 365 NGÀY  -->
+    <!-- =================================================================== -->
+    <div id="license-info-modal" class="hidden-element fixed inset-0 z-50 bg-slate-900/75 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl shadow-2xl border border-slate-200 max-w-lg w-full overflow-hidden">
+            <div class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white p-6 relative">
+                <button onclick="closeLicenseModal()" class="absolute top-4 right-4 text-white/70 hover:text-white bg-white/10 p-2 rounded-full transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <div class="inline-flex items-center gap-2 bg-white/15 px-3 py-1 rounded-full text-xs font-bold mb-3 border border-white/20">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span id="modal-license-tag">CHẾ ĐỘ BẢN QUYỀN HỆ THỐNG</span>
+                </div>
+                <h3 class="text-xl font-black">Thông Tin Kích Hoạt &amp; Bản Quyền</h3>
+                <p class="text-xs text-blue-200 mt-1">Hỗ trợ dùng thử 10 ngày miễn phí kể từ khi kích hoạt &amp; Mở khóa VIP 365 ngày</p>
+            </div>
+
+            <div class="p-6 space-y-5">
+                <!-- Status Card -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-2.5 text-sm">
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-500 font-medium">Trạng thái hiện tại:</span>
+                        <span id="modal-license-status" class="font-extrabold text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-lg border border-blue-200">Đang dùng thử (10 ngày)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-500 font-medium">Ngày kích hoạt:</span>
+                        <span id="modal-license-start" class="font-bold text-slate-800">--/--/----</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-500 font-medium">Ngày hết hạn:</span>
+                        <span id="modal-license-end" class="font-bold text-slate-800">--/--/----</span>
+                    </div>
+                    <div class="pt-2 border-t border-slate-200 flex justify-between items-center">
+                        <span class="text-slate-600 font-bold">Thời gian còn lại:</span>
+                        <span id="modal-license-remaining" class="text-base font-black text-emerald-600">10 ngày 00 giờ</span>
+                    </div>
+                </div>
+
+                <!-- Upgrade / Renewal Box -->
+                <div id="modal-upgrade-section" class="space-y-3">
+                    <label class="block text-xs font-extrabold uppercase tracking-wider text-slate-700">
+                        Nhập mật khẩu kích hoạt 365 ngày:
+                    </label>
+                    <div class="flex gap-2">
+                        <input type="password" id="modal-license-password" placeholder="Nhập mật khẩu bản quyền..." class="flex-grow px-4 py-2.5 rounded-xl border border-slate-300 focus:border-blue-600 focus:outline-none text-sm font-bold tracking-wider">
+                        <button onclick="activateFromModal()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2.5 rounded-xl text-sm shadow transition-all flex-shrink-0">
+                            Kích hoạt 365 ngày
+                        </button>
+                    </div>
+                    <p id="modal-license-msg" class="text-xs font-semibold hidden-element"></p>
+                </div>
+
+                <!-- Teacher / Admin Test Controls -->
+                <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+                    <span>Liên hệ cấp mã: <strong>0943.930.787</strong></span>
+                    <div class="flex items-center gap-3">
+                        <button onclick="simulateTrialExpired()" class="text-amber-700 hover:underline font-semibold" title="Dành cho giáo viên kiểm tra màn hình khóa khi hết 10 ngày">
+                            Giả lập hết 10 ngày dùng thử
+                        </button>
+                        <button onclick="resetTrial10Days()" class="text-blue-600 hover:underline font-semibold" title="Khởi động lại chu kỳ dùng thử 10 ngày">
+                            Kích hoạt lại 10 ngày dùng thử
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- GIAO DIỆN KHÓA ỨNG DỤNG KHI HẾT HẠN DÙNG THỬ 10 NGÀY / 365 NGÀY     -->
+    <!-- =================================================================== -->
+    <div id="app-lock-screen" class="hidden-element fixed inset-0 z-50 bg-slate-950/95 flex flex-col items-center justify-center backdrop-blur-md p-4">
+        <div class="bg-white p-7 sm:p-8 rounded-3xl shadow-2xl max-w-md w-full text-center border border-slate-200 transform transition-all">
+            <div class="bg-red-50 border border-red-100 p-4 rounded-2xl inline-block mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
             </div>
-            <h2 class="text-2xl font-black text-gray-800 mb-2">Ứng dụng đã bị khóa</h2>
-            <p class="text-gray-600 mb-6 font-medium">Bạn đã hoàn thành bài thi trải nghiệm. Vui lòng nhập mật khẩu để tiếp tục sử dụng hệ thống.</p>
-            
-            <input type="password" id="unlock-password" placeholder="Nhập mật khẩu..." class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:ring-0 focus:border-blue-500 mb-2 outline-none transition-all text-center text-lg tracking-widest font-bold text-gray-700">
-            
-            <p id="unlock-error" class="text-red-500 text-sm mb-4 font-medium hidden-element">Mật khẩu không chính xác!</p>
-            
-            <button onclick="unlockApp()" class="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2">
+            <span id="lock-screen-badge" class="px-3 py-1 rounded-full text-xs font-extrabold uppercase bg-amber-100 text-amber-800 inline-block mb-2">
+                Hết thời gian dùng thử 10 ngày
+            </span>
+            <h2 class="text-2xl font-black text-slate-800 mb-2">Yêu cầu Kích hoạt Bản quyền</h2>
+            <p id="lock-screen-desc" class="text-slate-600 mb-5 text-sm font-medium leading-relaxed">
+                Thời hạn dùng thử <strong>10 ngày</strong> kể từ khi kích hoạt đã kết thúc. Vui lòng nhập mật khẩu bản quyền để mở khóa sử dụng hệ thống trong <strong>365 ngày</strong> tiếp theo.
+            </p>
+
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 mb-4 text-xs text-left space-y-1 text-slate-600">
+                <div class="flex justify-between"><span>Ngày kích hoạt dùng thử:</span> <strong id="lock-trial-start" class="text-slate-800">--/--/----</strong></div>
+                <div class="flex justify-between"><span>Ngày hết hạn vừa qua:</span> <strong id="lock-trial-end" class="text-red-600">--/--/----</strong></div>
+            </div>
+
+            <div class="relative mb-2">
+                <input type="password" id="unlock-password" placeholder="Nhập mật khẩu kích hoạt 365 ngày..." class="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:ring-0 focus:border-blue-600 outline-none transition-all text-center text-base font-bold text-slate-800">
+                <button type="button" onclick="toggleUnlockPasswordVisibility()" class="absolute right-3.5 top-3.5 text-slate-400 hover:text-slate-600" title="Hiện/Ẩn mật khẩu">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                </button>
+            </div>
+
+            <p id="unlock-error" class="text-red-600 text-xs mb-3 font-bold hidden-element">
+                Mật khẩu không chính xác! Vui lòng kiểm tra lại hoặc liên hệ 0943.930.787.
+            </p>
+
+            <button onclick="unlockApp()" class="mt-2 w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-extrabold py-3.5 px-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2">
                 <span>Mở khóa hệ thống</span>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
                 </svg>
             </button>
+
+            <p class="text-xs text-slate-400 mt-4">Hỗ trợ bản quyền: 0943.930.787</p>
         </div>
     </div>
 
-    <script>
-        // Mật khẩu truy cập
-        const APP_PASSWORD = "tienhuong28011981";
-        
-        const lockScreen = document.getElementById('app-lock-screen');
-        const passInput = document.getElementById('unlock-password');
-        const errorMsg = document.getElementById('unlock-error');
+    <!-- Toast Notification Container -->
+    <div id="app-toast" class="hidden-element fixed bottom-5 right-5 z-50 bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-2.5 text-sm font-semibold transition-all">
+        <span id="app-toast-icon" class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+        <span id="app-toast-text">Thông báo hệ thống</span>
+    </div>
 
-        // Hàm kiểm tra trạng thái khóa của ứng dụng
-        function checkAppLockState() {
-            const isUnlocked = localStorage.getItem('isAppUnlocked');
-            const testsCompleted = parseInt(localStorage.getItem('testsCompletedCount') || '0');
-            
-            // Nếu chưa mở khóa và đã làm từ 1 bài trở lên thì hiện màn hình khóa
-            if (!isUnlocked && testsCompleted >= 1) {
-                lockScreen.classList.remove('hidden-element');
+    <!-- Hidden Print Mount Area -->
+    <div id="print-mount-area" class="hidden-element"></div>
+
+    <!-- Nạp dữ liệu câu hỏi và JS gốc (tương thích 100% thư mục máy tính của giáo viên) -->
+    <script>
+        (function loadExternalDataScripts() {
+            var externalFiles = ['data_khoi10.js', 'data_khoi11.js', 'data_khoi12.js', 'data_mocktest.js', 'app.js'];
+            for (var i = 0; i < externalFiles.length; i++) {
+                document.write('<scr' + 'ipt src="' + externalFiles[i] + '"></scr' + 'ipt>');
+            }
+        })();
+    </script>
+
+    <!-- =================================================================== -->
+    <!-- HỆ THỐNG BẢN QUYỀN (10 NGÀY DÙNG THỬ -> 365 NGÀY),                  -->
+    <!-- TRÌNH XUẤT WORD (.DOC / .DOCX) SIÊU TIẾT KIỆM GIẤY & TIỆN ÍCH PRO   -->
+    <!-- =================================================================== -->
+    <script>
+        // =========================================================================
+        // 1. CẤU HÌNH BẢN QUYỀN: DÙNG THỬ 10 NGÀY & MẬT KHẨU 365 NGÀY (tien@12345)
+        // =========================================================================
+        const LICENSE_PASSWORD_365 = "tien@12345";
+        const TRIAL_DURATION_MS = 10 * 24 * 60 * 60 * 1000; // 10 ngày
+        const PRO_DURATION_MS = 365 * 24 * 60 * 60 * 1000;  // 365 ngày
+        const STORAGE_KEY_LICENSE = "ls2026_license_v2";
+
+        let memoryLicenseFallback = null;
+
+        function safeGetStorage(key) {
+            try {
+                return localStorage.getItem(key);
+            } catch (e) {
+                return null;
             }
         }
 
-        // Bắt sự kiện khi người dùng nhấn "Trở về Danh mục" sau khi xem điểm
-        window.addEventListener('load', function() {
-            if (typeof window.continueAfterResult === 'function') {
-                const originalContinue = window.continueAfterResult;
-                window.continueAfterResult = function() {
-                    // Tăng số lần đã làm bài
-                    let count = parseInt(localStorage.getItem('testsCompletedCount') || '0');
-                    localStorage.setItem('testsCompletedCount', count + 1);
-                    
-                    // Chạy hàm gốc để ẩn màn hình kết quả, hiện lại danh mục
-                    originalContinue();
-                    
-                    // Kiểm tra xem có cần khóa không
-                    checkAppLockState();
-                };
+        function safeSetStorage(key, val) {
+            try {
+                localStorage.setItem(key, val);
+            } catch (e) {
+                // Fallback in sandboxed iframe if localStorage is restricted
             }
-            
-            // Kiểm tra ngay khi tải trang 
-            checkAppLockState();
-        });
+        }
 
-        // Hàm xử lý khi bấm nút "Mở khóa"
-        window.unlockApp = function() {
-            if (passInput.value === APP_PASSWORD) {
-                // Lưu trạng thái đã mở khóa vào trình duyệt
-                localStorage.setItem('isAppUnlocked', 'true');
-                lockScreen.classList.add('hidden-element');
-                errorMsg.classList.add('hidden-element');
+        function getLicenseState() {
+            let raw = safeGetStorage(STORAGE_KEY_LICENSE);
+            if (raw) {
+                try {
+                    return JSON.parse(raw);
+                } catch (e) {}
+            }
+            if (memoryLicenseFallback) return memoryLicenseFallback;
+
+            // Kích hoạt chế độ dùng thử 10 ngày ngay lần đầu mở ứng dụng
+            const now = Date.now();
+            const initialState = {
+                mode: "trial", // 'trial' (10 ngày) hoặc 'vip365' (365 ngày)
+                activatedAt: now,
+                expiresAt: now + TRIAL_DURATION_MS,
+                trialStartedAt: now
+            };
+            saveLicenseState(initialState);
+            setTimeout(function() {
+                showToast("Đã kích hoạt chế độ dùng thử miễn phí 10 ngày!", "emerald");
+            }, 600);
+            return initialState;
+        }
+
+        function saveLicenseState(state) {
+            memoryLicenseFallback = state;
+            safeSetStorage(STORAGE_KEY_LICENSE, JSON.stringify(state));
+        }
+
+        function formatDateVN(ts) {
+            if (!ts) return "--/--/----";
+            const d = new Date(ts);
+            const pad = function(n) { return n < 10 ? "0" + n : "" + n; };
+            return pad(d.getDate()) + "/" + pad(d.getMonth() + 1) + "/" + d.getFullYear() + " " + pad(d.getHours()) + ":" + pad(d.getMinutes());
+        }
+
+        function formatRemainingTime(ms) {
+            if (ms <= 0) return "Đã hết hạn (0 ngày)";
+            const totalMinutes = Math.floor(ms / (1000 * 60));
+            const days = Math.floor(totalMinutes / (60 * 24));
+            const hours = Math.floor((totalMinutes % (60 * 24)) / 60);
+            const mins = totalMinutes % 60;
+            if (days > 0) {
+                return days + " ngày " + hours + " giờ";
+            }
+            return hours + " giờ " + mins + " phút";
+        }
+
+        function checkAppLockState() {
+            const state = getLicenseState();
+            const now = Date.now();
+            const remaining = state.expiresAt - now;
+
+            const lockScreen = document.getElementById("app-lock-screen");
+            const badgeBtn = document.getElementById("license-badge-btn");
+            const badgeText = document.getElementById("license-badge-text");
+            const badgeIcon = document.getElementById("license-badge-icon");
+            const footerInfo = document.getElementById("footer-license-info");
+
+            const daysLeft = Math.max(0, Math.ceil(remaining / (1000 * 60 * 60 * 24)));
+
+            if (remaining <= 0) {
+                // Đã hết hạn dùng thử 10 ngày hoặc hết hạn 365 ngày -> Hiện màn hình khóa
+                lockScreen.classList.remove("hidden-element");
+                document.getElementById("lock-trial-start").textContent = formatDateVN(state.activatedAt);
+                document.getElementById("lock-trial-end").textContent = formatDateVN(state.expiresAt);
+
+                const lockBadge = document.getElementById("lock-screen-badge");
+                const lockDesc = document.getElementById("lock-screen-desc");
+                if (state.mode === "vip365") {
+                    lockBadge.textContent = "Hết thời hạn bản quyền 365 ngày";
+                    lockDesc.innerHTML = "Thời hạn bản quyền <strong>365 ngày</strong> đã kết thúc. Vui lòng nhập mật khẩu để gia hạn thêm <strong>365 ngày</strong> sử dụng.";
+                } else {
+                    lockBadge.textContent = "Hết thời gian dùng thử 10 ngày";
+                    lockDesc.innerHTML = "Thời hạn dùng thử <strong>10 ngày</strong> kể từ khi kích hoạt đã kết thúc. Vui lòng nhập mật khẩu để mở khóa sử dụng hệ thống trong <strong>365 ngày</strong>.";
+                }
+
+                badgeText.textContent = "Đã hết hạn - Cần kích hoạt";
+                badgeBtn.className = "bg-red-500/30 hover:bg-red-500/40 text-red-100 border border-red-300/50 px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5";
+                badgeIcon.className = "w-2 h-2 rounded-full bg-red-400 animate-ping";
             } else {
-                errorMsg.classList.remove('hidden-element');
-                passInput.value = '';
+                // Còn hạn sử dụng
+                lockScreen.classList.add("hidden-element");
+                if (state.mode === "vip365") {
+                    badgeText.textContent = "VIP 365 ngày: còn " + daysLeft + " ngày";
+                    badgeBtn.className = "bg-emerald-500/25 hover:bg-emerald-500/35 text-emerald-100 border border-emerald-300/40 px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5";
+                    badgeIcon.className = "w-2 h-2 rounded-full bg-emerald-400";
+                    if (footerInfo) {
+                        footerInfo.textContent = "Bản quyền VIP 365 ngày • Hết hạn: " + formatDateVN(state.expiresAt);
+                    }
+                } else {
+                    badgeText.textContent = "Dùng thử: còn " + daysLeft + " ngày";
+                    badgeBtn.className = "bg-amber-500/25 hover:bg-amber-500/35 text-amber-100 border border-amber-300/40 px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5";
+                    badgeIcon.className = "w-2 h-2 rounded-full bg-amber-400 animate-pulse";
+                    if (footerInfo) {
+                        footerInfo.textContent = "Đang dùng thử 10 ngày (Còn " + formatRemainingTime(remaining) + ")";
+                    }
+                }
+            }
+            updateLicenseModalUI();
+        }
+
+        function activate365DaysWithPassword(inputPassword) {
+            const cleanPass = (inputPassword || "").trim();
+            if (cleanPass === LICENSE_PASSWORD_365) {
+                const now = Date.now();
+                const current = getLicenseState();
+                const newState = {
+                    mode: "vip365",
+                    activatedAt: now,
+                    expiresAt: now + PRO_DURATION_MS,
+                    trialStartedAt: current.trialStartedAt || now
+                };
+                saveLicenseState(newState);
+                checkAppLockState();
+                showToast("Kích hoạt thành công bản quyền 365 ngày!", "emerald");
+                return true;
+            }
+            return false;
+        }
+
+        window.unlockApp = function() {
+            const passInput = document.getElementById("unlock-password");
+            const errorMsg = document.getElementById("unlock-error");
+            if (activate365DaysWithPassword(passInput.value)) {
+                errorMsg.classList.add("hidden-element");
+                passInput.value = "";
+            } else {
+                errorMsg.classList.remove("hidden-element");
+                passInput.value = "";
                 passInput.focus();
             }
+        };
+
+        window.toggleUnlockPasswordVisibility = function() {
+            const passInput = document.getElementById("unlock-password");
+            passInput.type = passInput.type === "password" ? "text" : "password";
+        };
+
+        window.openLicenseModal = function() {
+            updateLicenseModalUI();
+            document.getElementById("license-info-modal").classList.remove("hidden-element");
+        };
+
+        window.closeLicenseModal = function() {
+            document.getElementById("license-info-modal").classList.add("hidden-element");
+        };
+
+        function updateLicenseModalUI() {
+            const state = getLicenseState();
+            const now = Date.now();
+            const remaining = state.expiresAt - now;
+
+            const statusEl = document.getElementById("modal-license-status");
+            const startEl = document.getElementById("modal-license-start");
+            const endEl = document.getElementById("modal-license-end");
+            const remEl = document.getElementById("modal-license-remaining");
+
+            if (!statusEl) return;
+            startEl.textContent = formatDateVN(state.activatedAt);
+            endEl.textContent = formatDateVN(state.expiresAt);
+            remEl.textContent = formatRemainingTime(remaining);
+
+            if (remaining <= 0) {
+                statusEl.textContent = "Đã hết hạn - Đang khóa";
+                statusEl.className = "font-extrabold text-red-700 bg-red-50 px-2.5 py-0.5 rounded-lg border border-red-200";
+                remEl.className = "text-base font-black text-red-600";
+            } else if (state.mode === "vip365") {
+                statusEl.textContent = "Bản quyền VIP (365 ngày)";
+                statusEl.className = "font-extrabold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-lg border border-emerald-200";
+                remEl.className = "text-base font-black text-emerald-600";
+            } else {
+                statusEl.textContent = "Đang dùng thử miễn phí (10 ngày)";
+                statusEl.className = "font-extrabold text-amber-800 bg-amber-50 px-2.5 py-0.5 rounded-lg border border-amber-200";
+                remEl.className = "text-base font-black text-amber-600";
+            }
         }
 
-        // Hỗ trợ nhấn phím Enter để mở khóa
-        passInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                unlockApp();
+        window.activateFromModal = function() {
+            const input = document.getElementById("modal-license-password");
+            const msg = document.getElementById("modal-license-msg");
+            msg.classList.remove("hidden-element");
+            if (activate365DaysWithPassword(input.value)) {
+                msg.textContent = "Đã kích hoạt bản quyền 365 ngày thành công!";
+                msg.className = "text-xs font-bold text-emerald-600";
+                input.value = "";
+            } else {
+                msg.textContent = "Mật khẩu chưa đúng! Vui lòng nhập mật khẩu cấp phép 365 ngày.";
+                msg.className = "text-xs font-bold text-red-600";
+            }
+        };
+
+        window.simulateTrialExpired = function() {
+            const now = Date.now();
+            saveLicenseState({
+                mode: "trial",
+                activatedAt: now - TRIAL_DURATION_MS - 3600000,
+                expiresAt: now - 3600000,
+                trialStartedAt: now - TRIAL_DURATION_MS - 3600000
+            });
+            closeLicenseModal();
+            checkAppLockState();
+            showToast("Đã chuyển sang trạng thái hết hạn 10 ngày dùng thử để kiểm tra!", "amber");
+        };
+
+        window.resetTrial10Days = function() {
+            const now = Date.now();
+            saveLicenseState({
+                mode: "trial",
+                activatedAt: now,
+                expiresAt: now + TRIAL_DURATION_MS,
+                trialStartedAt: now
+            });
+            checkAppLockState();
+            showToast("Đã kích hoạt lại 10 ngày dùng thử kể từ hôm nay!", "emerald");
+        };
+
+        // =========================================================================
+        // 2. DỮ LIỆU MẪU TÍCH HỢP SẴN (DÙNG KHI CHẠY ĐỘC LẬP HOẶC XEM TRƯỚC)
+        //    Nếu thư mục có sẵn data_khoi10.js ... app.js thì ưu tiên dùng dữ liệu gốc
+        // =========================================================================
+        const FALLBACK_DEMO_DATA = {
+            khoi10: [
+                {
+                    id: "k10_b1",
+                    title: "Chuyên đề 1: Lịch sử và Sử học - Vai trò của Sử học",
+                    subtitle: "Lịch sử Lớp 10 • Định dạng mới 2026",
+                    part1: [
+                        { q: "Lịch sử được hiểu theo nghĩa cơ bản nhất là gì?", options: ["Những gì đã diễn ra trong quá khứ của xã hội loài người", "Những dự đoán về tương lai của nhân loại", "Các tác phẩm văn học dân gian truyền miệng", "Các giả thuyết khoa học tự nhiên"], answer: 0 },
+                        { q: "Đối tượng nghiên cứu của Sử học là gì?", options: ["Quá trình hình thành các hành tinh", "Toàn bộ quá khứ của loài người", "Sự biến đổi khí hậu toàn cầu", "Cấu trúc phân tử của vật chất"], answer: 1 },
+                        { q: "Nguồn sử liệu nào sau đây thuộc loại sử liệu hiện vật?", options: ["Trống đồng Đông Sơn", "Truyền thuyết Sơn Tinh - Thủy Tinh", "Bản Tuyên ngôn Độc lập (1945)", "Hồi ký của Đại tướng Võ Nguyên Giáp"], answer: 0 },
+                        { q: "Một trong những nguyên tắc cơ bản của Sử học là gì?", options: ["Chủ quan và cảm tính", "Khách quan và trung thực", "Hư cấu nghệ thuật", "Phiến diện một chiều"], answer: 1 }
+                    ],
+                    part2: [
+                        {
+                            q: "Đọc đoạn tư liệu sau đây:",
+                            passage: "“Dân ta phải biết sử ta,\nCho tường gốc tích nước nhà Việt Nam.\nKể năm hơn bốn ngàn năm,\nTổ tiên rực rỡ, anh em thuận hòa.”\n(Hồ Chí Minh, Lịch sử nước ta, 1942)",
+                            statements: [
+                                { text: "Đoạn thơ trên được Chủ tịch Hồ Chí Minh sáng tác nhằm giáo dục lòng yêu nước và truyền thống dân tộc.", answer: true },
+                                { text: "Tác phẩm 'Lịch sử nước ta' ra đời sau khi Cách mạng tháng Tám năm 1945 đã thành công.", answer: false },
+                                { text: "Việc tìm hiểu lịch sử dân tộc giúp thế hệ trẻ nhận thức rõ cội nguồn và trách nhiệm bảo vệ Tổ quốc.", answer: true },
+                                { text: "Sử học chỉ có chức năng khoa học thuần túy, không có chức năng giáo dục tư tưởng.", answer: false }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            khoi11: [
+                {
+                    id: "k11_b1",
+                    title: "Chuyên đề 1: Cách mạng tư sản và sự phát triển của CNTB",
+                    subtitle: "Lịch sử Lớp 11 • Định dạng mới 2026",
+                    part1: [
+                        { q: "Cuộc cách mạng tư sản đầu tiên trên thế giới diễn ra ở đâu?", options: ["Vương quốc Anh", "Vùng đất Nê-đéc-lan (Hà Lan)", "Bắc Mỹ", "Nước Pháp"], answer: 1 },
+                        { q: "Bản Tuyên ngôn Độc lập năm 1776 là văn kiện lịch sử của quốc gia nào?", options: ["Anh", "Pháp", "Hợp chúng quốc Mỹ", "Đức"], answer: 2 },
+                        { q: "Đỉnh cao của Cách mạng tư sản Pháp cuối thế kỉ XVIII là thời kì chuyên chính nào?", options: ["Phái Lập hiến", "Phái Gi-rông-đanh", "Phái Gia-cô-banh", "Chế độ Đốc chính"], answer: 2 },
+                        { q: "Cuối thế kỉ XIX - đầu thế kỉ XX, chủ nghĩa tư bản chuyển sang giai đoạn nào?", options: ["Tự do cạnh tranh", "Độc quyền (Đế quốc chủ nghĩa)", "Tích lũy nguyên thủy", "Phong kiến phân quyền"], answer: 1 }
+                    ],
+                    part2: [
+                        {
+                            q: "Đọc đoạn tư liệu sau đây:",
+                            passage: "“Tất cả mọi người sinh ra đều có quyền bình đẳng. Tạo hóa cho họ những quyền không ai có thể xâm phạm được; trong những quyền ấy, có quyền được sống, quyền tự do và quyền mưu cầu hạnh phúc.” (Tuyên ngôn Độc lập của Hợp chúng quốc Mỹ, năm 1776)",
+                            statements: [
+                                { text: "Tuyên ngôn Độc lập năm 1776 của Mỹ khẳng định các quyền tự nhiên thiêng liêng của con người.", answer: true },
+                                { text: "Chủ tịch Hồ Chí Minh đã trích dẫn đoạn tư liệu này trong bản Tuyên ngôn Độc lập ngày 2-9-1945 của Việt Nam.", answer: true },
+                                { text: "Cuộc Chiến tranh giành độc lập của 13 thuộc địa Anh ở Bắc Mỹ là một cuộc cách mạng xã hội chủ nghĩa.", answer: false },
+                                { text: "Sau Tuyên ngôn năm 1776, chế độ nô lệ da đen ở Bắc Mỹ đã bị xóa bỏ hoàn toàn ngay lập tức.", answer: false }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            khoi12: [
+                {
+                    id: "k12_b1",
+                    title: "Chuyên đề 1: Thế giới trong và sau Chiến tranh lạnh (LHQ & ASEAN)",
+                    subtitle: "Lịch sử Lớp 12 • Định dạng mới 2026",
+                    part1: [
+                        { q: "Hội nghị I-an-ta (tháng 2-1945) có sự tham gia của nguyên thủ ba cường quốc nào?", options: ["Liên Xô, Mỹ, Anh", "Liên Xô, Pháp, Anh", "Mỹ, Anh, Pháp", "Liên Xô, Mỹ, Trung Quốc"], answer: 0 },
+                        { q: "Tổ chức Liên hợp quốc được chính thức thành lập vào năm nào?", options: ["Năm 1919", "Năm 1945", "Năm 1949", "Năm 1967"], answer: 1 },
+                        { q: "Hiệp hội các quốc gia Đông Nam Á (ASEAN) được thành lập ngày 8-8-1967 tại đâu?", options: ["Ha-nôi (Việt Nam)", "Băng Cốc (Thái Lan)", "Gia-các-ta (In-đô-nê-xi-a)", "Ma-ni-la (Phi-líp-pin)"], answer: 1 },
+                        { q: "Việt Nam chính thức gia nhập tổ chức ASEAN vào năm nào?", options: ["Năm 1986", "Năm 1991", "Năm 1995", "Năm 1999"], answer: 2 },
+                        { q: "Văn kiện nào là cơ sở pháp lý để xây dựng Cộng đồng ASEAN?", options: ["Tuyên bố Băng Cốc (1967)", "Hiệp ước Ba-li (1976)", "Hiến chương ASEAN (2007)", "Tuyên bố Cua-la Lăm-pơ (1971)"], answer: 2 },
+                        { q: "Thắng lợi nào của quân dân Việt Nam đã buộc Pháp phải ký Hiệp định Giơ-ne-vơ năm 1954?", options: ["Chiến dịch Việt Bắc thu - đông 1947", "Chiến dịch Biên giới thu - đông 1950", "Chiến dịch Điện Biên Phủ năm 1954", "Chiến dịch Hồ Chí Minh năm 1975"], answer: 2 },
+                        { q: "Đường lối Đổi mới đất nước được Đảng Cộng sản Việt Nam đề ra tại Đại hội nào?", options: ["Đại hội IV (1976)", "Đại hội V (1982)", "Đại hội VI (1986)", "Đại hội VII (1991)"], answer: 2 },
+                        { q: "Trọng tâm của công cuộc Đổi mới ở Việt Nam từ năm 1986 là lĩnh vực nào?", options: ["Đổi mới kinh tế", "Đổi mới văn hóa", "Đổi mới thể thao", "Đổi mới quân sự"], answer: 0 }
+                    ],
+                    part2: [
+                        {
+                            q: "Đọc đoạn tư liệu sau đây:",
+                            passage: "“Chúng ta muốn hòa bình, chúng ta phải nhân nhượng. Nhưng chúng ta càng nhân nhượng, thực dân Pháp càng lấn tới, vì chúng quyết tâm cướp nước ta lần nữa! Không! Chúng ta thà hi sinh tất cả, chứ nhất định không chịu mất nước, nhất định không chịu làm nô lệ.” (Hồ Chí Minh, Lời kêu gọi toàn quốc kháng chiến, ngày 19-12-1946)",
+                            statements: [
+                                { text: "Lời kêu gọi toàn quốc kháng chiến được Chủ tịch Hồ Chí Minh viết vào đêm 19-12-1946 tại Hà Nội.", answer: true },
+                                { text: "Đoạn tư liệu thể hiện thiện chí hòa bình và quyết tâm bảo vệ độc lập dân tộc của nhân dân Việt Nam.", answer: true },
+                                { text: "Sau Lời kêu gọi này, Chính phủ Việt Nam Dân chủ Cộng hòa đã ký ngay Hiệp định Sơ bộ với Pháp.", answer: false },
+                                { text: "Lời kêu gọi là văn kiện mở đầu cho cuộc kháng chiến toàn quốc chống thực dân Pháp (1946 - 1954).", answer: true }
+                            ]
+                        },
+                        {
+                            q: "Đọc đoạn tư liệu sau đây:",
+                            passage: "“Mục tiêu tổng quát của Cộng đồng ASEAN là xây dựng Hiệp hội thành một tổ chức hợp tác liên Chính phủ gắn kết sâu rộng hơn và ràng buộc hơn trên cơ sở pháp lý là Hiến chương ASEAN, dựa trên ba trụ cột: Cộng đồng Chính trị - An ninh, Cộng đồng Kinh tế và Cộng đồng Văn hóa - Xã hội.”",
+                            statements: [
+                                { text: "Cộng đồng ASEAN được chính thức thành lập vào cuối năm 2015 với 3 trụ cột chính.", answer: true },
+                                { text: "Hiến chương ASEAN là cơ sở pháp lý quan trọng nhất của Cộng đồng ASEAN.", answer: true },
+                                { text: "Cộng đồng ASEAN là một tổ chức siêu quốc gia có quân đội chung và đồng tiền chung duy nhất.", answer: false },
+                                { text: "Việt Nam là một trong những thành viên tích cực đóng góp vào sự hình thành Cộng đồng ASEAN.", answer: true }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            mocktest: [
+                {
+                    id: "mock_01",
+                    title: "Đề Thi Thử Tốt Nghiệp THPT 2026 - Đề số 01 (Chuẩn Mẫu Bộ GD&ĐT)",
+                    subtitle: "Thời gian: 50 phút • Cấu trúc mới 2026",
+                    part1: [
+                        { q: "Mục đích hàng đầu của tổ chức Liên hợp quốc được nêu trong Hiến chương (1945) là gì?", options: ["Duy trì hòa bình và an ninh quốc tế", "Thúc đẩy tự do hóa thương mại toàn cầu", "Thành lập liên minh quân sự toàn thế giới", "Xóa bỏ hoàn toàn biên giới quốc gia"], answer: 0 },
+                        { q: "Sau khi Chiến tranh lạnh chấm dứt (1989 - 1991), trật tự thế giới vận động theo xu hướng nào?", options: ["Đơn cực do Liên Xô đứng đầu", "Hai cực I-an-ta tiếp tục củng cố", "Đa cực, nhiều trung tâm", "Phân chia theo hệ tư tưởng tôn giáo"], answer: 2 },
+                        { q: "Quốc gia nào ở Đông Nam Á không bị biến thành thuộc địa của thực dân phương Tây cuối thế kỉ XIX?", options: ["Việt Nam", "Xiêm (Thái Lan)", "In-đô-nê-xi-a", "Mi-an-ma"], answer: 1 },
+                        { q: "Chiến thắng quân sự nào trong lịch sử Việt Nam thế kỉ XIII gắn liền với tên tuổi Trần Hưng Đạo?", options: ["Kháng chiến chống quân Tống", "Ba lần kháng chiến chống quân Mông - Nguyên", "Khởi nghĩa Lam Sơn", "Chiến thắng Ngọc Hồi - Đống Đa"], answer: 1 },
+                        { q: "Sự kiện nào đánh dấu Nguyễn Ái Quốc tìm ra con đường cứu nước đúng đắn cho dân tộc Việt Nam (7-1920)?", options: ["Gửi Bản yêu sách tới Hội nghị Véc-xai", "Đọc Sơ thảo lần thứ nhất những luận cương về vấn đề dân tộc và thuộc địa của Lê-nin", "Thành lập Hội Việt Nam Cách mạng Thanh niên", "Chủ trì Hội nghị hợp nhất thành lập Đảng"], answer: 1 },
+                        { q: "Cuộc Tổng tiến công và nổi dậy Xuân 1975 kết thúc thắng lợi bằng chiến dịch nào?", options: ["Chiến dịch Tây Nguyên", "Chiến dịch Huế - Đà Nẵng", "Chiến dịch Hồ Chí Minh", "Chiến dịch Đường 14 - Phước Long"], answer: 2 },
+                        { q: "Hiệp định Pa-ri về chấm dứt chiến tranh, lập lại hòa bình ở Việt Nam được ký kết vào năm nào?", options: ["Năm 1954", "Năm 1968", "Năm 1973", "Năm 1975"], answer: 2 },
+                        { q: "Từ năm 1986 đến nay, Việt Nam xây dựng nền kinh tế theo mô hình nào?", options: ["Kinh tế kế hoạch hóa tập trung, bao cấp", "Kinh tế thị trường định hướng xã hội chủ nghĩa", "Kinh tế tự cung tự cấp khép kín", "Kinh tế tư bản chủ nghĩa tự do hoàn toàn"], answer: 1 }
+                    ],
+                    part2: [
+                        {
+                            q: "Đọc đoạn tư liệu sau đây:",
+                            passage: "“Chẳng những giai cấp lao động và nhân dân Việt Nam ta có thể tự hào, mà giai cấp lao động và những dân tộc bị áp bức nơi khác cũng có thể tự hào rằng: Lần này là lần đầu tiên trong lịch sử cách mạng của các dân tộc thuộc địa và nửa thuộc địa, một Đảng mới 15 tuổi đã lãnh đạo cách mạng thành công, đã nắm chính quyền toàn quốc.” (Hồ Chí Minh, Báo cáo Chính trị tại Đại hội II của Đảng, 1951)",
+                            statements: [
+                                { text: "Đoạn tư liệu đánh giá ý nghĩa lịch sử to lớn của Cách mạng tháng Tám năm 1945 ở Việt Nam.", answer: true },
+                                { text: "Đảng Cộng sản Đông Dương khi lãnh đạo Cách mạng tháng Tám năm 1945 mới tròn 15 tuổi.", answer: true },
+                                { text: "Cách mạng tháng Tám năm 1945 chỉ có ý nghĩa trong phạm vi quốc gia, không ảnh hưởng tới phong trào giải phóng dân tộc thế giới.", answer: false },
+                                { text: "Thắng lợi của Cách mạng tháng Tám đã đưa Đảng trở thành đảng cầm quyền trên phạm vi cả nước.", answer: true }
+                            ]
+                        },
+                        {
+                            q: "Đọc đoạn tư liệu sau đây:",
+                            passage: "“Qua gần 40 năm thực hiện công cuộc Đổi mới (từ năm 1986), Việt Nam đã thoát khỏi tình trạng khủng hoảng kinh tế - xã hội, trở thành nước đang phát triển có thu nhập trung bình; đời sống vật chất và tinh thần của nhân dân được cải thiện rõ rệt; vị thế và uy tín quốc tế ngày càng được nâng cao.”",
+                            statements: [
+                                { text: "Công cuộc Đổi mới ở Việt Nam bắt đầu từ năm 1986 đã đưa đất nước thoát khỏi khủng hoảng kinh tế - xã hội.", answer: true },
+                                { text: "Trong quá trình Đổi mới, Việt Nam kết hợp sức mạnh dân tộc với sức mạnh thời đại và hội nhập quốc tế sâu rộng.", answer: true },
+                                { text: "Đổi mới ở Việt Nam là thay đổi mục tiêu chủ nghĩa xã hội sang con đường tư bản chủ nghĩa.", answer: false },
+                                { text: "Thực tiễn thành tựu Đổi mới chứng tỏ đường lối Đổi mới của Đảng Cộng sản Việt Nam là đúng đắn, sáng tạo.", answer: true }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // Gắn chế độ dự phòng nếu mở file độc lập mà không có app.js bên ngoài
+        let currentDemoSection = "khoi12";
+        let currentDemoTest = null;
+        let demoTimerInterval = null;
+
+        if (typeof window.selectSection !== "function") {
+            window.selectSection = function(sectionKey) {
+                currentDemoSection = sectionKey;
+                const tabs = ["khoi10", "khoi11", "khoi12", "mocktest"];
+                tabs.forEach(function(t) {
+                    const btn = document.getElementById("tab-" + t);
+                    if (!btn) return;
+                    if (t === sectionKey) {
+                        btn.className = "px-3.5 sm:px-4 py-2 bg-white text-blue-900 font-bold rounded-lg shadow-sm text-xs sm:text-sm transition-all";
+                    } else {
+                        btn.className = "px-3.5 sm:px-4 py-2 bg-white/15 hover:bg-white hover:text-blue-900 font-semibold rounded-lg text-xs sm:text-sm transition-all";
+                    }
+                });
+
+                const titles = {
+                    khoi10: "Danh mục Lịch sử 10",
+                    khoi11: "Danh mục Lịch sử 11",
+                    khoi12: "Danh mục Lịch sử 12",
+                    mocktest: "Ngân hàng Đề thi thử"
+                };
+                document.getElementById("sidebar-title").textContent = titles[sectionKey] || "Danh mục";
+
+                const list = FALLBACK_DEMO_DATA[sectionKey] || [];
+                const container = document.getElementById("sidebar-container");
+                container.innerHTML = "";
+                list.forEach(function(item, idx) {
+                    const btn = document.createElement("button");
+                    btn.className = "w-full text-left p-3 rounded-xl hover:bg-blue-50 border border-transparent hover:border-blue-200 transition-all flex items-start gap-2.5 group";
+                    btn.innerHTML = '<span class="w-6 h-6 rounded-lg bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">' + (idx + 1) + '</span>' +
+                        '<div class="min-w-0 flex-grow"><div class="font-bold text-slate-800 group-hover:text-blue-800 text-xs sm:text-sm leading-snug">' + item.title + '</div>' +
+                        '<div class="text-[11px] text-slate-500 mt-0.5">' + (item.part1.length + item.part2.length) + ' câu hỏi • Chuẩn 2026</div></div>';
+                    btn.onclick = function() {
+                        loadDemoTest(item);
+                    };
+                    container.appendChild(btn);
+                });
+                updateSidebarBadgeCount();
+            };
+
+            function loadDemoTest(testObj) {
+                currentDemoTest = testObj;
+                document.getElementById("welcome-screen").classList.add("hidden-element");
+                document.getElementById("result-screen").classList.add("hidden-element");
+                document.getElementById("test-screen").classList.remove("hidden-element");
+                document.getElementById("submit-btn").classList.remove("hidden-element");
+
+                document.getElementById("current-test-title").textContent = testObj.title;
+                document.getElementById("current-test-subtitle").textContent = testObj.subtitle || "Định dạng mới 2026";
+
+                const qContainer = document.getElementById("questions-container");
+                qContainer.innerHTML = "";
+
+                // Render Phần I
+                if (testObj.part1 && testObj.part1.length > 0) {
+                    const p1Header = document.createElement("div");
+                    p1Header.className = "bg-blue-900 text-white px-4 py-3 rounded-xl font-bold text-sm sm:text-base shadow-sm";
+                    p1Header.textContent = "PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn. Thí sinh trả lời từ câu 1 đến câu " + testObj.part1.length + ".";
+                    qContainer.appendChild(p1Header);
+
+                    testObj.part1.forEach(function(item, qIdx) {
+                        const box = document.createElement("div");
+                        box.className = "question-box bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-sm";
+                        box.setAttribute("data-qtype", "mcq");
+                        box.setAttribute("data-correct", String(item.answer));
+
+                        const letters = ["A", "B", "C", "D"];
+                        let optsHtml = '<div class="grid grid-cols-1 md:grid-cols-2 gap-2.5 mt-3">';
+                        item.options.forEach(function(optText, oIdx) {
+                            optsHtml += '<label class="option-label flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 bg-slate-50/50">' +
+                                '<input type="radio" name="demo_mcq_' + qIdx + '" value="' + oIdx + '" class="mt-1 text-blue-600 focus:ring-blue-500">' +
+                                '<span class="text-sm text-slate-700 leading-snug"><strong>' + letters[oIdx] + '.</strong> ' + optText + '</span>' +
+                                '</label>';
+                        });
+                        optsHtml += '</div>';
+
+                        box.innerHTML = '<div class="font-bold text-slate-800 text-sm sm:text-base leading-relaxed"><span class="text-blue-700 font-extrabold">Câu ' + (qIdx + 1) + ':</span> ' + item.q + '</div>' + optsHtml;
+                        qContainer.appendChild(box);
+                    });
+                }
+
+                // Render Phần II
+                if (testObj.part2 && testObj.part2.length > 0) {
+                    const p2Header = document.createElement("div");
+                    p2Header.className = "bg-indigo-900 text-white px-4 py-3 rounded-xl font-bold text-sm sm:text-base shadow-sm mt-6";
+                    p2Header.textContent = "PHẦN II. Câu trắc nghiệm đúng sai. Trong mỗi ý a), b), c), d) ở mỗi câu, thí sinh chọn Đúng hoặc Sai.";
+                    qContainer.appendChild(p2Header);
+
+                    testObj.part2.forEach(function(item, qIdx) {
+                        const box = document.createElement("div");
+                        box.className = "question-box bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-sm";
+                        box.setAttribute("data-qtype", "tf");
+
+                        const subLetters = ["a", "b", "c", "d"];
+                        let stHtml = '<div class="space-y-2.5 mt-3">';
+                        item.statements.forEach(function(st, sIdx) {
+                            stHtml += '<div class="tf-statement-row flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 rounded-xl border border-slate-200 bg-slate-50/50" data-correct="' + (st.answer ? "true" : "false") + '">' +
+                                '<div class="text-sm text-slate-800 leading-snug"><strong>' + subLetters[sIdx] + ')</strong> ' + st.text + '</div>' +
+                                '<div class="flex items-center gap-3 flex-shrink-0">' +
+                                '<label class="option-label inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-bold"><input type="radio" name="demo_tf_' + qIdx + '_' + sIdx + '" value="true"> <span>Đúng</span></label>' +
+                                '<label class="option-label inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-300 bg-white text-xs font-bold"><input type="radio" name="demo_tf_' + qIdx + '_' + sIdx + '" value="false"> <span>Sai</span></label>' +
+                                '</div></div>';
+                        });
+                        stHtml += '</div>';
+
+                        box.innerHTML = '<div class="font-bold text-slate-800 text-sm sm:text-base"><span class="text-indigo-700 font-extrabold">Câu ' + (qIdx + 1) + ':</span> ' + item.q + '</div>' +
+                            '<blockquote class="mt-2.5 p-3.5 rounded-xl bg-amber-50/70 border-l-4 border-amber-500 text-slate-700 italic text-xs sm:text-sm whitespace-pre-line leading-relaxed">' + item.passage + '</blockquote>' +
+                            stHtml;
+                        qContainer.appendChild(box);
+                    });
+                }
+
+                startDemoTimer(50 * 60);
+                rebuildQuestionPalette();
+            }
+
+            function startDemoTimer(seconds) {
+                if (demoTimerInterval) clearInterval(demoTimerInterval);
+                let rem = seconds;
+                const timerText = document.getElementById("timer-text");
+                const renderTime = function() {
+                    const m = Math.floor(rem / 60);
+                    const s = rem % 60;
+                    timerText.textContent = (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+                };
+                renderTime();
+                demoTimerInterval = setInterval(function() {
+                    if (rem > 0) {
+                        rem--;
+                        renderTime();
+                    } else {
+                        clearInterval(demoTimerInterval);
+                    }
+                }, 1000);
+            }
+
+            window.submitTest = function() {
+                if (!currentDemoTest) return;
+                if (demoTimerInterval) clearInterval(demoTimerInterval);
+
+                let correctCount = 0;
+                let totalItems = 0;
+
+                const qContainer = document.getElementById("questions-container");
+                const mcqBoxes = qContainer.querySelectorAll('.question-box[data-qtype="mcq"]');
+                mcqBoxes.forEach(function(box) {
+                    totalItems++;
+                    const ans = parseInt(box.getAttribute("data-correct"), 10);
+                    const labels = box.querySelectorAll("label.option-label");
+                    labels.forEach(function(lb, idx) {
+                        const inp = lb.querySelector("input");
+                        if (idx === ans) {
+                            lb.classList.add("correct-ans-box");
+                            const sp = lb.querySelector("span");
+                            if (sp) sp.classList.add("correct-ans-text");
+                            if (inp && inp.checked) correctCount++;
+                        } else if (inp && inp.checked) {
+                            lb.classList.add("wrong-ans-box");
+                            const sp = lb.querySelector("span");
+                            if (sp) sp.classList.add("wrong-ans-text");
+                        }
+                    });
+                });
+
+                const tfRows = qContainer.querySelectorAll(".tf-statement-row");
+                tfRows.forEach(function(row) {
+                    totalItems++;
+                    const ans = row.getAttribute("data-correct");
+                    const checked = row.querySelector("input:checked");
+                    if (checked && checked.value === ans) {
+                        correctCount++;
+                        row.classList.add("correct-ans-box");
+                    } else {
+                        row.classList.add("wrong-ans-box");
+                    }
+                });
+
+                const score10 = totalItems > 0 ? ((correctCount / totalItems) * 10).toFixed(2) : "0.00";
+                document.getElementById("score-display").textContent = score10 + "/10";
+                document.getElementById("score-detail").textContent = "Bạn trả lời đúng " + correctCount + "/" + totalItems + " ý hỏi.";
+                document.getElementById("submit-btn").classList.add("hidden-element");
+                document.getElementById("result-screen").classList.remove("hidden-element");
+                document.getElementById("result-screen").scrollIntoView({ behavior: "smooth" });
+            };
+
+            window.continueAfterResult = function() {
+                document.getElementById("test-screen").classList.add("hidden-element");
+                document.getElementById("result-screen").classList.add("hidden-element");
+                document.getElementById("welcome-screen").classList.remove("hidden-element");
+            };
+        }
+
+        // =========================================================================
+        // 3. TIỆN ÍCH GIAO DIỆN THÔNG MINH: LỌC DANH MỤC, BẢNG CÂU HỎI, CỠ CHỮ
+        // =========================================================================
+        function showToast(message, color) {
+            const toast = document.getElementById("app-toast");
+            const text = document.getElementById("app-toast-text");
+            const icon = document.getElementById("app-toast-icon");
+            if (!toast || !text) return;
+            text.textContent = message;
+            icon.className = "w-2.5 h-2.5 rounded-full " + (color === "amber" ? "bg-amber-400" : "bg-emerald-400");
+            toast.classList.remove("hidden-element");
+            clearTimeout(window.__toastTimer);
+            window.__toastTimer = setTimeout(function() {
+                toast.classList.add("hidden-element");
+            }, 3400);
+        }
+
+        window.filterSidebarItems = function() {
+            const input = document.getElementById("sidebar-search-input");
+            const clearBtn = document.getElementById("sidebar-search-clear");
+            const container = document.getElementById("sidebar-container");
+            if (!input || !container) return;
+
+            const q = input.value.trim().toLowerCase();
+            if (q.length > 0) {
+                clearBtn.classList.remove("hidden-element");
+            } else {
+                clearBtn.classList.add("hidden-element");
+            }
+
+            const children = Array.from(container.children);
+            let visibleCount = 0;
+            children.forEach(function(el) {
+                const txt = (el.textContent || "").toLowerCase();
+                if (!q || txt.indexOf(q) !== -1) {
+                    el.style.display = "";
+                    visibleCount++;
+                } else {
+                    el.style.display = "none";
+                }
+            });
+            const badge = document.getElementById("sidebar-count-badge");
+            if (badge) badge.textContent = visibleCount + " mục";
+        };
+
+        window.clearSidebarSearch = function() {
+            const input = document.getElementById("sidebar-search-input");
+            if (input) {
+                input.value = "";
+                filterSidebarItems();
+            }
+        };
+
+        function updateSidebarBadgeCount() {
+            const container = document.getElementById("sidebar-container");
+            const badge = document.getElementById("sidebar-count-badge");
+            if (container && badge) {
+                badge.textContent = container.children.length + " chuyên đề";
+            }
+        }
+
+        let currentQuestionFontScale = 0;
+        window.adjustQuestionFontSize = function(delta) {
+            const qContainer = document.getElementById("questions-container");
+            if (!qContainer) return;
+            if (delta === 0) {
+                currentQuestionFontScale = 0;
+            } else {
+                currentQuestionFontScale = Math.max(-1, Math.min(2, currentQuestionFontScale + delta));
+            }
+            const sizes = { "-1": "0.9rem", "0": "1rem", "1": "1.12rem", "2": "1.25rem" };
+            qContainer.style.fontSize = sizes[String(currentQuestionFontScale)] || "1rem";
+        };
+
+        window.toggleQuestionPalette = function() {
+            const panel = document.getElementById("question-palette-panel");
+            if (panel) panel.classList.toggle("hidden-element");
+        };
+
+        function rebuildQuestionPalette() {
+            const qContainer = document.getElementById("questions-container");
+            const grid = document.getElementById("question-palette-grid");
+            const counter = document.getElementById("answered-counter");
+            const pctBadge = document.getElementById("progress-percent-badge");
+            const bar = document.getElementById("test-progress-bar");
+            if (!qContainer || !grid) return;
+
+            const boxes = Array.from(qContainer.querySelectorAll(".question-box"));
+            grid.innerHTML = "";
+            if (boxes.length === 0) {
+                if (counter) counter.textContent = "0/0";
+                return;
+            }
+
+            let answered = 0;
+            boxes.forEach(function(box, idx) {
+                const checkedInputs = box.querySelectorAll("input:checked");
+                const isDone = checkedInputs.length > 0;
+                if (isDone) answered++;
+
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.textContent = idx + 1;
+                btn.className = isDone
+                    ? "w-7 h-7 rounded-lg text-xs font-extrabold bg-blue-600 text-white shadow-sm transition-all"
+                    : "w-7 h-7 rounded-lg text-xs font-bold bg-white text-slate-700 border border-slate-300 hover:border-blue-500 transition-all";
+                btn.onclick = function() {
+                    box.scrollIntoView({ behavior: "smooth", block: "center" });
+                };
+                grid.appendChild(btn);
+            });
+
+            const total = boxes.length;
+            const pct = total > 0 ? Math.round((answered / total) * 100) : 0;
+            if (counter) counter.textContent = answered + "/" + total;
+            if (pctBadge) pctBadge.textContent = pct + "%";
+            if (bar) bar.style.width = pct + "%";
+        }
+
+        // Theo dõi thay đổi trong #questions-container và #sidebar-container
+        document.addEventListener("change", function(e) {
+            if (e.target && e.target.closest("#questions-container")) {
+                rebuildQuestionPalette();
+            }
+        });
+
+        // =========================================================================
+        // 4. BỘ TRÍCH XUẤT CÂU HỎI ĐA NĂNG & TRÌNH XUẤT FILE .DOC / .DOCX THÔNG MINH
+        // =========================================================================
+        let activeExportQuestions = null; // Lưu danh sách câu hỏi đang chuẩn bị xuất
+
+        // Tự động quét biến toàn cục từ data_khoi10.js, data_khoi11.js, data_khoi12.js, data_mocktest.js nếu có
+        function discoverAllAvailableTests() {
+            const catalog = [];
+            // Luôn có mục "Đề đang mở trên màn hình"
+            catalog.push({
+                key: "current",
+                label: "📌 Đề thi / Bài học đang hiển thị trên màn hình",
+                getData: function() { return extractQuestionsFromDOM(); }
+            });
+
+            // Quét các biến dữ liệu phổ biến trong global scope
+            const candidateVarNames = [
+                "dataKhoi10", "data_khoi10", "khoi10Data", "khoi10",
+                "dataKhoi11", "data_khoi11", "khoi11Data", "khoi11",
+                "dataKhoi12", "data_khoi12", "khoi12Data", "khoi12",
+                "dataMocktest", "data_mocktest", "mocktestData", "mockTests", "mocktest"
+            ];
+
+            candidateVarNames.forEach(function(varName) {
+                try {
+                    const val = window[varName] || Function("try { return typeof " + varName + " !== 'undefined' ? " + varName + " : null; } catch(e) { return null; }")();
+                    if (Array.isArray(val)) {
+                        val.forEach(function(item, i) {
+                            const title = item.title || item.name || item.tenBai || (varName + " - Mục " + (i + 1));
+                            catalog.push({
+                                key: varName + "_" + i,
+                                label: "📚 " + title,
+                                rawItem: item
+                            });
+                        });
+                    } else if (val && typeof val === "object") {
+                        Object.keys(val).forEach(function(k) {
+                            const item = val[k];
+                            if (item && typeof item === "object") {
+                                const title = item.title || item.name || k;
+                                catalog.push({
+                                    key: varName + "_" + k,
+                                    label: "📚 " + title,
+                                    rawItem: item
+                                });
+                            }
+                        });
+                    }
+                } catch (e) {}
+            });
+
+            // Thêm dữ liệu từ FALLBACK_DEMO_DATA nếu chưa có
+            if (catalog.length === 1) {
+                ["khoi12", "mocktest", "khoi11", "khoi10"].forEach(function(sec) {
+                    (FALLBACK_DEMO_DATA[sec] || []).forEach(function(item) {
+                        catalog.push({
+                            key: "demo_" + item.id,
+                            label: "📘 " + item.title,
+                            rawItem: item
+                        });
+                    });
+                });
+            }
+
+            return catalog;
+        }
+
+        // Chuyển đổi một đối tượng đề bất kỳ sang cấu trúc chuẩn { title, subtitle, part1: [], part2: [] }
+        function normalizeRawExamObject(raw) {
+            if (!raw) return null;
+            const result = {
+                title: raw.title || raw.name || raw.tenDe || "ĐỀ ÔN THI TỐT NGHIỆP THPT MÔN LỊCH SỬ",
+                subtitle: raw.subtitle || "Định dạng mới 2026",
+                part1: [],
+                part2: []
+            };
+
+            // Nếu đã có part1 / part2
+            if (Array.isArray(raw.part1) || Array.isArray(raw.part2)) {
+                (raw.part1 || []).forEach(function(q) {
+                    result.part1.push({
+                        question: cleanQuestionPrefix(q.q || q.question || q.text || q.content || ""),
+                        options: (q.options || q.answers || q.choices || []).map(cleanOptionPrefix),
+                        correctIndex: typeof q.answer === "number" ? q.answer : (typeof q.correct === "number" ? q.correct : 0)
+                    });
+                });
+                (raw.part2 || []).forEach(function(q) {
+                    result.part2.push({
+                        question: cleanQuestionPrefix(q.q || q.question || q.text || "Đọc đoạn tư liệu sau đây:"),
+                        passage: q.passage || q.source || q.context || q.tuLieu || "",
+                        statements: (q.statements || q.items || q.subQuestions || []).map(function(st) {
+                            return {
+                                text: cleanStatementPrefix(st.text || st.q || st.content || ""),
+                                isTrue: Boolean(st.answer !== undefined ? st.answer : st.isTrue)
+                            };
+                        })
+                    });
+                });
+                return result;
+            }
+
+            // Nếu raw.questions là mảng hỗn hợp
+            const arr = Array.isArray(raw.questions) ? raw.questions : (Array.isArray(raw) ? raw : []);
+            arr.forEach(function(q) {
+                if (q.statements || q.items || q.subQuestions || q.type === "tf" || q.type === "truefalse") {
+                    result.part2.push({
+                        question: cleanQuestionPrefix(q.q || q.question || q.text || "Đọc đoạn tư liệu sau đây:"),
+                        passage: q.passage || q.source || q.context || "",
+                        statements: (q.statements || q.items || q.subQuestions || []).map(function(st) {
+                            return {
+                                text: cleanStatementPrefix(st.text || st.q || st.content || ""),
+                                isTrue: Boolean(st.answer !== undefined ? st.answer : (st.correct !== undefined ? st.correct : st.isTrue))
+                            };
+                        })
+                    });
+                } else if (q.options || q.choices || q.answers) {
+                    result.part1.push({
+                        question: cleanQuestionPrefix(q.q || q.question || q.text || q.content || ""),
+                        options: (q.options || q.choices || q.answers || []).map(cleanOptionPrefix),
+                        correctIndex: typeof q.answer === "number" ? q.answer : (typeof q.correct === "number" ? q.correct : 0)
+                    });
+                }
+            });
+            return result;
+        }
+
+        function cleanQuestionPrefix(str) {
+            return String(str || "").replace(/^Câu\s*\d+\s*[:.]\s*/i, "").trim();
+        }
+
+        function cleanOptionPrefix(str) {
+            return String(str || "").replace(/^[A-D]\s*[.:)]\s*/i, "").trim();
+        }
+
+        function cleanStatementPrefix(str) {
+            return String(str || "").replace(/^[a-d]\s*[.):]\s*/i, "").trim();
+        }
+
+        // Trích xuất trực tiếp từ DOM #questions-container (Tương thích 100% với mọi bản app.js)
+        function extractQuestionsFromDOM() {
+            const qContainer = document.getElementById("questions-container");
+            const titleEl = document.getElementById("current-test-title");
+            const subEl = document.getElementById("current-test-subtitle");
+
+            const result = {
+                title: (titleEl && titleEl.textContent.trim() !== "Đề thi") ? titleEl.textContent.trim() : "ĐỀ THI THỬ TỐT NGHIỆP THPT MÔN LỊCH SỬ",
+                subtitle: subEl ? subEl.textContent.trim() : "Định dạng mới 2026",
+                part1: [],
+                part2: []
+            };
+
+            if (!qContainer || qContainer.children.length === 0) {
+                // Nếu người dùng chưa chọn đề nào trên màn hình, lấy đề mặc định đầu tiên của Lớp 12 hoặc Đề thi thử
+                const catalog = discoverAllAvailableTests();
+                if (catalog.length > 1 && catalog[1].rawItem) {
+                    return normalizeRawExamObject(catalog[1].rawItem);
+                }
+                return normalizeRawExamObject(FALLBACK_DEMO_DATA.mocktest[0]);
+            }
+
+            const boxes = Array.from(qContainer.querySelectorAll(".question-box"));
+            boxes.forEach(function(box) {
+                const radios = Array.from(box.querySelectorAll('input[type="radio"]'));
+                const optionLabels = Array.from(box.querySelectorAll("label.option-label"));
+
+                // Kiểm tra xem đây là câu Trắc nghiệm 4 lựa chọn (Phần I) hay Đúng/Sai (Phần II)
+                const isTF = box.getAttribute("data-qtype") === "tf" ||
+                             radios.length >= 6 ||
+                             box.querySelectorAll("table tr").length >= 4 ||
+                             box.querySelectorAll(".tf-statement-row").length >= 2;
+
+                if (!isTF && optionLabels.length > 0) {
+                    // Câu hỏi Phần I (A, B, C, D)
+                    let qText = "";
+                    const firstChild = box.firstElementChild;
+                    if (firstChild) {
+                        qText = cleanQuestionPrefix(firstChild.textContent);
+                    }
+
+                    const opts = [];
+                    let correctIdx = box.hasAttribute("data-correct") ? parseInt(box.getAttribute("data-correct"), 10) : -1;
+
+                    optionLabels.slice(0, 4).forEach(function(lb, idx) {
+                        opts.push(cleanOptionPrefix(lb.textContent));
+                        if (lb.classList.contains("correct-ans-box") || lb.querySelector(".correct-ans-text")) {
+                            correctIdx = idx;
+                        }
+                        const inp = lb.querySelector("input");
+                        if (inp && (inp.getAttribute("data-correct") === "true" || inp.dataset.ans === "true")) {
+                            correctIdx = idx;
+                        }
+                    });
+
+                    result.part1.push({
+                        question: qText,
+                        options: opts,
+                        correctIndex: correctIdx >= 0 ? correctIdx : 0
+                    });
+                } else {
+                    // Câu hỏi Phần II (Đúng / Sai)
+                    let qText = "Đọc đoạn tư liệu sau đây:";
+                    const firstEl = box.firstElementChild;
+                    if (firstEl) {
+                        qText = cleanQuestionPrefix(firstEl.textContent);
+                    }
+
+                    let passageText = "";
+                    const quoteEl = box.querySelector("blockquote, .passage, .italic, .bg-amber-50, .bg-gray-50, .bg-blue-50");
+                    if (quoteEl && quoteEl !== firstEl) {
+                        passageText = quoteEl.textContent.trim();
+                    }
+
+                    const statements = [];
+                    const customRows = Array.from(box.querySelectorAll(".tf-statement-row, table tbody tr"));
+                    if (customRows.length > 0) {
+                        customRows.forEach(function(r) {
+                            const txtEl = r.firstElementChild || r;
+                            const rawText = cleanStatementPrefix(txtEl.textContent.replace(/\s*(Đúng|Sai)\s*$/g, ""));
+                            if (rawText) {
+                                let isTrue = true;
+                                if (r.hasAttribute("data-correct")) {
+                                    isTrue = r.getAttribute("data-correct") === "true";
+                                } else if (r.classList.contains("wrong-ans-box")) {
+                                    const chk = r.querySelector("input:checked");
+                                    if (chk) isTrue = chk.value !== "true";
+                                }
+                                statements.push({ text: rawText, isTrue: isTrue });
+                            }
+                        });
+                    } else {
+                        // Tìm các dòng có ý a), b), c), d)
+                        const allDivs = Array.from(box.querySelectorAll("div, p"));
+                        allDivs.forEach(function(d) {
+                            const t = d.textContent.trim();
+                            if (/^[a-d]\)\s+/i.test(t) && d.querySelectorAll("div").length === 0) {
+                                statements.push({
+                                    text: cleanStatementPrefix(t.replace(/\s*(Đúng|Sai)\s*$/g, "")),
+                                    isTrue: true
+                                });
+                            }
+                        });
+                    }
+
+                    if (statements.length > 0) {
+                        result.part2.push({
+                            question: qText,
+                            passage: passageText,
+                            statements: statements.slice(0, 4)
+                        });
+                    }
+                }
+            });
+
+            // Thử đối chiếu với dữ liệu gốc trong bộ nhớ để lấy chính xác 100% đáp án nếu người dùng chưa bấm Nộp bài
+            enrichAnswersFromMemory(result);
+            return result;
+        }
+
+        function enrichAnswersFromMemory(extracted) {
+            try {
+                const catalog = discoverAllAvailableTests();
+                for (let i = 1; i < catalog.length; i++) {
+                    const norm = normalizeRawExamObject(catalog[i].rawItem);
+                    if (!norm) continue;
+                    // Đối chiếu từng câu hỏi theo nội dung
+                    extracted.part1.forEach(function(qItem) {
+                        const match = norm.part1.find(function(m) {
+                            return m.question && qItem.question && m.question.slice(0, 35) === qItem.question.slice(0, 35);
+                        });
+                        if (match && typeof match.correctIndex === "number") {
+                            qItem.correctIndex = match.correctIndex;
+                        }
+                    });
+                    extracted.part2.forEach(function(qItem) {
+                        const match = norm.part2.find(function(m) {
+                            return m.passage && qItem.passage && m.passage.slice(0, 30) === qItem.passage.slice(0, 30);
+                        });
+                        if (match && match.statements) {
+                            qItem.statements.forEach(function(st, idx) {
+                                if (match.statements[idx]) {
+                                    st.isTrue = match.statements[idx].isTrue;
+                                }
+                            });
+                        }
+                    });
+                }
+            } catch (e) {}
+        }
+
+        // Mở Modal Xuất Word
+        window.openExportModal = function(preferMode) {
+            const modal = document.getElementById("export-doc-modal");
+            const selectEl = document.getElementById("export-source-select");
+            if (!modal || !selectEl) return;
+
+            const catalog = discoverAllAvailableTests();
+            selectEl.__catalog = catalog;
+            selectEl.innerHTML = "";
+            catalog.forEach(function(item, idx) {
+                const opt = document.createElement("option");
+                opt.value = String(idx);
+                opt.textContent = item.label;
+                selectEl.appendChild(opt);
+            });
+
+            if (preferMode === "teacher") {
+                document.getElementById("export-answer-mode").value = "teacher_inline";
+            }
+
+            handleExportSourceChange();
+            modal.classList.remove("hidden-element");
+        };
+
+        window.closeExportModal = function() {
+            const modal = document.getElementById("export-doc-modal");
+            if (modal) modal.classList.add("hidden-element");
+        };
+
+        window.handleExportSourceChange = function() {
+            const selectEl = document.getElementById("export-source-select");
+            const catalog = (selectEl && selectEl.__catalog) ? selectEl.__catalog : discoverAllAvailableTests();
+            const idx = parseInt(selectEl.value || "0", 10);
+            const chosen = catalog[idx] || catalog[0];
+
+            if (chosen.getData) {
+                activeExportQuestions = chosen.getData();
+            } else if (chosen.rawItem) {
+                activeExportQuestions = normalizeRawExamObject(chosen.rawItem);
+            }
+            if (activeExportQuestions && activeExportQuestions.title) {
+                document.getElementById("export-exam-name").value = activeExportQuestions.title.toUpperCase();
+            }
+            refreshExportPreview();
+        };
+
+        // Đảo ngẫu nhiên câu hỏi & tạo Mã đề mới
+        window.shuffleExportQuestions = function() {
+            if (!activeExportQuestions) return;
+            const shuffleArr = function(arr) {
+                const copy = arr.slice();
+                for (let i = copy.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    const temp = copy[i];
+                    copy[i] = copy[j];
+                    copy[j] = temp;
+                }
+                return copy;
+            };
+            activeExportQuestions.part1 = shuffleArr(activeExportQuestions.part1);
+            activeExportQuestions.part2 = shuffleArr(activeExportQuestions.part2);
+
+            const randomCode = String(Math.floor(100 + Math.random() * 900));
+            document.getElementById("export-exam-code").value = randomCode;
+            refreshExportPreview();
+            showToast("Đã trộn câu hỏi & tạo Mã đề mới: " + randomCode + " (Bảng đáp án đã tự động cập nhật)!", "emerald");
+        };
+
+        window.applyPaperPreset = function(preset) {
+            const ecoBtn = document.getElementById("preset-btn-eco");
+            const stdBtn = document.getElementById("preset-btn-standard");
+            const comBtn = document.getElementById("preset-btn-comfortable");
+
+            const activeCls = "p-2.5 rounded-xl border-2 border-emerald-600 bg-emerald-50/80 text-left transition-all";
+            const normalCls = "p-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-left transition-all";
+
+            ecoBtn.className = preset === "eco" ? activeCls : normalCls;
+            stdBtn.className = preset === "standard" ? activeCls : normalCls;
+            comBtn.className = preset === "comfortable" ? activeCls : normalCls;
+
+            if (preset === "eco") {
+                document.getElementById("export-font-size").value = "10.5";
+                document.getElementById("export-margin").value = "narrow";
+                document.getElementById("export-option-layout").value = "smart";
+                document.getElementById("export-tf-layout").value = "compact";
+                document.getElementById("export-compact-header").checked = true;
+            } else if (preset === "standard") {
+                document.getElementById("export-font-size").value = "11.5";
+                document.getElementById("export-margin").value = "normal";
+                document.getElementById("export-option-layout").value = "smart";
+                document.getElementById("export-tf-layout").value = "table";
+                document.getElementById("export-two-columns").checked = false;
+                document.getElementById("export-compact-header").checked = false;
+            } else {
+                document.getElementById("export-font-size").value = "12";
+                document.getElementById("export-margin").value = "normal";
+                document.getElementById("export-option-layout").value = "one";
+                document.getElementById("export-tf-layout").value = "table";
+                document.getElementById("export-two-columns").checked = false;
+                document.getElementById("export-compact-header").checked = false;
+            }
+            refreshExportPreview();
+        };
+
+        function getExportConfig() {
+            const fontPt = parseFloat(document.getElementById("export-font-size").value || "10.5");
+            const lineSpacingMap = { "10": 1.02, "10.5": 1.06, "11": 1.1, "11.5": 1.15, "12": 1.22 };
+            return {
+                fontPt: fontPt,
+                lineHeight: lineSpacingMap[String(fontPt)] || 1.1,
+                marginMode: document.getElementById("export-margin").value || "narrow",
+                optionLayout: document.getElementById("export-option-layout").value || "smart",
+                tfLayout: document.getElementById("export-tf-layout").value || "compact",
+                twoColumns: document.getElementById("export-two-columns").checked,
+                compactHeader: document.getElementById("export-compact-header").checked,
+                schoolName: document.getElementById("export-school-name").value.trim() || "SỞ GD&ĐT - TRƯỜNG THPT",
+                examName: document.getElementById("export-exam-name").value.trim() || "ĐỀ ÔN THI TỐT NGHIỆP THPT 2026",
+                subjectTime: document.getElementById("export-subject-time").value.trim() || "Môn: LỊCH SỬ — Thời gian: 50 phút",
+                examCode: document.getElementById("export-exam-code").value.trim() || "301",
+                answerMode: document.getElementById("export-answer-mode").value || "end_key",
+                includeStudentSheet: document.getElementById("export-answer-sheet-box").checked
+            };
+        }
+
+        function escapeHtml(str) {
+            return String(str || "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;");
+        }
+
+        // Thuật toán quyết định số cột tối ưu cho 4 đáp án A, B, C, D để tiết kiệm giấy nhất
+        function decideOptionColumns(options, mode, twoColsPage) {
+            if (mode === "inline") return "inline";
+            if (mode === "one") return 1;
+            if (mode === "two") return 2;
+            // Chế độ smart tự động đo độ dài ký tự
+            let maxLen = 0;
+            (options || []).forEach(function(o) {
+                if (o && o.length > maxLen) maxLen = o.length;
+            });
+            if (twoColsPage) {
+                if (maxLen <= 14) return 2;
+                return 1;
+            }
+            if (maxLen <= 20) return 4; // 4 đáp án trên 1 dòng
+            if (maxLen <= 48) return 2; // 2 đáp án trên 1 dòng
+            return 1;                   // 1 đáp án trên 1 dòng
+        }
+
+        // Sinh HTML chuẩn in ấn cho cả khung Xem trước, file .DOC và In PDF
+        function generateExamPrintHTML(data, cfg) {
+            const p1 = data.part1 || [];
+            const p2 = data.part2 || [];
+            const letters = ["A", "B", "C", "D"];
+            const subLetters = ["a", "b", "c", "d"];
+            const fs = cfg.fontPt;
+            const lh = cfg.lineHeight;
+
+            let html = "";
+
+            // 1. PHẦN TIÊU ĐỀ ĐỀ THI (Siêu gọn hoặc Chuẩn Bộ GD&ĐT)
+            if (cfg.compactHeader) {
+                html += '<table style="width:100%; border-collapse:collapse; border:1.5px solid #000; margin-bottom:6px; font-family:\'Times New Roman\',serif; font-size:' + fs + 'pt; line-height:1.15;">' +
+                    '<tr>' +
+                    '<td style="width:36%; border-right:1px solid #000; padding:4px 6px; text-align:center; vertical-align:middle;">' +
+                    '<div style="font-weight:bold; font-size:' + (fs - 0.5) + 'pt;">' + escapeHtml(cfg.schoolName) + '</div>' +
+                    '<div style="font-size:' + (fs - 1) + 'pt; font-style:italic;">(Đề gồm ' + p1.length + ' câu Phần I &amp; ' + p2.length + ' câu Phần II)</div>' +
+                    '</td>' +
+                    '<td style="width:44%; border-right:1px solid #000; padding:4px 6px; text-align:center; vertical-align:middle;">' +
+                    '<div style="font-weight:bold; text-transform:uppercase;">' + escapeHtml(cfg.examName) + '</div>' +
+                    '<div style="font-weight:bold; font-size:' + (fs - 0.5) + 'pt;">' + escapeHtml(cfg.subjectTime) + '</div>' +
+                    '</td>' +
+                    '<td style="width:20%; padding:4px 6px; text-align:center; vertical-align:middle;">' +
+                    '<div style="font-weight:bold; border:1px solid #000; padding:2px 4px; display:inline-block;">MÃ ĐỀ: ' + escapeHtml(cfg.examCode) + '</div>' +
+                    '</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td colspan="3" style="border-top:1px dashed #333; padding:3px 6px; font-size:' + (fs - 0.5) + 'pt;">' +
+                    '<strong>Họ và tên thí sinh:</strong> ........................................................................ <strong>Lớp / SBD:</strong> ............................ <strong>Điểm:</strong> .............' +
+                    '</td>' +
+                    '</tr>' +
+                    '</table>';
+            } else {
+                html += '<table style="width:100%; border-collapse:collapse; margin-bottom:6px; font-family:\'Times New Roman\',serif; font-size:' + fs + 'pt; line-height:1.2;">' +
+                    '<tr>' +
+                    '<td style="width:44%; text-align:center; vertical-align:top; padding:2px;">' +
+                    '<div style="font-weight:bold;">' + escapeHtml(cfg.schoolName) + '</div>' +
+                    '<div style="font-weight:bold; border-bottom:1px solid #000; display:inline-block; padding-bottom:2px;">ĐỀ CHÍNH THỨC</div>' +
+                    '</td>' +
+                    '<td style="width:56%; text-align:center; vertical-align:top; padding:2px;">' +
+                    '<div style="font-weight:bold; text-transform:uppercase;">' + escapeHtml(cfg.examName) + '</div>' +
+                    '<div style="font-weight:bold;">' + escapeHtml(cfg.subjectTime) + '</div>' +
+                    '<div style="margin-top:3px;"><span style="border:1.5px solid #000; padding:1px 8px; font-weight:bold;">Mã đề thi: ' + escapeHtml(cfg.examCode) + '</span></div>' +
+                    '</td>' +
+                    '</tr>' +
+                    '</table>' +
+                    '<div style="border-bottom:1px solid #000; padding-bottom:4px; margin-bottom:6px; font-size:' + fs + 'pt;">' +
+                    '<strong>Họ và tên thí sinh:</strong> .............................................................................. <strong>Số báo danh:</strong> .....................................' +
+                    '</div>';
+            }
+
+            html += '<div class="exam-body-content" style="font-family:\'Times New Roman\',serif; font-size:' + fs + 'pt; line-height:' + lh + '; text-align:justify;">';
+
+            // 2. PHẦN I: TRẮC NGHIỆM NHIỀU PHƯƠNG ÁN LỰA CHỌN
+            if (p1.length > 0) {
+                html += '<div style="font-weight:bold; margin-top:4px; margin-bottom:3px; background:#f1f5f9; border-left:3px solid #0f172a; padding:2px 6px;">' +
+                    'PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn (Thí sinh trả lời từ câu 1 đến câu ' + p1.length + ').' +
+                    '</div>';
+
+                p1.forEach(function(q, qIdx) {
+                    const colMode = decideOptionColumns(q.options, cfg.optionLayout, cfg.twoColumns);
+                    html += '<div style="margin-bottom:3px; page-break-inside:avoid;">';
+                    html += '<div style="margin-bottom:1.5px;"><strong>Câu ' + (qIdx + 1) + '.</strong> ' + escapeHtml(q.question) + '</div>';
+
+                    const formatOpt = function(oIdx) {
+                        const rawOpt = (q.options && q.options[oIdx]) ? q.options[oIdx] : "";
+                        const isAns = cfg.answerMode === "teacher_inline" && q.correctIndex === oIdx;
+                        const letterTag = isAns
+                            ? '<strong style="text-decoration:underline; color:#b91c1c;">' + letters[oIdx] + '.</strong> '
+                            : '<strong>' + letters[oIdx] + '.</strong> ';
+                        const textTag = isAns
+                            ? '<span style="font-weight:bold; text-decoration:underline;">' + escapeHtml(rawOpt) + '</span>'
+                            : escapeHtml(rawOpt);
+                        return letterTag + textTag;
+                    };
+
+                    if (colMode === "inline") {
+                        html += '<div style="padding-left:6px;">' +
+                            formatOpt(0) + ' &nbsp;&nbsp;&nbsp; ' +
+                            formatOpt(1) + ' &nbsp;&nbsp;&nbsp; ' +
+                            formatOpt(2) + ' &nbsp;&nbsp;&nbsp; ' +
+                            formatOpt(3) + '</div>';
+                    } else if (colMode === 4) {
+                        html += '<table style="width:100%; border-collapse:collapse; border:none; font-size:' + fs + 'pt; line-height:' + lh + ';"><tr>' +
+                            '<td style="width:25%; padding:0.5px 4px 0.5px 0; vertical-align:top;">' + formatOpt(0) + '</td>' +
+                            '<td style="width:25%; padding:0.5px 4px; vertical-align:top;">' + formatOpt(1) + '</td>' +
+                            '<td style="width:25%; padding:0.5px 4px; vertical-align:top;">' + formatOpt(2) + '</td>' +
+                            '<td style="width:25%; padding:0.5px 0 0.5px 4px; vertical-align:top;">' + formatOpt(3) + '</td>' +
+                            '</tr></table>';
+                    } else if (colMode === 2) {
+                        html += '<table style="width:100%; border-collapse:collapse; border:none; font-size:' + fs + 'pt; line-height:' + lh + ';">' +
+                            '<tr>' +
+                            '<td style="width:50%; padding:0.5px 6px 0.5px 0; vertical-align:top;">' + formatOpt(0) + '</td>' +
+                            '<td style="width:50%; padding:0.5px 0 0.5px 6px; vertical-align:top;">' + formatOpt(1) + '</td>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '<td style="width:50%; padding:0.5px 6px 0.5px 0; vertical-align:top;">' + formatOpt(2) + '</td>' +
+                            '<td style="width:50%; padding:0.5px 0 0.5px 6px; vertical-align:top;">' + formatOpt(3) + '</td>' +
+                            '</tr></table>';
+                    } else {
+                        for (let o = 0; o < 4; o++) {
+                            html += '<div style="padding-left:6px;">' + formatOpt(o) + '</div>';
+                        }
+                    }
+                    html += '</div>';
+                });
+            }
+
+            // 3. PHẦN II: TRẮC NGHIỆM ĐÚNG / SAI
+            if (p2.length > 0) {
+                html += '<div style="font-weight:bold; margin-top:6px; margin-bottom:4px; background:#f1f5f9; border-left:3px solid #0f172a; padding:2px 6px;">' +
+                    'PHẦN II. Câu trắc nghiệm đúng sai (Trong mỗi ý a, b, c, d ở mỗi câu, thí sinh chọn Đúng hoặc Sai).' +
+                    '</div>';
+
+                p2.forEach(function(q, qIdx) {
+                    html += '<div style="margin-bottom:5px; page-break-inside:avoid;">';
+                    html += '<div style="margin-bottom:2px;"><strong>Câu ' + (qIdx + 1) + '.</strong> ' + escapeHtml(q.question) + '</div>';
+                    if (q.passage) {
+                        html += '<div style="border:1px solid #64748b; background:#fafafa; padding:3px 7px; margin:2px 0 3px 0; font-style:italic; font-size:' + (fs - 0.3) + 'pt; line-height:' + lh + ';">' +
+                            escapeHtml(q.passage).replace(/\n/g, "<br>") +
+                            '</div>';
+                    }
+
+                    if (cfg.tfLayout === "table") {
+                        html += '<table style="width:100%; border-collapse:collapse; border:1px solid #333; font-size:' + fs + 'pt; line-height:' + lh + '; margin-top:2px;">' +
+                            '<tr style="background:#f1f5f9; font-weight:bold; text-align:center;">' +
+                            '<td style="border:1px solid #333; padding:2px 5px; text-align:left;">Nội dung nhận định</td>' +
+                            '<td style="border:1px solid #333; padding:2px 4px; width:46px;">Đúng</td>' +
+                            '<td style="border:1px solid #333; padding:2px 4px; width:46px;">Sai</td>' +
+                            '</tr>';
+                        (q.statements || []).forEach(function(st, sIdx) {
+                            const showAns = cfg.answerMode === "teacher_inline";
+                            const dMark = showAns && st.isTrue ? "<strong>☑</strong>" : "☐";
+                            const sMark = showAns && !st.isTrue ? "<strong>☑</strong>" : "☐";
+                            html += '<tr>' +
+                                '<td style="border:1px solid #333; padding:2px 5px;"><strong>' + subLetters[sIdx] + ')</strong> ' + escapeHtml(st.text) + '</td>' +
+                                '<td style="border:1px solid #333; padding:2px 4px; text-align:center;">' + dMark + '</td>' +
+                                '<td style="border:1px solid #333; padding:2px 4px; text-align:center;">' + sMark + '</td>' +
+                                '</tr>';
+                        });
+                        html += '</table>';
+                    } else {
+                        (q.statements || []).forEach(function(st, sIdx) {
+                            const showAns = cfg.answerMode === "teacher_inline";
+                            const tag = showAns
+                                ? '<strong style="color:#b91c1c;">[' + (st.isTrue ? "ĐÚNG" : "SAI") + ']</strong> '
+                                : '<span style="font-weight:bold;">[Đ / S]</span> ';
+                            html += '<div style="padding-left:6px; margin-bottom:1px;">' +
+                                '<strong>' + subLetters[sIdx] + ')</strong> ' + escapeHtml(st.text) + ' ' + tag +
+                                '</div>';
+                        });
+                    }
+                    html += '</div>';
+                });
+            }
+
+            html += '</div>'; // Kết thúc vùng nội dung câu hỏi
+
+            // 4. PHIẾU ĐIỀN ĐÁP ÁN NHANH CỦA HỌC SINH (Nếu bật)
+            if (cfg.includeStudentSheet) {
+                html += '<div style="margin-top:6px; page-break-inside:avoid; font-family:\'Times New Roman\',serif; font-size:' + (fs - 0.5) + 'pt;">' +
+                    '<div style="font-weight:bold; text-transform:uppercase; margin-bottom:2px;">PHIẾU TRẢ LỜI NHANH CỦA THÍ SINH (MÃ ĐỀ ' + escapeHtml(cfg.examCode) + '):</div>';
+                if (p1.length > 0) {
+                    const colsPerRow = Math.min(12, p1.length);
+                    html += '<table style="width:100%; border-collapse:collapse; border:1px solid #000; text-align:center; margin-bottom:3px;">';
+                    for (let r = 0; r < p1.length; r += colsPerRow) {
+                        html += '<tr style="background:#f8fafc; font-weight:bold;">';
+                        for (let c = r; c < Math.min(r + colsPerRow, p1.length); c++) {
+                            html += '<td style="border:1px solid #000; padding:1.5px;">Câu ' + (c + 1) + '</td>';
+                        }
+                        html += '</tr><tr>';
+                        for (let c = r; c < Math.min(r + colsPerRow, p1.length); c++) {
+                            html += '<td style="border:1px solid #000; padding:4px 1px;">&nbsp;</td>';
+                        }
+                        html += '</tr>';
+                    }
+                    html += '</table>';
+                }
+                html += '</div>';
+            }
+
+            // 5. DÒNG KẾT THÚC ĐỀ
+            html += '<div style="text-align:center; font-family:\'Times New Roman\',serif; font-size:' + (fs - 0.5) + 'pt; margin-top:6px; margin-bottom:4px;">' +
+                '<strong>--- HẾT ---</strong> <em>(Thí sinh không được sử dụng tài liệu. Cán bộ coi thi không giải thích gì thêm)</em>' +
+                '</div>';
+
+            // 6. BẢNG ĐÁP ÁN TỔNG HỢP SIÊU GỌN Ở CUỐI ĐỀ (Nếu chọn xuất kèm đáp án)
+            if (cfg.answerMode === "end_key" || cfg.answerMode === "teacher_inline") {
+                html += '<div style="margin-top:8px; padding-top:4px; border-top:1.5px dashed #333; page-break-inside:avoid; font-family:\'Times New Roman\',serif; font-size:' + (fs - 0.5) + 'pt;">' +
+                    '<div style="font-weight:bold; text-align:center; text-transform:uppercase; margin-bottom:3px;">BẢNG ĐÁP ÁN CHẤM — MÃ ĐỀ ' + escapeHtml(cfg.examCode) + '</div>';
+
+                if (p1.length > 0) {
+                    const cols = Math.min(12, p1.length);
+                    html += '<div style="font-weight:bold; margin-bottom:1.5px;">Phần I. Trắc nghiệm nhiều lựa chọn:</div>';
+                    html += '<table style="width:100%; border-collapse:collapse; border:1px solid #000; text-align:center; margin-bottom:4px;">';
+                    for (let r = 0; r < p1.length; r += cols) {
+                        html += '<tr style="background:#f1f5f9;">';
+                        for (let c = r; c < Math.min(r + cols, p1.length); c++) {
+                            const ansLetter = letters[p1[c].correctIndex] || "A";
+                            html += '<td style="border:1px solid #000; padding:2px 3px;"><strong>' + (c + 1) + '.' + ansLetter + '</strong></td>';
+                        }
+                        html += '</tr>';
+                    }
+                    html += '</table>';
+                }
+
+                if (p2.length > 0) {
+                    html += '<div style="font-weight:bold; margin-bottom:1.5px;">Phần II. Trắc nghiệm Đúng / Sai:</div>';
+                    html += '<table style="width:100%; border-collapse:collapse; border:1px solid #000; text-align:center;"><tr>';
+                    p2.forEach(function(q, qIdx) {
+                        const summary = (q.statements || []).map(function(st, sIdx) {
+                            return subLetters[sIdx] + ":" + (st.isTrue ? "Đ" : "S");
+                        }).join(" | ");
+                        html += '<td style="border:1px solid #000; padding:2px 4px;"><strong>Câu ' + (qIdx + 1) + ':</strong> ' + summary + '</td>';
+                    });
+                    html += '</tr></table>';
+                }
+                html += '</div>';
+            }
+
+            return html;
+        }
+
+        // Cập nhật bản xem trước trực tiếp (Live Preview) và thống kê tiết kiệm giấy
+        window.refreshExportPreview = function() {
+            if (!activeExportQuestions) {
+                activeExportQuestions = extractQuestionsFromDOM();
+            }
+            const cfg = getExportConfig();
+            const previewEl = document.getElementById("export-live-preview");
+            if (!previewEl) return;
+
+            if (cfg.twoColumns) {
+                previewEl.classList.add("two-cols-preview");
+            } else {
+                previewEl.classList.remove("two-cols-preview");
+            }
+
+            const padMap = { narrow: "18px 20px", normal: "26px 30px", wide: "26px 28px 26px 42px" };
+            previewEl.style.padding = padMap[cfg.marginMode] || "20px";
+            previewEl.innerHTML = generateExamPrintHTML(activeExportQuestions, cfg);
+
+            // Tính toán thống kê trang & mức tiết kiệm giấy
+            const p1Count = (activeExportQuestions.part1 || []).length;
+            const p2Count = (activeExportQuestions.part2 || []).length;
+            const totalQ = p1Count + p2Count;
+
+            // Ước tính số dòng truyền thống so với số dòng sau tối ưu
+            const traditionalLines = 10 + p1Count * 5.5 + p2Count * 9;
+            let compactLines = (cfg.compactHeader ? 4 : 8);
+            (activeExportQuestions.part1 || []).forEach(function(q) {
+                const m = decideOptionColumns(q.options, cfg.optionLayout, cfg.twoColumns);
+                compactLines += (m === 4 || m === "inline") ? 2.1 : (m === 2 ? 3.1 : 5.0);
+            });
+            compactLines += p2Count * (cfg.tfLayout === "compact" ? 6.2 : 7.5);
+            if (cfg.twoColumns) compactLines = compactLines * 0.56;
+            const fontFactor = cfg.fontPt / 12.0;
+            const effectiveLines = compactLines * fontFactor;
+
+            const estPages = Math.max(1, (effectiveLines / 52).toFixed(1));
+            const savedPercent = Math.min(65, Math.max(15, Math.round((1 - (effectiveLines / traditionalLines)) * 100)));
+
+            document.getElementById("export-stat-questions").textContent = totalQ + " câu (" + p1Count + " câu P.I + " + p2Count + " câu P.II)";
+            document.getElementById("export-stat-pages").textContent = "~" + estPages + " trang A4";
+            document.getElementById("export-stat-saved").textContent = "Tiết kiệm ~" + savedPercent + "% giấy in";
+        };
+
+        // =========================================================================
+        // 5. BỘ TẠO FILE .DOC VÀ .DOCX (OPENXML ZIP THUẦN JS - CHẠY OFFLINE 100%)
+        // =========================================================================
+
+        // Tạo bảng mã CRC32 để đóng gói file nén .DOCX chuẩn OpenXML
+        const DOCX_CRC_TABLE = (function() {
+            const table = new Uint32Array(256);
+            for (let n = 0; n < 256; n++) {
+                let c = n;
+                for (let k = 0; k < 8; k++) {
+                    c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+                }
+                table[n] = c >>> 0;
+            }
+            return table;
+        })();
+
+        function computeCrc32(bytes) {
+            let crc = 0xFFFFFFFF;
+            for (let i = 0; i < bytes.length; i++) {
+                crc = (crc >>> 8) ^ DOCX_CRC_TABLE[(crc ^ bytes[i]) & 0xFF];
+            }
+            return (crc ^ 0xFFFFFFFF) >>> 0;
+        }
+
+        function createZipArchive(entries) {
+            const encoder = new TextEncoder();
+            const localChunks = [];
+            const centralChunks = [];
+            let offset = 0;
+
+            for (let i = 0; i < entries.length; i++) {
+                const entry = entries[i];
+                const nameBytes = encoder.encode(entry.name);
+                const dataBytes = typeof entry.content === "string" ? encoder.encode(entry.content) : entry.content;
+                const crc = computeCrc32(dataBytes);
+                const size = dataBytes.length;
+
+                const localHeader = new Uint8Array(30 + nameBytes.length);
+                const lv = new DataView(localHeader.buffer);
+                lv.setUint32(0, 0x04034b50, true);
+                lv.setUint16(4, 20, true);
+                lv.setUint16(6, 0x0800, true);
+                lv.setUint16(8, 0, true);
+                lv.setUint16(10, 0, true);
+                lv.setUint16(12, 0x2100, true);
+                lv.setUint32(14, crc, true);
+                lv.setUint32(18, size, true);
+                lv.setUint32(22, size, true);
+                lv.setUint16(26, nameBytes.length, true);
+                lv.setUint16(28, 0, true);
+                localHeader.set(nameBytes, 30);
+
+                const centralHeader = new Uint8Array(46 + nameBytes.length);
+                const cv = new DataView(centralHeader.buffer);
+                cv.setUint32(0, 0x02014b50, true);
+                cv.setUint16(4, 20, true);
+                cv.setUint16(6, 20, true);
+                cv.setUint16(8, 0x0800, true);
+                cv.setUint16(10, 0, true);
+                cv.setUint16(12, 0, true);
+                cv.setUint16(14, 0x2100, true);
+                cv.setUint32(16, crc, true);
+                cv.setUint32(20, size, true);
+                cv.setUint32(24, size, true);
+                cv.setUint16(28, nameBytes.length, true);
+                cv.setUint16(30, 0, true);
+                cv.setUint16(32, 0, true);
+                cv.setUint16(34, 0, true);
+                cv.setUint16(36, 0, true);
+                cv.setUint32(38, 0, true);
+                cv.setUint32(42, offset, true);
+                centralHeader.set(nameBytes, 46);
+
+                localChunks.push(localHeader, dataBytes);
+                centralChunks.push(centralHeader);
+                offset += localHeader.length + size;
+            }
+
+            let centralSize = 0;
+            for (let i = 0; i < centralChunks.length; i++) centralSize += centralChunks[i].length;
+
+            const eocd = new Uint8Array(22);
+            const ev = new DataView(eocd.buffer);
+            ev.setUint32(0, 0x06054b50, true);
+            ev.setUint16(4, 0, true);
+            ev.setUint16(6, 0, true);
+            ev.setUint16(8, entries.length, true);
+            ev.setUint16(10, entries.length, true);
+            ev.setUint32(12, centralSize, true);
+            ev.setUint32(16, offset, true);
+            ev.setUint16(20, 0, true);
+
+            const output = new Uint8Array(offset + centralSize + 22);
+            let pos = 0;
+            for (let i = 0; i < localChunks.length; i++) {
+                output.set(localChunks[i], pos);
+                pos += localChunks[i].length;
+            }
+            for (let i = 0; i < centralChunks.length; i++) {
+                output.set(centralChunks[i], pos);
+                pos += centralChunks[i].length;
+            }
+            output.set(eocd, pos);
+            return output;
+        }
+
+        function escapeXml(str) {
+            return String(str || "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&apos;");
+        }
+
+        // Xây dựng file .DOCX thực thụ (OpenXML WordprocessingML)
+        function buildNativeDocxBlob(data, cfg) {
+            const halfPt = Math.round(cfg.fontPt * 2);
+            const lineTwips = Math.round(240 * cfg.lineHeight);
+            const marginTwips = cfg.marginMode === "narrow" ? 680 : (cfg.marginMode === "wide" ? 1134 : 850);
+            const leftMarginTwips = cfg.marginMode === "wide" ? 1250 : marginTwips;
+
+            const letters = ["A", "B", "C", "D"];
+            const subLetters = ["a", "b", "c", "d"];
+            const p1 = data.part1 || [];
+            const p2 = data.part2 || [];
+
+            function wRun(text, opts) {
+                opts = opts || {};
+                let rPr = '<w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>';
+                rPr += '<w:sz w:val="' + (opts.sz || halfPt) + '"/><w:szCs w:val="' + (opts.sz || halfPt) + '"/>';
+                if (opts.bold) rPr += "<w:b/>";
+                if (opts.italic) rPr += "<w:i/>";
+                if (opts.underline) rPr += '<w:u w:val="single"/>';
+                if (opts.color) rPr += '<w:color w:val="' + opts.color + '"/>';
+                rPr += "</w:rPr>";
+                return "<w:r>" + rPr + '<w:t xml:space="preserve">' + escapeXml(text) + "</w:t></w:r>";
+            }
+
+            function wPara(runsXml, opts) {
+                opts = opts || {};
+                const jc = opts.align || "both";
+                const after = opts.after !== undefined ? opts.after : 35;
+                const before = opts.before !== undefined ? opts.before : 0;
+                let pPr = "<w:pPr>";
+                pPr += '<w:spacing w:before="' + before + '" w:after="' + after + '" w:line="' + lineTwips + '" w:lineRule="auto"/>';
+                pPr += '<w:jc w:val="' + jc + '"/>';
+                if (opts.shading) {
+                    pPr += '<w:shd w:val="clear" w:color="auto" w:fill="' + opts.shading + '"/>';
+                }
+                pPr += "</w:pPr>";
+                return "<w:p>" + pPr + runsXml + "</w:p>";
+            }
+
+            let bodyXml = "";
+
+            // 1. Bảng Tiêu đề Đề thi
+            bodyXml += '<w:tbl><w:tblPr><w:tblW w:w="5000" w:type="pct"/>' +
+                '<w:tblBorders>' +
+                '<w:top w:val="single" w:sz="8" w:space="0" w:color="000000"/>' +
+                '<w:left w:val="single" w:sz="8" w:space="0" w:color="000000"/>' +
+                '<w:bottom w:val="single" w:sz="8" w:space="0" w:color="000000"/>' +
+                '<w:right w:val="single" w:sz="8" w:space="0" w:color="000000"/>' +
+                '<w:insideH w:val="dotted" w:sz="4" w:space="0" w:color="333333"/>' +
+                '<w:insideV w:val="single" w:sz="6" w:space="0" w:color="000000"/>' +
+                '</w:tblBorders></w:tblPr>' +
+                '<w:tr>' +
+                '<w:tc><w:tcPr><w:tcW w:w="2000" w:type="pct"/></w:tcPr>' +
+                wPara(wRun(cfg.schoolName, { bold: true }), { align: "center", after: 20 }) +
+                wPara(wRun("Mã đề: " + cfg.examCode, { bold: true }), { align: "center", after: 10 }) +
+                '</w:tc>' +
+                '<w:tc><w:tcPr><w:tcW w:w="3000" w:type="pct"/></w:tcPr>' +
+                wPara(wRun(cfg.examName, { bold: true }), { align: "center", after: 20 }) +
+                wPara(wRun(cfg.subjectTime, { bold: true, italic: true }), { align: "center", after: 10 }) +
+                '</w:tc>' +
+                '</w:tr>' +
+                '<w:tr>' +
+                '<w:tc><w:tcPr><w:tcW w:w="5000" w:type="pct"/><w:gridSpan w:val="2"/></w:tcPr>' +
+                wPara(wRun("Họ và tên thí sinh: ..................................................................... Lớp / SBD: ......................... Điểm: ...........", { bold: false }), { align: "left", after: 15, before: 15 }) +
+                '</w:tc>' +
+                '</w:tr></w:tbl>';
+
+            // 2. PHẦN I
+            if (p1.length > 0) {
+                bodyXml += wPara(
+                    wRun("PHẦN I. Câu trắc nghiệm nhiều phương án lựa chọn (Từ câu 1 đến câu " + p1.length + ").", { bold: true }),
+                    { before: 80, after: 40, shading: "F1F5F9" }
+                );
+
+                p1.forEach(function(q, qIdx) {
+                    bodyXml += wPara(
+                        wRun("Câu " + (qIdx + 1) + ". ", { bold: true }) + wRun(q.question),
+                        { before: 30, after: 20 }
+                    );
+
+                    const colMode = decideOptionColumns(q.options, cfg.optionLayout, cfg.twoColumns);
+                    const makeOptRuns = function(oIdx) {
+                        const txt = (q.options && q.options[oIdx]) ? q.options[oIdx] : "";
+                        const isAns = cfg.answerMode === "teacher_inline" && q.correctIndex === oIdx;
+                        return wRun(letters[oIdx] + ". ", { bold: true, underline: isAns, color: isAns ? "B91C1C" : undefined }) +
+                               wRun(txt, { bold: isAns, underline: isAns });
+                    };
+
+                    if (colMode === 4 || colMode === "inline") {
+                        bodyXml += '<w:tbl><w:tblPr><w:tblW w:w="5000" w:type="pct"/></w:tblPr><w:tr>' +
+                            '<w:tc><w:tcPr><w:tcW w:w="1250" w:type="pct"/></w:tcPr>' + wPara(makeOptRuns(0), { align: "left", after: 15 }) + '</w:tc>' +
+                            '<w:tc><w:tcPr><w:tcW w:w="1250" w:type="pct"/></w:tcPr>' + wPara(makeOptRuns(1), { align: "left", after: 15 }) + '</w:tc>' +
+                            '<w:tc><w:tcPr><w:tcW w:w="1250" w:type="pct"/></w:tcPr>' + wPara(makeOptRuns(2), { align: "left", after: 15 }) + '</w:tc>' +
+                            '<w:tc><w:tcPr><w:tcW w:w="1250" w:type="pct"/></w:tcPr>' + wPara(makeOptRuns(3), { align: "left", after: 15 }) + '</w:tc>' +
+                            '</w:tr></w:tbl>';
+                    } else if (colMode === 2) {
+                        bodyXml += '<w:tbl><w:tblPr><w:tblW w:w="5000" w:type="pct"/></w:tblPr>' +
+                            '<w:tr>' +
+                            '<w:tc><w:tcPr><w:tcW w:w="2500" w:type="pct"/></w:tcPr>' + wPara(makeOptRuns(0), { align: "left", after: 15 }) + '</w:tc>' +
+                            '<w:tc><w:tcPr><w:tcW w:w="2500" w:type="pct"/></w:tcPr>' + wPara(makeOptRuns(1), { align: "left", after: 15 }) + '</w:tc>' +
+                            '</w:tr><w:tr>' +
+                            '<w:tc><w:tcPr><w:tcW w:w="2500" w:type="pct"/></w:tcPr>' + wPara(makeOptRuns(2), { align: "left", after: 15 }) + '</w:tc>' +
+                            '<w:tc><w:tcPr><w:tcW w:w="2500" w:type="pct"/></w:tcPr>' + wPara(makeOptRuns(3), { align: "left", after: 15 }) + '</w:tc>' +
+                            '</w:tr></w:tbl>';
+                    } else {
+                        for (let o = 0; o < 4; o++) {
+                            bodyXml += wPara(makeOptRuns(o), { after: 15 });
+                        }
+                    }
+                });
+            }
+
+            // 3. PHẦN II
+            if (p2.length > 0) {
+                bodyXml += wPara(
+                    wRun("PHẦN II. Câu trắc nghiệm đúng sai (Trong mỗi ý a, b, c, d ở mỗi câu, thí sinh chọn Đúng hoặc Sai).", { bold: true }),
+                    { before: 90, after: 40, shading: "F1F5F9" }
+                );
+
+                p2.forEach(function(q, qIdx) {
+                    bodyXml += wPara(
+                        wRun("Câu " + (qIdx + 1) + ". ", { bold: true }) + wRun(q.question),
+                        { before: 40, after: 20 }
+                    );
+                    if (q.passage) {
+                        bodyXml += wPara(wRun(q.passage, { italic: true }), { before: 15, after: 25, shading: "FAFAFA" });
+                    }
+                    (q.statements || []).forEach(function(st, sIdx) {
+                        const showAns = cfg.answerMode === "teacher_inline";
+                        const suffix = showAns ? (" [" + (st.isTrue ? "ĐÚNG" : "SAI") + "]") : " [Đ / S]";
+                        bodyXml += wPara(
+                            wRun(subLetters[sIdx] + ") ", { bold: true }) +
+                            wRun(st.text) +
+                            wRun(suffix, { bold: true, color: showAns ? "B91C1C" : undefined }),
+                            { after: 18 }
+                        );
+                    });
+                });
+            }
+
+            // 4. Dòng HẾT & Bảng đáp án cuối đề
+            bodyXml += wPara(wRun("--- HẾT ---", { bold: true }), { align: "center", before: 80, after: 40 });
+
+            if (cfg.answerMode === "end_key" || cfg.answerMode === "teacher_inline") {
+                bodyXml += wPara(wRun("BẢNG ĐÁP ÁN CHẤM — MÃ ĐỀ " + cfg.examCode, { bold: true }), { align: "center", before: 60, after: 30 });
+                if (p1.length > 0) {
+                    const p1Summary = p1.map(function(q, idx) {
+                        return (idx + 1) + "." + (letters[q.correctIndex] || "A");
+                    }).join("   |   ");
+                    bodyXml += wPara(wRun("Phần I: ", { bold: true }) + wRun(p1Summary), { after: 30 });
+                }
+                if (p2.length > 0) {
+                    p2.forEach(function(q, qIdx) {
+                        const stSummary = (q.statements || []).map(function(st, sIdx) {
+                            return subLetters[sIdx] + ":" + (st.isTrue ? "Đ" : "S");
+                        }).join("  ;  ");
+                        bodyXml += wPara(wRun("Phần II - Câu " + (qIdx + 1) + ": ", { bold: true }) + wRun(stSummary), { after: 20 });
+                    });
+                }
+            }
+
+            // Cấu hình trang giấy A4 (11906 x 16838 twips) và chia cột nếu có
+            const colsXml = cfg.twoColumns ? '<w:cols w:num="2" w:space="420" w:sep="1"/>' : '<w:cols w:num="1"/>';
+            const sectPr = '<w:sectPr>' +
+                '<w:pgSz w:w="11906" w:h="16838"/>' +
+                '<w:pgMar w:top="' + marginTwips + '" w:right="' + marginTwips + '" w:bottom="' + marginTwips + '" w:left="' + leftMarginTwips + '" w:header="450" w:footer="450" w:gutter="0"/>' +
+                colsXml +
+                '</w:sectPr>';
+
+            const documentXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+                '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">' +
+                '<w:body>' + bodyXml + sectPr + '</w:body></w:document>';
+
+            const contentTypesXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+                '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">' +
+                '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>' +
+                '<Default Extension="xml" ContentType="application/xml"/>' +
+                '<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>' +
+                '</Types>';
+
+            const relsXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>' +
+                '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">' +
+                '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>' +
+                '</Relationships>';
+
+            const zipBytes = createZipArchive([
+                { name: "[Content_Types].xml", content: contentTypesXml },
+                { name: "_rels/.rels", content: relsXml },
+                { name: "word/document.xml", content: documentXml }
+            ]);
+
+            return new Blob([zipBytes], { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
+        }
+
+        // Xây dựng file .DOC chuẩn Microsoft Word (giữ nguyên 100% bảng biểu, khung viền & chia cột)
+        function buildRichDocBlob(data, cfg) {
+            const marginCm = cfg.marginMode === "narrow" ? "1.2cm 1.2cm 1.2cm 1.2cm" : (cfg.marginMode === "wide" ? "1.5cm 1.5cm 1.5cm 2.2cm" : "1.5cm 1.5cm 1.5cm 1.6cm");
+            const colsCss = cfg.twoColumns ? "mso-columns:2 even 1.2cm;" : "";
+            const innerHtml = generateExamPrintHTML(data, cfg);
+
+            const fullWordHtml = '<html xmlns:o="urn:schemas-microsoft-com:office:office" ' +
+                'xmlns:w="urn:schemas-microsoft-com:office:word" ' +
+                'xmlns="http://www.w3.org/TR/REC-html40">' +
+                '<head><meta charset="utf-8"><title>' + escapeHtml(cfg.examName) + '</title>' +
+                '<!--[if gte mso 9]><xml><w:WordDocument>' +
+                '<w:View>Print</w:View><w:Zoom>100</w:Zoom><w:DoNotOptimizeForBrowser/>' +
+                '</w:WordDocument></xml><![endif]-->' +
+                '<style>' +
+                '@page WordSection1 { size: 21.0cm 29.7cm; margin: ' + marginCm + '; ' + colsCss + ' }' +
+                'div.WordSection1 { page: WordSection1; font-family: "Times New Roman", serif; font-size: ' + cfg.fontPt + 'pt; line-height: ' + cfg.lineHeight + '; }' +
+                'table { border-collapse: collapse; }' +
+                '</style></head>' +
+                '<body><div class="WordSection1">' + innerHtml + '</div></body></html>';
+
+            return new Blob(["\ufeff", fullWordHtml], { type: "application/msword;charset=utf-8" });
+        }
+
+        window.downloadWordFile = function(ext) {
+            if (!activeExportQuestions) {
+                activeExportQuestions = extractQuestionsFromDOM();
+            }
+            const cfg = getExportConfig();
+            const safeCode = (cfg.examCode || "301").replace(/[^a-zA-Z0-9_-]/g, "");
+            const fileName = "De_Lich_Su_2026_Ma_" + safeCode + "_TietKiemGiay." + ext;
+
+            const blob = ext === "docx"
+                ? buildNativeDocxBlob(activeExportQuestions, cfg)
+                : buildRichDocBlob(activeExportQuestions, cfg);
+
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setTimeout(function() { URL.revokeObjectURL(url); }, 2000);
+
+            showToast("Đã xuất thành công file " + fileName + "!", "emerald");
+        };
+
+        window.copyFormattedExamToClipboard = function() {
+            const previewEl = document.getElementById("export-live-preview");
+            if (!previewEl) return;
+
+            const range = document.createRange();
+            range.selectNodeContents(previewEl);
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+            try {
+                document.execCommand("copy");
+                showToast("Đã sao chép toàn bộ đề thi! Hãy mở Word và nhấn Ctrl + V.", "emerald");
+            } catch (e) {
+                showToast("Không thể tự động copy, vui lòng chọn Tải file .DOC hoặc .DOCX.", "amber");
+            }
+            sel.removeAllRanges();
+        };
+
+        window.printCurrentExamPreview = function() {
+            const previewEl = document.getElementById("export-live-preview");
+            const mount = document.getElementById("print-mount-area");
+            if (!previewEl || !mount) return;
+            mount.innerHTML = previewEl.innerHTML;
+            mount.classList.remove("hidden-element");
+            window.print();
+            setTimeout(function() {
+                mount.classList.add("hidden-element");
+            }, 500);
+        };
+
+        // =========================================================================
+        // 6. KHỞI TẠO HỆ THỐNG KHI TẢI TRANG
+        // =========================================================================
+        window.addEventListener("load", function() {
+            // Kiểm tra hạn dùng thử 10 ngày / bản quyền 365 ngày
+            checkAppLockState();
+            setInterval(checkAppLockState, 60000);
+
+            // Hỗ trợ nhấn Enter ở ô nhập mật khẩu
+            const passInput = document.getElementById("unlock-password");
+            if (passInput) {
+                passInput.addEventListener("keypress", function(e) {
+                    if (e.key === "Enter") unlockApp();
+                });
+            }
+            const modalPass = document.getElementById("modal-license-password");
+            if (modalPass) {
+                modalPass.addEventListener("keypress", function(e) {
+                    if (e.key === "Enter") activateFromModal();
+                });
+            }
+
+            // Tự động theo dõi khi app.js render danh mục hoặc câu hỏi mới
+            const qContainer = document.getElementById("questions-container");
+            if (qContainer && typeof MutationObserver !== "undefined") {
+                const obs = new MutationObserver(function() {
+                    rebuildQuestionPalette();
+                });
+                obs.observe(qContainer, { childList: true, subtree: false });
+            }
+
+            const sbContainer = document.getElementById("sidebar-container");
+            if (sbContainer && typeof MutationObserver !== "undefined") {
+                const sbObs = new MutationObserver(function() {
+                    updateSidebarBadgeCount();
+                });
+                sbObs.observe(sbContainer, { childList: true });
+            }
+
+            // Nếu sidebar chưa có mục nào (chế độ độc lập), tự động nạp danh mục Lớp 12
+            if (sbContainer && sbContainer.children.length === 0 && typeof window.selectSection === "function") {
+                window.selectSection("khoi12");
+            } else {
+                updateSidebarBadgeCount();
             }
         });
     </script>
-    <!-- ========================================== -->
 </body>
 </html>
